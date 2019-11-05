@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todo-list-challenge';
+  title = 'Todo List Challenge';
+  public constructor(private titleService: Title ) {
+    this.setTitle(this.title);
+  }
+
+  public setTitle( newTitle: string): void {
+    this.titleService.setTitle( newTitle );
+  }
 }
