@@ -1,18 +1,15 @@
-<mat-card class="card">
-  <mat-card-header>
-    <mat-card-title>
+<div class="card">
+  <div class="heading">
+    <h1>
       Todo List Challenge
-    </mat-card-title>
-    <mat-card-subtitle>
-      <a style="text-decoration: none; color: black;" href="https://github.com/lprescott/todo-list-challenge">@lprescott</a>
-    </mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
+    </h1>
+  </div>
+  <div class="content">
     <form (ngSubmit)="onSubmit()">
-      <mat-form-field class="todo-input"> 
-        <input matInput required [(ngModel)]="title" id="title" name="title" placeholder="Todo Text...">
-      </mat-form-field> <br/>
-      <button mat-raised-button color="primary" type="submit" class="submit-button">Add</button>
+      <div class="todo-input">
+        <input required [(ngModel)]="title" id="title" name="title" placeholder="Todo Text...">
+      </div> <br/>
+      <button class="btn add" type="submit">Add</button>
     </form>
-  </mat-card-content>
-</mat-card>
+  </div>
+</div>

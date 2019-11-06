@@ -1,3 +1,16 @@
 .todo-input {
     width: 100%;
 }
+
+.add {
+    color:#FFFFFF;
+    background-color: #4cabff;
+}
+
+#title {
+    width: calc(100% - 10px);
+    padding: 5px;
+    border: 1px solid #4cabff;
+    font-size: 14pt;
+    word-wrap: break-word;
+}

@@ -14,7 +14,7 @@ export class TodoNewComponent implements OnInit {
   title: string;
 
   // simulating a database's incrementing primary key
-  id: number = 1;
+  id = 1;
 
   constructor() { }
 
@@ -25,11 +25,11 @@ export class TodoNewComponent implements OnInit {
   onSubmit() {
 
     // check if title is empty
-    if(this.title === undefined) {
+    if (this.title === undefined || this.title === null) {
       return;
     }
 
-    //create a Todo model
+    // create a Todo model
     const todo = {
       id: this.id,
       title: this.title,

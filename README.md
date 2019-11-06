@@ -43,7 +43,6 @@ Run `ng build` in `web-ui` to build the project. The build artifacts will be sto
 ## Built with
 - Angular - The web framework used
 - Angular CLI - The command line interface
-- Angular Material - Installed via NPM, used for styling
 - NPM - The package manager used
 - VSCode and IntelliJ - The text-editor and IDE used for developement
 
