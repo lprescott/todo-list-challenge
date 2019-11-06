@@ -20,6 +20,12 @@ export class TodoNewComponent implements OnInit {
 
   // creation of a Todo model using 2-way data binding and emitting
   onSubmit() {
+
+    // check if title is empty
+    if(this.title === undefined) {
+      return;
+    }
+
     const todo = {
       title: this.title,
       completed: false

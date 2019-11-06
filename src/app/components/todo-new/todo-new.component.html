@@ -10,7 +10,7 @@
   <mat-card-content>
     <form (ngSubmit)="onSubmit()">
       <mat-form-field class="todo-input"> 
-        <input matInput [(ngModel)]="title" name="title" placeholder="Todo Text...">
+        <input matInput required [(ngModel)]="title" id="title" name="title" placeholder="Todo Text...">
       </mat-form-field> <br/>
       <button mat-raised-button color="primary" type="submit" class="submit-button">Submit</button>
     </form>
