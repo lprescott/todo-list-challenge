@@ -1,0 +1,12 @@
+<div class="card" [ngClass]="setClasses()">
+  <div class="buttons">
+    <input type="checkbox" [checked]="todo.completed" (change)="onToggle(todo)" title="completed">
+    <button class="btn delete" (click)="onDelete(todo)" title="Delete">
+      Delete
+    </button>
+  </div>
+  <hr>
+  <div class="title">
+    {{ todo.title }}
+  </div>
+</div>

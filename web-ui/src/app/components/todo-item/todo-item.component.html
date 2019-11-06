@@ -1,7 +1,0 @@
-<div class="card" [ngClass]="setClasses()">
-  <input type="checkbox" [checked]="todo.completed" (change)="onToggle(todo)">
-  <button class="btn delete" (click)="onDelete(todo)">Delete</button>
-  <div class="title" [ngStyle]="{'font-size': '16px', 'margin-top':'16px'}">
-    {{ todo.title }}
-  </div>
-</div>

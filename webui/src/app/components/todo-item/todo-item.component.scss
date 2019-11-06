@@ -1,0 +1,27 @@
+.is-complete{
+  text-decoration: line-through;
+}
+
+.delete {
+  margin-left: calc(100% - 103px);
+  margin-right: 0;
+  color:#FFFFFF;
+  background-color: #ff3838;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.buttons {
+  margin-bottom: 12px;
+}
+
+hr {
+  border-top: 1px solid rgb(182, 182, 182);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  margin-left: -16px;
+  margin-right: -16px;
+}

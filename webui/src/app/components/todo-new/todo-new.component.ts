@@ -43,6 +43,6 @@ export class TodoNewComponent implements OnInit {
     this.addTodo.emit(todo);
 
     // clear text
-    this.title = '';
+    this.title = undefined;
   }
 }

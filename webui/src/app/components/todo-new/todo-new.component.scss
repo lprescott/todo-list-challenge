@@ -5,12 +5,19 @@
 .add {
     color:#FFFFFF;
     background-color: #4cabff;
+    margin-top: 15px;
 }
 
 #title {
-    width: calc(100% - 10px);
+    width: calc(100% - 12px);
     padding: 5px;
     border: 1px solid #4cabff;
     font-size: 14pt;
     word-wrap: break-word;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: rgb(49, 49, 49)
 }
