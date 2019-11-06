@@ -29,6 +29,7 @@ export class TodoNewComponent implements OnInit {
       return;
     }
 
+    //create a Todo model
     const todo = {
       id: this.id,
       title: this.title,
@@ -38,6 +39,10 @@ export class TodoNewComponent implements OnInit {
     // increment id
     this.id += 1;
 
+    // emit upwards to todo-list component
     this.addTodo.emit(todo);
+
+    // clear text
+    this.title = '';
   }
 }
