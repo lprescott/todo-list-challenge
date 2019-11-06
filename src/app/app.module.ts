@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider'; 
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDividerModule,
     BrowserAnimationsModule
   ],
   providers: [],

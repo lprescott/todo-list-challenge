@@ -1,7 +1,7 @@
 <mat-card class="card" [ngClass]="setClasses()">
-  <mat-card-content>
-    <mat-checkbox [checked]="todo.completed" (change)="onToggle(todo)" color="primary"></mat-checkbox>
+  <mat-checkbox [checked]="todo.completed" (change)="onToggle(todo)" color="primary"></mat-checkbox>
+  <button mat-raised-button class="delete-button" color="warn" (click)="onDelete(todo)">X</button>
+  <mat-card-content [ngStyle]="{'font-size': '16px', 'margin-top':'16px'}">
     {{ todo.title }}
-    <button mat-icon-button color="warn" (click)="onDelete(todo)">X</button>
   </mat-card-content>
 </mat-card>
