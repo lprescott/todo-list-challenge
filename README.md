@@ -9,6 +9,9 @@ The Todo List Challenge is to build a simple web application that allows users t
 #### Frontend
 Run `ng serve` in `web-ui` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+#### Backend
+Run `mvn spring-boot:run` in `server` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
+
 ### Prerequisites
 - Node.js 12.13.0 - (LTS)
 - Angular CLI - 8.3.17
@@ -22,6 +25,7 @@ Run `ng serve` in `web-ui` for a dev server. Navigate to `http://localhost:4200/
 - Run `npm install` to install all node dependencies including [rxjs](https://rxjs-dev.firebaseapp.com/). 
 - To download Java, go to [oracle.com](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - To download Maven, go to [apache.org](https://maven.apache.org/)
+- Run `mvn install` to install all maven dependencies.
 
 ## Running the tests
 
@@ -38,7 +42,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ### Build
 
 #### Frontend
-Run `ng build` in `web-ui` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` in `web-ui` to build the project. The build artifacts will be stored in the `server/src/main/resources/static` directory. Use the `--prod` flag for a production build.
+
+Run `mvn package` in `server` to package the project for production. Remember to run `ng build` first with the `--prod` flag enabled first.
+#### Backend 
 
 ## Built with
 - Angular - The web framework used
