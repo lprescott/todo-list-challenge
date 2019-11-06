@@ -46,7 +46,7 @@ export class TodoItemComponent implements OnInit {
     todo.completed = !todo.completed;
 
     // toggles Server
-    this.todoService.toggleCompleted(todo).subscribe(td => console.log(td));
+    // this.todoService.toggleCompleted(todo).subscribe(td => console.log(td));
 
     console.log('Toggled ' + todo.title + ' completion to ' + todo.completed);
   }
