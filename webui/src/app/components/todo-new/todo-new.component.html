@@ -7,7 +7,7 @@
   <div class="content">
     <form (ngSubmit)="onSubmit()">
       <div class="todo-input">
-        <textarea required [(ngModel)]="title" id="title" name="title" placeholder="Enter your todo here..."></textarea>
+        <input required type="text" [(ngModel)]="title" id="title" class="todo-title" name="title" placeholder="Enter your todo here...">
       </div>
       <button class="btn add" type="submit" title="Add">Add</button>
     </form>

@@ -9,11 +9,9 @@
 }
 
 #title {
-    width: calc(100% - 12px);
-    padding: 5px;
-    border: 1px solid #4cabff;
-    font-size: 14pt;
-    word-wrap: break-word;
+    border: 1px solid #4cabff; 
+    width: calc(100% - 12px);  
+    outline: 0;
 }
 
 h2 {

@@ -45,3 +45,9 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 .btn:focus {
   outline: 0;
 }
+
+.todo-title {
+  padding: 5px;
+  font-size: 14pt;
+  word-wrap: break-word;
+}

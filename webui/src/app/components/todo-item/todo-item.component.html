@@ -1,4 +1,4 @@
-<div class="card" [ngClass]="setClasses()">
+<div class="card">
   <div class="buttons">
     <input type="checkbox" [checked]="todo.completed" (change)="onToggle(todo)" title="completed">
     <button class="btn delete" (click)="onDelete(todo)" title="Delete">
@@ -6,7 +6,9 @@
     </button>
   </div>
   <hr>
-  <div class="title">
-    {{ todo.title }}
-  </div>
+  <form class="title">
+    <div class="todo-input" [ngClass]="setClasses()">    
+      <input class="todo-title" style="margin-top: 7px" type="text" placeholder={{todo.title}} >
+    </div>
+  </form>
 </div>
