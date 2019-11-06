@@ -1,7 +1,7 @@
-<div [ngClass]="setClasses()">
-  <p>
-    <input [checked]="todo.completed" (change)="onToggle(todo)" type="checkbox" />
+<mat-card class="card" [ngClass]="setClasses()">
+  <mat-card-content>
+    <mat-checkbox [checked]="todo.completed" (change)="onToggle(todo)" color="primary"></mat-checkbox>
     {{ todo.title }}
-    <button (click)="onDelete(todo)" class="delete">x</button>
-  </p>
-</div>
+    <button mat-icon-button color="warn" (click)="onDelete(todo)">X</button>
+  </mat-card-content>
+</mat-card>

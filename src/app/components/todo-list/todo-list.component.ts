@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from "../../models/Todo";
-import { TodoService } from "../../services/todo.service";
+import { Todo } from '../../models/Todo';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -33,8 +33,8 @@ export class TodoListComponent implements OnInit {
   // adds todo passed as argument via post, suing todoService
   addTodo(todo: Todo) {
     // add todo
-    this.todoService.addTodo(todo).subscribe(todo => {
-      this.todos.push(todo);
+    this.todoService.addTodo(todo).subscribe(td => {
+      this.todos.push(td);
     });
   }
 }

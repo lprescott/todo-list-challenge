@@ -18,33 +18,33 @@ const httpOptions = {
 export class TodoService {
 
   // instead of a real backend jsonplaceholder can be used as a rest API
-  todosUrl: string = 'https://jsonplaceholder.typicode.com/todos';
+  todosUrl = 'https://jsonplaceholder.typicode.com/todos';
 
   // this addition to the above todosUrl limits the received todo items to zero
-  todosLimit = '?_limit=0';
+  todosLimit = '?_limit=5';
 
   // passing an HttpClient through the constructor allows its access
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   // get todos with the limit 0
   // observables provide support for passing messages between publishers and subscribers
-  getTodos():Observable<Todo[]> {
+  getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
   }
 
   // delete the todo with the passed id
-  deleteTodo(todo:Todo):Observable<Todo> {
+  deleteTodo(todo: Todo): Observable<Todo> {
     const url = `${this.todosUrl}/${todo.id}`;
     return this.http.delete<Todo>(url, httpOptions);
   }
 
   // add the passed observable
-  addTodo(todo:Todo):Observable<Todo> {
+  addTodo(todo: Todo): Observable<Todo> {
     return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
   }
 
   // toggle completion of the passed observable
-  toggleCompleted(todo: Todo):Observable<any> {
+  toggleCompleted(todo: Todo): Observable<any> {
     const url = `${this.todosUrl}/${todo.id}`;
     return this.http.put(url, todo, httpOptions);
   }

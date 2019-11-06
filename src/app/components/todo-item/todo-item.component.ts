@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Todo } from "../../models/Todo";
+import { Todo } from '../../models/Todo';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.scss']
+  styleUrls: ['./todo-item.component.scss' ]
 })
 export class TodoItemComponent implements OnInit {
   // the current model is inputted from the above component todo-list
@@ -25,7 +25,7 @@ export class TodoItemComponent implements OnInit {
     const classes = {
       todo: true,
       'is-complete': this.todo.completed
-    }
+    };
 
     return classes;
   }
@@ -36,7 +36,7 @@ export class TodoItemComponent implements OnInit {
     // deletes and emit
     this.deleteTodo.emit(todo);
 
-    console.log('Deleted ' + todo.title)
+    console.log('Deleted ' + todo.title);
   }
 
   // toggles the completed boolean value in ui, server, then logs
@@ -46,8 +46,8 @@ export class TodoItemComponent implements OnInit {
     todo.completed = !todo.completed;
 
     // toggles Server
-    this.todoService.toggleCompleted(todo).subscribe(todo => console.log(todo));
+    this.todoService.toggleCompleted(todo).subscribe(td => console.log(td));
 
-    console.log('Toggled ' + todo.title + " completion to " + todo.completed)
+    console.log('Toggled ' + todo.title + ' completion to ' + todo.completed);
   }
 }
