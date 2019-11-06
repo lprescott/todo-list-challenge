@@ -17,6 +17,7 @@ Run `mvn spring-boot:run` in `server` for a dev server. Navigate to `http://loca
 - Angular CLI - 8.3.17
 - Java - 11.0.5 (LTS)
 - Maven - 3.6.2
+- MySQL Server 8.0.18
 
 ## Installing
 
@@ -26,6 +27,7 @@ Run `mvn spring-boot:run` in `server` for a dev server. Navigate to `http://loca
 - To download Java, go to [oracle.com](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - To download Maven, go to [apache.org](https://maven.apache.org/)
 - Run `mvn install` to install all maven dependencies.
+- To download MySQL, visit [mysql.org/downloads](https://dev.mysql.com/downloads/)
 
 ## Running the tests
 
