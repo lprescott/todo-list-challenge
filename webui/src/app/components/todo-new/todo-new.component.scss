@@ -12,10 +12,20 @@
     border: 1px solid #4cabff; 
     width: calc(100% - 12px);  
     outline: 0;
+    border-radius: 0.1em;
+
 }
 
 h2 {
     margin-top: 0;
     margin-bottom: 15px;
     color: rgb(49, 49, 49)
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
 }

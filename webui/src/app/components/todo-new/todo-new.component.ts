@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-new',
@@ -24,11 +25,6 @@ export class TodoNewComponent implements OnInit {
   // creation of a Todo model using 2-way data binding and emitting
   onSubmit() {
 
-    // check if title is empty
-    if (this.title === undefined || this.title === null) {
-      return;
-    }
-
     // create a Todo model
     const todo = {
       id: this.id,
@@ -41,6 +37,9 @@ export class TodoNewComponent implements OnInit {
 
     // emit upwards to todo-list component
     this.addTodo.emit(todo);
+
+    // log
+    console.log('Added ' + todo);
 
     // clear text
     this.title = undefined;

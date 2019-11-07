@@ -5,11 +5,11 @@
     </h2>
   </div>
   <div class="content">
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
       <div class="todo-input">
-        <input required type="text" [(ngModel)]="title" id="title" class="todo-title" name="title" placeholder="Enter your todo here...">
+        <input required [(ngModel)]="title" type="text"  id="title" class="todo-title" name="title" placeholder="Enter your todo here...">
       </div>
-      <button class="btn add" type="submit" title="Add">Add</button>
+      <button [disabled]="!todoForm.form.valid" class="btn add" type="submit" title="Add">Add</button>
     </form>
   </div>
 </div>

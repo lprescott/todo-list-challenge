@@ -30,6 +30,30 @@ export class TodoItemComponent implements OnInit {
     return classes;
   }
 
+  // updates the current todos title text
+  onSave(todo: Todo, newId: string, newTitle: string) {
+  
+    // check if no change
+    if (this.todo.title === newTitle) {
+      console.log(this.todo.title + ' not updated');
+      return;
+    }
+
+    // create todo object with new title
+    const newTodo = {
+      id: Number(newId),
+      title: newTitle,
+    };
+
+    // update on ui
+    this.todo.title = newTodo.title;
+    
+    // update on server
+    // this.todoService.updateTodo(todo).subscribe();
+
+    console.log('Updated todo to ' + this.todo.title);
+  }
+
   // emits the function deleteTodo to todo-list component and logs
   onDelete(todo: Todo) {
 

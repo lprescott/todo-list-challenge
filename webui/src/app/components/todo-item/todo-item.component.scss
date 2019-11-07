@@ -1,22 +1,20 @@
 .is-complete{
-  ::-webkit-input-placeholder {
-    text-decoration: line-through;
-  }
-  
-  ::-moz-placeholder {
-    text-decoration: line-through;
-  }
-  
-  :-ms-input-placeholder {  
+  input {
     text-decoration: line-through;
   }
 }
 
 .delete {
-  margin-left: calc(100% - 110px);
   margin-right: 0;
   color:#FFFFFF;
   background-color: #ff3838;
+}
+
+.save {
+  margin-left: calc(100% - 178px);
+  margin-right: 15px;
+  color:#FFFFFF;
+  background-color: #00c75d;
 }
 
 .title {
@@ -49,7 +47,7 @@ hr {
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
 	padding: 9px;
-	border-radius: 3px;
+  border-radius: 0.1em;
 	display: inline-block;
   position: relative;
   margin-bottom: -5px;
