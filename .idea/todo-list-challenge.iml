@@ -3,12 +3,8 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/web-ui/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/web-ui/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/webui/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/webui/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/web/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/web/tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
