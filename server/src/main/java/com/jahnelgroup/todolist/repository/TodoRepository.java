@@ -1,4 +1,4 @@
-package com.jahnelgroup.todolist.controller;
+package com.jahnelgroup.todolist.repository;
 
 import com.jahnelgroup.todolist.model.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;

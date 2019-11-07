@@ -1,6 +1,6 @@
 package com.jahnelgroup.todolist.service;
 
-import com.jahnelgroup.todolist.controller.TodoRepository;
+import com.jahnelgroup.todolist.repository.TodoRepository;
 import com.jahnelgroup.todolist.model.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
