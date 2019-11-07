@@ -7,7 +7,7 @@ The Todo List Challenge is to build a simple web application that allows users t
 ### Development server
 
 #### Frontend
-Run `ng serve` in `webui` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` in `web` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 #### Backend
 Run `mvn spring-boot:run` in `server` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
@@ -44,7 +44,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ### Build
 
 #### Frontend
-Run `ng build` in `webui` to build the project. The build artifacts will be stored in the `server/src/main/resources/static` directory. Use the `--prod` flag for a production build.
+Run `ng build` in `web` to build the project. The build artifacts will be stored in the `server/src/main/resources/static` directory. Use the `--prod` flag for a production build.
 
 Run `mvn package` in `server` to package the project for production. Remember to run `ng build` first with the `--prod` flag enabled first.
 #### Backend 
