@@ -36,8 +36,8 @@ export class TodoItemComponent implements OnInit {
   // updates the current todos title text
   onSave(todo: Todo, newId: string, newTitle: string) {
 
-    // check if no change
-    if (this.todo.title === newTitle) {
+    // check if no change or no length
+    if (this.todo.title === newTitle || newTitle.length === 0) {
       console.log('\'' + this.todo.title + '\' not updated');
       return;
     }
