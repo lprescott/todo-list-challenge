@@ -8,7 +8,7 @@ import { TodoService } from '../../services/todo.service';
   styleUrls: ['./todo-item.component.scss' ]
 })
 export class TodoItemComponent implements OnInit {
-  // the current model is inputted from the above component todo-list
+  // the current model inputted from the above component todo-list
   @Input() todo: Todo;
 
   // outputs deleteTodo via an event emitter to todo-list

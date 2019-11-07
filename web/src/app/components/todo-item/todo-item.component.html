@@ -5,12 +5,15 @@
     <button class="btn save" type="submit" title="Save">
       Save
     </button>
+    <button class="btn reset" type="reset" title="Reset">
+      Reset
+    </button>
     <button class="btn delete" type="reset" (click)="onDelete(todo)" title="Delete">
       Delete
     </button>
   </div>
   <hr>
   <div class="todo-input" [ngClass]="setClasses()">    
-    <input #title class="todo-title" style="margin-top: 7px" type="text" [value]="todo.title" >
+    <input #title class="todo-title" style="margin-top: 7px" type="text" [value]="todo.title" [defaultValue]="todo.title" >
   </div>
 </form> 

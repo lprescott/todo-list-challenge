@@ -7,14 +7,20 @@
 .delete {
   margin-right: 0;
   color:#FFFFFF;
-  background-color: #ff3838;
+  background-color: #FF605C;
+}
+
+.reset {
+  margin-right: 15px;
+  color:#FFFFFF;
+  background-color: #FFBD44;
 }
 
 .save {
-  margin-left: calc(100% - 178px);
+  margin-left: calc(100% - 213px);
   margin-right: 15px;
   color:#FFFFFF;
-  background-color: #00c75d;
+  background-color: #00CA4E;
 }
 
 .title {
@@ -42,20 +48,20 @@ hr {
 
 
 .regular-checkbox {
-	-webkit-appearance: none;
-	background-color: #fafafa;
-	border: 1px solid #cacece;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 9px;
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  padding: 9px;
   border-radius: 0.1em;
-	display: inline-block;
+  display: inline-block;
   position: relative;
   margin-bottom: -5px;
 
 }
 
 .regular-checkbox:active, .regular-checkbox:checked:active {
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 }
 
 .regular-checkbox:checked {
