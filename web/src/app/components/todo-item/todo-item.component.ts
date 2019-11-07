@@ -14,6 +14,9 @@ export class TodoItemComponent implements OnInit {
   // outputs deleteTodo via an event emitter to todo-list
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
+  // outputs updateTodo via an event emitter to todo-list
+  @Output() updateTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+
   // taking todoService in the constructor allows it to be accessed from inside the class
   constructor(private todoService: TodoService) { }
 
@@ -32,7 +35,7 @@ export class TodoItemComponent implements OnInit {
 
   // updates the current todos title text
   onSave(todo: Todo, newId: string, newTitle: string) {
-  
+
     // check if no change
     if (this.todo.title === newTitle) {
       console.log('\'' + this.todo.title + '\' not updated');
@@ -47,7 +50,7 @@ export class TodoItemComponent implements OnInit {
 
     // update on ui
     this.todo.title = newTodo.title;
-    
+
     // update on server
     // this.todoService.updateTodo(todo).subscribe();
 

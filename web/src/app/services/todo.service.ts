@@ -48,4 +48,10 @@ export class TodoService {
     const url = `${this.todosUrl}/${todo.id}`;
     return this.http.put(url, todo, httpOptions);
   }
+
+  // update the title of a existing todo
+  updateTodo(todo: Todo): Observable<Todo> {
+    const url = `${this.todosUrl}/${todo.id}`;
+    return this.http.put<Todo>(url, todo, httpOptions);
+  }
 }
