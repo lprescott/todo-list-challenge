@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-new',
@@ -39,7 +38,7 @@ export class TodoNewComponent implements OnInit {
     this.addTodo.emit(todo);
 
     // log
-    console.log('Added \'' + todo.title +'\'');
+    console.log('Added \'' + todo.title + '\'');
 
     // clear text
     this.title = undefined;
