@@ -39,7 +39,7 @@ export class TodoNewComponent implements OnInit {
     this.addTodo.emit(todo);
 
     // log
-    console.log('Added ' + todo);
+    console.log('Added \'' + todo.title +'\'');
 
     // clear text
     this.title = undefined;

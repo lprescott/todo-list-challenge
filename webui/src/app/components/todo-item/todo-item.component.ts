@@ -35,7 +35,7 @@ export class TodoItemComponent implements OnInit {
   
     // check if no change
     if (this.todo.title === newTitle) {
-      console.log(this.todo.title + ' not updated');
+      console.log('\'' + this.todo.title + '\' not updated');
       return;
     }
 
@@ -51,7 +51,7 @@ export class TodoItemComponent implements OnInit {
     // update on server
     // this.todoService.updateTodo(todo).subscribe();
 
-    console.log('Updated todo to ' + this.todo.title);
+    console.log('Updated todo ' + todo.id + ' to \'' + this.todo.title + '\'');
   }
 
   // emits the function deleteTodo to todo-list component and logs
@@ -60,7 +60,7 @@ export class TodoItemComponent implements OnInit {
     // deletes and emit
     this.deleteTodo.emit(todo);
 
-    console.log('Deleted ' + todo.title);
+    console.log('Deleted \'' + todo.title + '\'');
   }
 
   // toggles the completed boolean value in ui, server, then logs
@@ -72,6 +72,6 @@ export class TodoItemComponent implements OnInit {
     // toggles Server
     // this.todoService.toggleCompleted(todo).subscribe(td => console.log(td));
 
-    console.log('Toggled ' + todo.title + ' completion to ' + todo.completed);
+    console.log('Toggled \'' + todo.title + '\' completion to ' + todo.completed);
   }
 }
