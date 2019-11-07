@@ -17,31 +17,31 @@ export class TodoListComponent implements OnInit {
 
   // receives existing todos from server on initialization, using todoService
   ngOnInit() {
-    /* get todos from server
     this.todoService.getTodos().subscribe( todos => {
       this.todos = todos;
     });
-    */
   }
 
   // removes todo passed as argument from ui and server, using todoService
   deleteTodo(todo: Todo) {
-    // remove from UI
-    this.todos = this.todos.filter(t => t.id !== todo.id);
-
     // remove from Server
-    // this.todoService.deleteTodo(todo).subscribe();
+    this.todoService.deleteTodo(todo).subscribe( del => {
+      // remove from UI after deleted from server
+      this.todos = this.todos.filter(t => t.id !== todo.id);
+      console.log('Deleted \'' + todo.title + '\'');
+      }
+    );
   }
 
   // adds todo passed as argument via post, suing todoService
   addTodo(todo: Todo) {
-    // add to UI only
-    this.todos.push(todo);
-
-    /* add to server and UI
+    // adds to server
     this.todoService.addTodo(todo).subscribe(td => {
+      // adds to ui after added to server
       this.todos.push(td);
+      // log
+      console.log('Added \'' + todo.title + '\'');
+      console.log(td);
     });
-    */
   }
 }

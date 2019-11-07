@@ -13,9 +13,6 @@ export class TodoNewComponent implements OnInit {
   // required for 2-way data binding through ngModel
   title: string;
 
-  // simulating a database's incrementing primary key
-  id = 1;
-
   constructor() { }
 
   ngOnInit() {
@@ -26,19 +23,12 @@ export class TodoNewComponent implements OnInit {
 
     // create a Todo model
     const todo = {
-      id: this.id,
       title: this.title,
       completed: false
     };
 
-    // increment id
-    this.id += 1;
-
     // emit upwards to todo-list component
     this.addTodo.emit(todo);
-
-    // log
-    console.log('Added \'' + todo.title + '\'');
 
     // clear text
     this.title = undefined;

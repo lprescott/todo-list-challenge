@@ -48,13 +48,14 @@ export class TodoItemComponent implements OnInit {
       title: newTitle,
     };
 
-    // update on ui
+    // update on client side memory
     this.todo.title = newTodo.title;
 
     // update on server
-    // this.todoService.updateTodo(todo).subscribe();
-
-    console.log('Updated todo ' + todo.id + ' to \'' + this.todo.title + '\'');
+    this.todoService.updateTodo(todo).subscribe(up => {
+      console.log('Updated todo ' + todo.id + ' to \'' + this.todo.title + '\'');
+      console.log(up);
+    });
   }
 
   // emits the function deleteTodo to todo-list component and logs
@@ -62,8 +63,6 @@ export class TodoItemComponent implements OnInit {
 
     // deletes and emit
     this.deleteTodo.emit(todo);
-
-    console.log('Deleted \'' + todo.title + '\'');
   }
 
   // toggles the completed boolean value in ui, server, then logs
@@ -73,8 +72,9 @@ export class TodoItemComponent implements OnInit {
     todo.completed = !todo.completed;
 
     // toggles Server
-    // this.todoService.toggleCompleted(todo).subscribe(td => console.log(td));
-
-    console.log('Toggled \'' + todo.title + '\' completion to ' + todo.completed);
+    this.todoService.toggleCompleted(todo).subscribe(td => {
+      console.log('Toggled \'' + todo.title + '\' completion to ' + todo.completed);
+      console.log(td);
+    });
   }
 }
