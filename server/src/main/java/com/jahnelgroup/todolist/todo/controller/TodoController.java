@@ -1,10 +1,10 @@
-package com.jahnelgroup.todolist.controller;
+package com.jahnelgroup.todolist.todo.controller;
 
-import com.jahnelgroup.todolist.model.Todo;
-import com.jahnelgroup.todolist.service.TodoService;
+import com.jahnelgroup.todolist.todo.service.TodoService;
+import com.jahnelgroup.todolist.todo.model.Todo;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,12 +18,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class TodoController {
 
+    @NonNull
     private TodoService todoService;
-
-    @Autowired
-    public TodoController(TodoService todoService) {
-        this.todoService = todoService;
-    }
 
     @GetMapping
     public ResponseEntity<List<Todo>> findAll() {

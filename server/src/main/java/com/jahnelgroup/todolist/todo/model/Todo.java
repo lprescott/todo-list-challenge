@@ -1,4 +1,4 @@
-package com.jahnelgroup.todolist.model;
+package com.jahnelgroup.todolist.todo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,5 +23,5 @@ public class Todo {
     private String title;
 
     @NonNull
-    private boolean completed;
+    private Boolean completed;
 }
