@@ -1,7 +1,6 @@
-<form class="card form" (ngSubmit)="onSave(todo, id.value, title.value)">
+<form class="card form" (ngSubmit)="onSave(todo, title.value)">
   <div class="buttons">
-    <input #id type="hidden" name="id" [value]="todo.id">
-    <input type="checkbox" class="regular-checkbox" [checked]="todo.completed" (change)="onToggle(todo)" title="Mark As Completed">
+    <input type="checkbox" class="regular-checkbox" [checked]="(todo) ? todo.completed : false" (change)="onToggle(todo)" title="Mark As Completed">
     <button class="btn save" type="submit" title="Save">
       Save
     </button>
@@ -13,7 +12,7 @@
     </button>
   </div>
   <hr>
-  <div class="todo-input" [ngClass]="setClasses()">    
-    <input #title class="todo-title" style="margin-top: 7px" type="text" [value]="todo.title" [defaultValue]="todo.title" >
+  <div class="todo-input" [ngClass]="setClasses()">
+    <input #title class="todo-title" style="margin-top: 7px" type="text" [value]="(todo) ? todo.title : ''" [defaultValue]="(todo) ? todo.title : ''" >
   </div>
-</form> 
+</form>

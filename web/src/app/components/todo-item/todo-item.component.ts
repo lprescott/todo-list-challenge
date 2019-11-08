@@ -27,14 +27,14 @@ export class TodoItemComponent implements OnInit {
   setClasses() {
     const classes = {
       todo: true,
-      'is-complete': this.todo.completed
+      'is-complete': (this.todo) ? this.todo.completed : false,
     };
 
     return classes;
   }
 
   // updates the current todos title text
-  onSave(todo: Todo, newId: string, newTitle: string) {
+  onSave(todo: Todo, newTitle: string) {
 
     // check if no change or no length
     if (this.todo.title === newTitle || newTitle.length === 0) {
@@ -42,14 +42,8 @@ export class TodoItemComponent implements OnInit {
       return;
     }
 
-    // create todo object with new title
-    const newTodo = {
-      id: Number(newId),
-      title: newTitle,
-    };
-
     // update on client side memory
-    this.todo.title = newTodo.title;
+    this.todo.title = newTitle;
 
     // update on server
     this.todoService.updateTodo(todo).subscribe(up => {
