@@ -21,16 +21,30 @@ public class TodoController {
     @NonNull
     private TodoService todoService;
 
+    /**
+     * returns all todos
+     * @return a list of all todos in JSON, and http header
+     */
     @GetMapping
     public ResponseEntity<List<Todo>> findAll() {
         return ResponseEntity.ok(todoService.findAll());
     }
 
+    /**
+     * adds a todo
+     * @param todo the todo to add
+     * @return the todo added, and http header
+     */
     @PostMapping
     public ResponseEntity<Object> create(@Valid @RequestBody Todo todo) {
         return ResponseEntity.ok(todoService.save(todo));
     }
 
+    /**
+     * gets a todo by id
+     * @param id the id of the todo
+     * @return the todo to get, and http header
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Todo> findById(@PathVariable Long id) {
         Optional<Todo> stock = todoService.findById(id);
@@ -42,6 +56,12 @@ public class TodoController {
         return ResponseEntity.ok(stock.get());
     }
 
+    /**
+     * updates a todo by id
+     * @param id the id of the todo to update
+     * @param todo the content of the updated todo
+     * @return the updated todo, and http header
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Todo> update(@PathVariable Long id, @Valid @RequestBody Todo todo) {
         if (!todoService.findById(id).isPresent()) {
@@ -52,6 +72,11 @@ public class TodoController {
         return ResponseEntity.ok(todoService.save(todo));
     }
 
+    /**
+     * delete a todo by id
+     * @param id the id of the todo to delete
+     * @return http header
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         if (!todoService.findById(id).isPresent()) {
