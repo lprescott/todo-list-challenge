@@ -43,11 +43,18 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ### Build
 
+#### Database
+Running the sql scripts in the followig order will allow the backend to compile with out failing:
+1. `init_schema.sql` - creates a challenge database
+2. `set_timezone.sql` - sets the timezone to EST
+3. `grant_permissions` - creates a test_user with test_code as its password, and grants permissions to access the newly created challenge database
+
 #### Frontend
 Run `ng build` in `web` to build the project. The build artifacts will be stored in the `server/src/main/resources/static` directory. Use the `--prod` flag for a production build.
 
-Run `mvn package` in `server` to package the project for production. Remember to run `ng build` first with the `--prod` flag enabled first.
 #### Backend 
+Run `mvn package` in `server` to package the project for production. Remember to run `ng build` first with the `--prod` flag enabled first.
+
 
 ## Built with
 - Angular - The web framework used
