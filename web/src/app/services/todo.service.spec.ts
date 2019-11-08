@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
 import { TodoService } from './todo.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 describe('TodoService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule],
+    imports: [HttpClientModule, FormsModule],
     providers: [TodoService]
   }));
 
