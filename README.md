@@ -31,13 +31,19 @@ Run `mvn spring-boot:run` in `server` for a dev server. Navigate to `http://loca
 
 ## Running the tests
 
-### Running unit tests
+### Frontend
+
+#### Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Running end-to-end tests
+#### Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+### Backend
+
+Unit tests are automatically run on `mvn spring-boot: run` but area located in `.\server\src\test\java\com\jahnelgroup\todolist\TodoListApplicationTests.java` and can be run seperately.
 
 ## Deployment
 
