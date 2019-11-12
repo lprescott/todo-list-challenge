@@ -22,7 +22,7 @@ describe('TodoItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create todo item component', () => {
     expect(component).toBeTruthy();
   });
 });

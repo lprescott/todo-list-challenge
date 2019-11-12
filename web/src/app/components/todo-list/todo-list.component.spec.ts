@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoListComponent } from './todo-list.component';
-import {TodoItemComponent} from '../todo-item/todo-item.component';
-import {TodoNewComponent} from '../todo-new/todo-new.component';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
+import { TodoNewComponent } from '../todo-new/todo-new.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
