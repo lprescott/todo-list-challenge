@@ -25,7 +25,7 @@ public class Todo {
     private Boolean completed;
 
     @NonNull
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
     private TodoList todoList;
 }
