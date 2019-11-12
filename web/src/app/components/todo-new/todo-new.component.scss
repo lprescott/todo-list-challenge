@@ -1,17 +1,15 @@
 .add {
     color:#FFFFFF;
     background-color: #4cabff;
-    margin-top: 15px;
     padding:0.7em 1.5em;
 }
 
-#title {
-    border-top: 1px solid #4cabff;
-    border-right: 1px solid #4cabff;
-    border-bottom: 1px solid #4cabff;
-    width: calc(100% - 16px);
+#todoTitle, #listTitle {
+    border: 1px solid #4cabff;
+    width: calc(100% - 12px);  
     outline: 0;
     border-radius: 0.1em;
+    margin-bottom: 15px;
 }
 
 h2 {
