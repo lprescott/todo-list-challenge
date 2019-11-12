@@ -12,18 +12,18 @@ describe('TodoService', () => {
   // create a mock httpMock object and service used for testing
   let httpMock: HttpTestingController;
   let service: TodoService;
-  
+
   // create a todo for testing
   const firstTodo = new Todo();
   firstTodo.id = 1;
-  firstTodo.title = "Test Todo";
+  firstTodo.title = 'Test Todo';
   firstTodo.completed = false;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
-        HttpClientModule, 
+        HttpClientModule,
         HttpClientTestingModule
       ],
       providers: [
@@ -36,7 +36,7 @@ describe('TodoService', () => {
   });
 
   it('should be created', () => {
-    const service: TodoService = TestBed.get(TodoService);
+    service = TestBed.get(TodoService);
     expect(service).toBeTruthy();
   });
 
