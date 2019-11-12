@@ -22,11 +22,11 @@ describe('TodoNewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create new todo component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should render page header', () => {
     fixture = TestBed.createComponent(TodoNewComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
