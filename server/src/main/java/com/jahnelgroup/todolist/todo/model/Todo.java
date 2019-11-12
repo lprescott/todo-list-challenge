@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @NoArgsConstructor
@@ -21,9 +24,4 @@ public class Todo {
 
     @NonNull
     private Boolean completed;
-
-    @NonNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
-    private TodoList todoList;
 }

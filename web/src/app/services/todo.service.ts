@@ -24,7 +24,8 @@ export class TodoService {
   // passing an HttpClient through the constructor allows its access
   constructor(private http: HttpClient) { }
 
-  // get all todos
+  // get todos with the limit 0
+  // observables provide support for passing messages between publishers and subscribers
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.todosUrl)
         .pipe(catchError(this.handleError));
