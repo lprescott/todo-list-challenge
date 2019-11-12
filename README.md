@@ -6,11 +6,17 @@ The Todo List Challenge is to build a simple web application that allows users t
 
 ### Development server
 
-#### Frontend
-Run `ng serve` in `web` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#### Database
+Running the sql scripts in the followig order will allow the backend to compile with out failing:
+1. `init_schema.sql` - creates a challenge database
+2. `set_timezone.sql` - sets the timezone to EST
+3. `grant_permissions` - creates a test_user with test_code as its password, and grants permissions to access the newly created challenge database
 
 #### Backend
 Run `mvn spring-boot:run` in `server` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
+
+#### Frontend
+Run `ng serve` in `web` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Prerequisites
 - Node.js 12.13.0 - (LTS)
@@ -48,12 +54,6 @@ Unit tests are automatically run on `mvn spring-boot: run` but area located in `
 ## Deployment
 
 ### Build
-
-#### Database
-Running the sql scripts in the followig order will allow the backend to compile with out failing:
-1. `init_schema.sql` - creates a challenge database
-2. `set_timezone.sql` - sets the timezone to EST
-3. `grant_permissions` - creates a test_user with test_code as its password, and grants permissions to access the newly created challenge database
 
 #### Frontend
 Run `ng build` in `web` to build the project. The build artifacts will be stored in the `server/src/main/resources/static` directory. Use the `--prod` flag for a production build.
