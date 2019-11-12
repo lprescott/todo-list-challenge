@@ -7,7 +7,10 @@
   <div class="content">
     <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
       <div class="todo-input">
-        <input required [(ngModel)]="title" type="text"  id="title" class="todo-title" name="title" placeholder="Enter your todo here...">
+        <input required [(ngModel)]="listTitle" type="text" id="listTitle" class="todo-title" name="listTitle" placeholder="Enter the lists name here...">
+      </div>
+      <div class="todo-input">
+        <input required [(ngModel)]="todoTitle" type="text" id="todoTitle" class="todo-title" name="todoTitle" placeholder="Enter the todo's text here...">
       </div>
       <button [disabled]="!todoForm.form.valid" class="btn add" type="submit" title="Add">Add</button>
     </form>

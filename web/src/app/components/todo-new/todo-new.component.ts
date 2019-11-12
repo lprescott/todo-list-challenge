@@ -7,11 +7,13 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class TodoNewComponent implements OnInit {
 
-  // outputs addTodo via an event emitter to todo-list
+  // outputs addTodo, addList via an event emitter to todo-list
   @Output() addTodo: EventEmitter<any> = new EventEmitter<any>();
+  @Output() addList: EventEmitter<any> = new EventEmitter<any>();
 
   // required for 2-way data binding through ngModel
-  title: string;
+  todoTitle: string;
+  listTitle: string;
 
   constructor() { }
 
@@ -21,9 +23,16 @@ export class TodoNewComponent implements OnInit {
   // creation of a Todo model using 2-way data binding and emitting
   onSubmit() {
 
+    const list = {
+      title: this.listTitle
+    };
+
+    this.addList.emit(list);
+
+
     // create a Todo model
     const todo = {
-      title: this.title,
+      title: this.todoTitle,
       completed: false
     };
 
@@ -31,6 +40,7 @@ export class TodoNewComponent implements OnInit {
     this.addTodo.emit(todo);
 
     // clear text
-    this.title = undefined;
+    this.todoTitle = undefined;
+    this.listTitle = undefined;
   }
 }

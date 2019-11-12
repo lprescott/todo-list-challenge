@@ -3,7 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 import { catchError } from 'rxjs/operators';
-import {TodoList} from '../models/TodoList';
+import { TodoList } from '../models/TodoList';
 
 // this const outlines the used http content-type in a JSON format
 // used for delete, post, and put
