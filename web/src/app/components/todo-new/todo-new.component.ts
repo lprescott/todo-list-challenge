@@ -12,6 +12,7 @@ export class TodoNewComponent implements OnInit {
 
   // required for 2-way data binding through ngModel
   title: string;
+  name = 'Todo List';
 
   constructor() { }
 
