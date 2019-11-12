@@ -9,7 +9,6 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoNewComponent } from './components/todo-new/todo-new.component';
 import { TodoService } from './services/todo.service';
-import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { LoginComponent } from './components/login/login.component';
     TodoListComponent,
     TodoItemComponent,
     TodoNewComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
