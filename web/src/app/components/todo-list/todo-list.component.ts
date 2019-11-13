@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../models/Todo';
 import { TodoService } from '../../services/todo.service';
+import {TodoList} from '../../models/TodoList';
+import {ActivatedRoute} from '@angular/router';
+import {TodolistService} from '../../services/todolist.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,17 +11,23 @@ import { TodoService } from '../../services/todo.service';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  // array of todos
-  // todos: Todo[];
-  todos: Todo[] = [];
+
+  list = {} as TodoList;
 
   // taking todoService in the constructor allows it to be accessed from inside the class
-  constructor(private todoService: TodoService) { }
+  constructor(private route: ActivatedRoute, private todoService: TodoService, private todolistService: TodolistService) { }
 
   // receives existing todos from server on initialization, using todoService
   ngOnInit() {
-    this.todoService.getTodos().subscribe( todos => {
-      this.todos = todos;
+    const id = Number(this.route.snapshot.params.id);
+    this.list.id = id;
+
+    this.todolistService.getTodoLists().subscribe(lists => {
+      this.list.name = lists.filter(list => list.id === this.list.id)[0].name;
+    });
+
+    this.todoService.getTodos().subscribe(todos => {
+      this.list.todos = todos.filter(td => td.todoList.id === this.list.id);
     });
   }
 
@@ -27,7 +36,7 @@ export class TodoListComponent implements OnInit {
     // remove from Server
     this.todoService.deleteTodo(todo).subscribe( del => {
       // remove from UI after deleted from server
-      this.todos = this.todos.filter(t => t.id !== todo.id);
+      this.list.todos = this.list.todos.filter(t => t.id !== todo.id);
       console.log('Deleted \'' + todo.title + '\'');
       }
     );
@@ -38,7 +47,7 @@ export class TodoListComponent implements OnInit {
     // adds to server
     this.todoService.addTodo(todo).subscribe(td => {
       // adds to ui after added to server
-      this.todos.push(td);
+      this.list.todos.push(td);
       // log
       console.log('Added \'' + todo.title + '\'');
       console.log(td);

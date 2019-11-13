@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -20,7 +18,4 @@ public class TodoList {
 
     @NonNull
     private String name;
-
-    @OneToMany(mappedBy = "todoList", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Todo> todos = new ArrayList<>();
 }

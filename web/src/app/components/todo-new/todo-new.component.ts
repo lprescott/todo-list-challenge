@@ -1,6 +1,8 @@
 import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {TodolistService} from "../../services/todolist.service";
+import {TodolistService} from '../../services/todolist.service';
+import {TodoList} from '../../models/TodoList';
+import {TodoService} from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-new',
@@ -14,18 +16,22 @@ export class TodoNewComponent implements OnInit {
 
   // required for 2-way data binding through ngModel
   title: string;
-
   name: string;
-  id: number;
 
-  constructor(private route: ActivatedRoute, private todoListService: TodolistService) { }
+  list = {} as TodoList;
+
+  constructor(private route: ActivatedRoute, private todoService: TodoService, private todolistService: TodolistService) { }
 
   ngOnInit() {
     const id = Number(this.route.snapshot.params.id);
-    this.id = id;
+    this.list.id = id;
 
-    this.todoListService.getTodoLists().subscribe(lists => {
-      this.name = lists.filter(ls => ls.id === id)[0].name;
+    this.todolistService.getTodoLists().subscribe(lists => {
+      this.list.name = lists.filter(list => list.id === this.list.id)[0].name;
+    });
+
+    this.todoService.getTodos().subscribe(todos => {
+      this.list.todos = todos.filter(td => td.todoList.id === this.list.id);
     });
   }
 
@@ -35,7 +41,8 @@ export class TodoNewComponent implements OnInit {
     // create a Todo model
     const todo = {
       title: this.title,
-      completed: false
+      completed: false,
+      todoList: this.list
     };
 
     // emit upwards to todo-list component
