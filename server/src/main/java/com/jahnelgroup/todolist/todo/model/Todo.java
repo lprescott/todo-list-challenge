@@ -23,7 +23,7 @@ public class Todo {
     private Boolean completed;
 
     @NonNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "todoList_id")
     private TodoList todoList;
 }

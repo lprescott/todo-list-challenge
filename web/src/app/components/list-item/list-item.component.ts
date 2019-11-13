@@ -2,9 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TodoList} from '../../models/TodoList';
 import {TodolistService} from '../../services/todolist.service';
 import { Router } from '@angular/router';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
-import swal from "sweetalert2";
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-item',

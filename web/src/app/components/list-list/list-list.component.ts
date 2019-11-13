@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoList} from '../../models/TodoList';
 import {TodolistService} from '../../services/todolist.service';
-import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-list',

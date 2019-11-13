@@ -73,6 +73,6 @@ export class TodoService {
   getTodo(id: number): Observable<Todo> {
     const url = `${this.todosUrl}/${id}`;
     return this.http.get<Todo>(url)
-        .pipe(catchError(TodoService.handleError));
+      .pipe(catchError(TodoService.handleError));
   }
 }

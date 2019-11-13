@@ -28,30 +28,30 @@ export class TodolistService {
 
   getTodoLists(): Observable<TodoList[]> {
     return this.http.get<TodoList[]>(this.todoListsUrl)
-        .pipe(catchError(TodoService.handleError));
+      .pipe(catchError(TodoService.handleError));
 
   }
 
   deleteTodoList(todoList: TodoList): Observable<TodoList> {
     const url = `${this.todoListsUrl}/${todoList.id}`;
     return this.http.delete<TodoList>(url, httpOptions)
-        .pipe(catchError(TodoService.handleError));
+      .pipe(catchError(TodoService.handleError));
   }
 
   addTodoList(todoList: TodoList): Observable<TodoList> {
     return this.http.post<TodoList>(this.todoListsUrl, todoList, httpOptions)
-        .pipe(catchError(TodoService.handleError));
+      .pipe(catchError(TodoService.handleError));
   }
 
   updateTodoList(todoList: TodoList): Observable<TodoList> {
     const url = `${this.todoListsUrl}/${todoList.id}`;
     return this.http.put<TodoList>(url, todoList, httpOptions)
-        .pipe(catchError(TodoService.handleError));
+      .pipe(catchError(TodoService.handleError));
   }
 
   getTodoList(id: number): Observable<TodoList> {
     const url = `${this.todoListsUrl}/${id}`;
     return this.http.get<TodoList>(url)
-        .pipe(catchError(TodoService.handleError));
+      .pipe(catchError(TodoService.handleError));
   }
 }
