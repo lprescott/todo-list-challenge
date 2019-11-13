@@ -35,8 +35,7 @@ export class TodoService {
     return throwError('Something bad happened; please try again later.');
   }
 
-  // get todos with the limit 0
-  // observables provide support for passing messages between publishers and subscribers
+  // get all todos
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.todosUrl)
         .pipe(catchError(TodoService.handleError));
@@ -68,5 +67,12 @@ export class TodoService {
     const url = `${this.todosUrl}/${todo.id}`;
     return this.http.put<Todo>(url, todo, httpOptions)
       .pipe(catchError(TodoService.handleError));
+  }
+
+  // get todo by ID
+  getTodo(id: number): Observable<Todo> {
+    const url = `${this.todosUrl}/${id}`;
+    return this.http.get<Todo>(url)
+        .pipe(catchError(TodoService.handleError));
   }
 }

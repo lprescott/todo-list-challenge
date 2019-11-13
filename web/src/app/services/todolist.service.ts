@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import {TodoList} from '../models/TodoList';
 import {TodoService} from './todo.service';
+import {Todo} from "../models/Todo";
 
 // this const outlines the used http content-type in a JSON format
 // used for delete, post, and put
@@ -45,6 +46,12 @@ export class TodolistService {
   updateTodoList(todoList: TodoList): Observable<TodoList> {
     const url = `${this.todoListsUrl}/${todoList.id}`;
     return this.http.put<TodoList>(url, todoList, httpOptions)
+        .pipe(catchError(TodoService.handleError));
+  }
+
+  getTodoList(id: number): Observable<TodoList> {
+    const url = `${this.todoListsUrl}/${id}`;
+    return this.http.get<TodoList>(url)
         .pipe(catchError(TodoService.handleError));
   }
 }
