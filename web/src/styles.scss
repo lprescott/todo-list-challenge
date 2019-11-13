@@ -52,3 +52,7 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
   font-size: 14pt;
   word-wrap: break-word;
 }
+
+body > app-root > div > app-list-list, app-todo-list {
+  width: 75%;
+}

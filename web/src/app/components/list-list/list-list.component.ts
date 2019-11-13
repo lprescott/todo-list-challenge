@@ -12,7 +12,7 @@ export class ListListComponent implements OnInit {
 
   lists: TodoList[] = [];
 
-  constructor(private todoListService: TodolistService) { }
+  constructor(private todoListService: TodolistService) {  }
 
   ngOnInit() {
     this.todoListService.getTodoLists().subscribe( lists => {
