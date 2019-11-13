@@ -1,4 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {TodolistService} from "../../services/todolist.service";
 
 @Component({
   selector: 'app-todo-new',
@@ -13,9 +15,18 @@ export class TodoNewComponent implements OnInit {
   // required for 2-way data binding through ngModel
   title: string;
 
-  constructor() { }
+  name: string;
+  id: number;
+
+  constructor(private route: ActivatedRoute, private todoListService: TodolistService) { }
 
   ngOnInit() {
+    const id = Number(this.route.snapshot.params.id);
+    this.id = id;
+
+    this.todoListService.getTodoLists().subscribe(lists => {
+      this.name = lists.filter(ls => ls.id === id)[0].name;
+    });
   }
 
   // creation of a Todo model using 2-way data binding and emitting
