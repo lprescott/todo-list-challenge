@@ -2,6 +2,12 @@
     width: 100%;
 }
 
+.new {
+    background-color: #44ca89;
+    color:#FFFFFF;
+    margin-left: 15px;
+}
+
 .add {
     color:#FFFFFF;
     background-color: #4cabff;
@@ -30,13 +36,4 @@ h2 {
 
 .ng-invalid:not(form)  {
     border-left: 5px solid #FF605C; /* red */
-}
-
-.list-name {
-    border: none;
-    font-size: 20pt;
-}
-
-.list-name:focus {
-    outline: 0;
 }

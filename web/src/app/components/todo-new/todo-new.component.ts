@@ -7,12 +7,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class TodoNewComponent implements OnInit {
 
-  // outputs addTodo via an event emitter to todo-list
+  // outputs addTodo  via an event emitter to todo-list
   @Output() addTodo: EventEmitter<any> = new EventEmitter<any>();
 
   // required for 2-way data binding through ngModel
   title: string;
-  name = 'Todo List';
 
   constructor() { }
 

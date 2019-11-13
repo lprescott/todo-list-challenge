@@ -1,13 +1,15 @@
-<form (ngSubmit)="onSubmit()" #todoForm="ngForm" class="card">
+<div class="card">
   <div class="heading">
     <h2>
-      <input class="list-name" type="text" id="name" name="name" [defaultValue]="name">
+      <input class="list-name" type="text" id="name" name="name">
     </h2>
   </div>
   <div class="content">
-    <div class="todo-input">
-      <input required [(ngModel)]="title" type="text"  id="title" class="todo-title" name="title" placeholder="Enter your todo here...">
-    </div>
-    <button [disabled]="!todoForm.form.valid" class="btn add" type="submit" title="Add">Add</button>
+    <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+      <div class="todo-input">
+        <input required [(ngModel)]="title" type="text"  id="title" class="todo-title" name="title" placeholder="Enter your todo here...">
+      </div>
+      <button [disabled]="!todoForm.form.valid" class="btn add" type="submit" title="Add">Add</button>
+    </form>
   </div>
-</form>
+</div>
