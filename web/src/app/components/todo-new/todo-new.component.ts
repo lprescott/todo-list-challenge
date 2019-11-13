@@ -28,8 +28,8 @@ export class TodoNewComponent implements OnInit {
     const id = Number(this.route.snapshot.params.id);
     this.list.id = id;
 
-    this.todolistService.getTodoLists().subscribe(lists => {
-      this.list.name = lists.filter(list => list.id === this.list.id)[0].name;
+    this.todolistService.getTodoList(id).subscribe(list => {
+      this.list.name = list.name;
     });
 
     this.todoService.getTodos().subscribe(todos => {

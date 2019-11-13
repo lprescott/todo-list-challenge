@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoList} from '../../models/TodoList';
 import {TodolistService} from '../../services/todolist.service';
+import {TodoService} from '../../services/todo.service';
 
 @Component({
   selector: 'app-list-list',
@@ -11,7 +12,7 @@ export class ListListComponent implements OnInit {
 
   lists: TodoList[] = [];
 
-  constructor(private todoListService: TodolistService) {  }
+  constructor(private todoListService: TodolistService, private todoService: TodoService) {  }
 
   ngOnInit() {
     this.todoListService.getTodoLists().subscribe( lists => {
@@ -21,9 +22,9 @@ export class ListListComponent implements OnInit {
 
   deleteList(list: TodoList) {
     this.todoListService.deleteTodoList(list).subscribe( del => {
-          this.lists = this.lists.filter(t => t.id !== list.id);
-          console.log('Deleted \'' + list.name + '\'');
-        }
+        this.lists = this.lists.filter(t => t.id !== list.id);
+        console.log('Deleted \'' + list.name + '\'');
+      }
     );
   }
 
