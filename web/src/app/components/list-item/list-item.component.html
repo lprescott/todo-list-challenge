@@ -1,7 +1,7 @@
 <form class="card form" (ngSubmit)="onSave(list, name.value)">
     <div class="buttons">
         <button class="btn goto" type="reset" title="Goto" (click)="onRoute(list)">
-            Goto
+            <fa-icon [icon]="faList"></fa-icon>
         </button>
         <button class="btn save" type="submit" title="Save">
             Save

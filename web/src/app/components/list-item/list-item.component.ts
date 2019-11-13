@@ -2,6 +2,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TodoList} from '../../models/TodoList';
 import {TodolistService} from '../../services/todolist.service';
 import { Router } from '@angular/router';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faList } from '@fortawesome/free-solid-svg-icons';
+import swal from "sweetalert2";
 
 @Component({
   selector: 'app-list-item',
@@ -10,11 +13,13 @@ import { Router } from '@angular/router';
 })
 export class ListItemComponent implements OnInit {
 
+  constructor(private router: Router, private todoListService: TodolistService) { }
+
   @Input() list: TodoList;
   @Output() deleteList: EventEmitter<TodoList> = new EventEmitter<TodoList>();
   @Output() updateList: EventEmitter<TodoList> = new EventEmitter<TodoList>();
 
-  constructor(private router: Router, private todoListService: TodolistService) { }
+  faList = faList;
 
   ngOnInit() {
   }
@@ -36,9 +41,24 @@ export class ListItemComponent implements OnInit {
 
   // emits the function deleteTodo to todo-list component and logs
   onDelete(list: TodoList) {
-
-    // deletes and emit
-    this.deleteList.emit(list);
+    swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#4cabff',
+      cancelButtonColor: '#FF605C',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        this.deleteList.emit(list);
+        swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+        );
+      }
+    });
   }
 
   onRoute(list: TodoList) {

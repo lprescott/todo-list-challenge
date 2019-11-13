@@ -7,7 +7,7 @@
     <div class="content">
         <form (ngSubmit)="onSubmit()" #listForm="ngForm">
             <div class="list-input">
-                <input required [(ngModel)]="name" type="text"  id="name" class="list-name" name="name" placeholder="Enter your list name here...">
+                <input required [(ngModel)]="name" type="text"  id="name" class="list-name" name="name" placeholder="The name of a new todo list...">
             </div>
             <button [disabled]="!listForm.form.valid" class="btn add" type="submit" title="Add">Add</button>
         </form>

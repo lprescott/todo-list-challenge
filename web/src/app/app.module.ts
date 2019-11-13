@@ -12,6 +12,7 @@ import { TodoService } from './services/todo.service';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { ListNewComponent } from './components/list-new/list-new.component';
 import { ListListComponent } from './components/list-list/list-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListListComponent } from './components/list-list/list-list.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
     TodoService
