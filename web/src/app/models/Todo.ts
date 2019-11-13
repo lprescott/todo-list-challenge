@@ -1,6 +1,8 @@
+import {TodoList} from './TodoList';
+
 export class Todo {
   id: number;
   title: string;
   completed: boolean;
-  todoListId: number;
+  todoList: TodoList;
 }
