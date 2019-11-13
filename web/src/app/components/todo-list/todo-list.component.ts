@@ -13,6 +13,7 @@ import {TodolistService} from '../../services/todolist.service';
 export class TodoListComponent implements OnInit {
 
   list = {} as TodoList;
+  todos: Todo[] = [];
 
   // taking todoService in the constructor allows it to be accessed from inside the class
   constructor(private route: ActivatedRoute, private todoService: TodoService, private todolistService: TodolistService) { }
@@ -27,7 +28,7 @@ export class TodoListComponent implements OnInit {
     });
 
     this.todoService.getTodos().subscribe(todos => {
-      this.list.todos = todos.filter(td => td.todoList.id === this.list.id);
+      this.todos = todos.filter(td => td.todoList.id === this.list.id);
     });
   }
 
@@ -36,7 +37,7 @@ export class TodoListComponent implements OnInit {
     // remove from Server
     this.todoService.deleteTodo(todo).subscribe( del => {
       // remove from UI after deleted from server
-      this.list.todos = this.list.todos.filter(t => t.id !== todo.id);
+      this.todos = this.todos.filter(t => t.id !== todo.id);
       console.log('Deleted \'' + todo.title + '\'');
       }
     );
@@ -47,7 +48,7 @@ export class TodoListComponent implements OnInit {
     // adds to server
     this.todoService.addTodo(todo).subscribe(td => {
       // adds to ui after added to server
-      this.list.todos.push(td);
+      this.todos.push(td);
       // log
       console.log('Added \'' + todo.title + '\'');
       console.log(td);

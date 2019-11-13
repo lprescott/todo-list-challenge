@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {TodolistService} from '../../services/todolist.service';
 import {TodoList} from '../../models/TodoList';
 import {TodoService} from '../../services/todo.service';
+import {Todo} from '../../models/Todo';
 
 @Component({
   selector: 'app-todo-new',
@@ -19,6 +20,7 @@ export class TodoNewComponent implements OnInit {
   name: string;
 
   list = {} as TodoList;
+  todos: Todo[] = [];
 
   constructor(private route: ActivatedRoute, private todoService: TodoService, private todolistService: TodolistService) { }
 
@@ -31,7 +33,7 @@ export class TodoNewComponent implements OnInit {
     });
 
     this.todoService.getTodos().subscribe(todos => {
-      this.list.todos = todos.filter(td => td.todoList.id === this.list.id);
+      this.todos = todos.filter(td => td.todoList.id === this.list.id);
     });
   }
 

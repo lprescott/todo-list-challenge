@@ -19,8 +19,7 @@ export class ListNewComponent implements OnInit {
   onSubmit() {
 
     const list = {
-      name: this.name,
-      todos: []
+      name: this.name
     };
 
     this.addList.emit(list);
