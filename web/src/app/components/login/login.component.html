@@ -7,7 +7,7 @@
     <div class="content">
         <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
             <div class="todo-input">
-                <input required [(ngModel)]="username" type="text"  id="username" class="username" name="username" placeholder="username">
+                <input required [(ngModel)]="username" type="text"  id="username" name="username" placeholder="username">
             </div>
             <button [disabled]="!loginForm.form.valid" class="btn login" type="submit" title="Login">Login</button>
         </form>
