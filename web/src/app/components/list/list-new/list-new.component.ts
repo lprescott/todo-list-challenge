@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UserService } from '../../../services/user/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-new',
@@ -10,16 +12,21 @@ export class ListNewComponent implements OnInit {
 
   name: string;
 
-  constructor() {}
+  constructor(private userService: UserService, private route: ActivatedRoute) {}
 
   ngOnInit() {}
 
   onSubmit() {
+    const id = Number(this.route.snapshot.params.id);
     const list = {
-      name: this.name
+      name: this.name,
+      user: undefined
     };
 
-    this.addList.emit(list);
+    this.userService.getUser(id).subscribe(user => {
+      list.user = user;
+      this.addList.emit(list);
+    });
 
     this.name = undefined;
   }
