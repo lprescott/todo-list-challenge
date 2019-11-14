@@ -10,6 +10,7 @@
                 <input required [(ngModel)]="name" type="text"  id="name" class="list-name" name="name" placeholder="The name of a new todo list...">
             </div>
             <button [disabled]="!listForm.form.valid" class="btn add" type="submit" title="Add">Add</button>
+            <button class="btn logout" type="reset" title="Logout" (click)="logout()">Logout</button>
         </form>
     </div>
 </div>

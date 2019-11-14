@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/User';
 
 @Component({
@@ -14,12 +14,16 @@ export class ListNewComponent implements OnInit {
 
   name: string;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {}
+  constructor(
+    private userService: UserService,
+    private aroute: ActivatedRoute,
+    private route: Router
+  ) {}
 
   ngOnInit() {}
 
   onSubmit() {
-    const id = Number(this.route.snapshot.params.id);
+    const id = Number(this.aroute.snapshot.params.id);
     const list = {
       name: this.name,
       user: undefined
@@ -31,5 +35,9 @@ export class ListNewComponent implements OnInit {
     });
 
     this.name = undefined;
+  }
+
+  logout() {
+    this.route.navigate(['']);
   }
 }
