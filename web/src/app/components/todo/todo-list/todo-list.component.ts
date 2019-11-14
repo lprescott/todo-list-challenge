@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from '../../models/Todo';
-import { TodoService } from '../../services/todo.service';
-import { TodoList } from '../../models/TodoList';
+import { Todo } from '../../../models/Todo';
+import { TodoService } from '../../../services/todo.service';
+import { TodoList } from '../../../models/TodoList';
 import { ActivatedRoute } from '@angular/router';
-import { TodolistService } from '../../services/todolist.service';
+import { TodolistService } from '../../../services/todolist.service';
 
 @Component({
   selector: 'app-todo-list',

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListListComponent } from './components/list-list/list-list.component';
-import {TodoListComponent} from './components/todo-list/todo-list.component';
+import { ListListComponent } from './components/list/list-list/list-list.component';
+import {TodoListComponent} from './components/todo/todo-list/todo-list.component';
 
 const routes: Routes = [
   { path: '', component: ListListComponent },

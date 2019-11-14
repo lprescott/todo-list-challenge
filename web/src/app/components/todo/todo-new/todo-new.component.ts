@@ -1,9 +1,9 @@
 import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {TodolistService} from '../../services/todolist.service';
-import {TodoList} from '../../models/TodoList';
-import {TodoService} from '../../services/todo.service';
-import {Todo} from '../../models/Todo';
+import {TodolistService} from '../../../services/todolist.service';
+import {TodoList} from '../../../models/TodoList';
+import {TodoService} from '../../../services/todo.service';
+import {Todo} from '../../../models/Todo';
 
 @Component({
   selector: 'app-todo-new',
