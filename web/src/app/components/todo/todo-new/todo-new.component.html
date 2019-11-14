@@ -10,6 +10,7 @@
         <input required [(ngModel)]="title" type="text"  id="title" class="todo-title" name="title" placeholder="The name of a new todo item...">
       </div>
       <button [disabled]="!todoForm.form.valid" class="btn add" type="submit" title="Add">Add</button>
+      <button class="btn home" type="reset" (click)="goHome()" title="Home">Home</button>
     </form>
   </div>
 </div>

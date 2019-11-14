@@ -1,9 +1,10 @@
 import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {TodolistService} from '../../../services/list/todolist.service';
 import {TodoList} from '../../../models/TodoList';
 import {TodoService} from '../../../services/todo/todo.service';
 import {Todo} from '../../../models/Todo';
+import { UserService } from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-todo-new',
@@ -22,14 +23,19 @@ export class TodoNewComponent implements OnInit {
   list = {} as TodoList;
   todos: Todo[] = [];
 
-  constructor(private route: ActivatedRoute, private todoService: TodoService, private todolistService: TodolistService) { }
+  constructor(
+    private aroute: ActivatedRoute,
+    private todoService: TodoService,
+    private todolistService: TodolistService,
+    private route: Router
+  ) { }
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.params.id);
+    const id = Number(this.aroute.snapshot.params.id);
     this.list.id = id;
 
     this.todolistService.getTodoList(id).subscribe(list => {
-      this.list.name = list.name;
+      this.list = list;
     });
 
     this.todoService.getTodos().subscribe(todos => {
@@ -52,5 +58,9 @@ export class TodoNewComponent implements OnInit {
 
     // clear text
     this.title = undefined;
+  }
+
+  goHome() {
+    this.route.navigate(['/home/' + this.list.user.id]);
   }
 }
