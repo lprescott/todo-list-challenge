@@ -2,6 +2,7 @@ package com.jahnelgroup.todolist.todo.controller;
 
 import com.jahnelgroup.todolist.todo.model.TodoList;
 import com.jahnelgroup.todolist.todo.service.TodoListService;
+import com.jahnelgroup.todolist.todo.service.TodoService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,9 @@ public class TodoListController {
 
     @NonNull
     private TodoListService todoListService;
+
+    @NonNull
+    private TodoService todoService;
 
     @GetMapping
     public ResponseEntity<List<TodoList>> findAll() {
@@ -59,6 +63,7 @@ public class TodoListController {
             ResponseEntity.badRequest().build();
         }
 
+        todoService.deleteByListId(id);
         todoListService.deleteById(id);
 
         return ResponseEntity.ok().build();

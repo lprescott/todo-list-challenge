@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,5 +35,19 @@ public class TodoService {
 
     public void deleteById(Long id) {
         todoRepository.deleteById(id);
+    }
+
+    /**
+     * deletes all Todos given an ID of their todolist
+     * @param id the todolist's id
+     */
+    public void deleteByListId(Long id) {
+        List<Todo> temp = new ArrayList<>();
+        temp = findAll();
+        for(int i = 0; i < temp.size(); i ++) {
+            if(temp.get(i).getTodoList().getId() == id) {
+                deleteById(temp.get(i).getId());
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import {TodoList} from '../models/TodoList';
 import {TodoService} from './todo.service';
-import {Todo} from "../models/Todo";
+import {Todo} from '../models/Todo';
 
 // this const outlines the used http content-type in a JSON format
 // used for delete, post, and put
