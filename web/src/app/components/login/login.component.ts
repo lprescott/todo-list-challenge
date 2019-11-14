@@ -25,13 +25,13 @@ export class LoginComponent implements OnInit {
           this.route.navigate(['/home/' + user.id]);
           success = true;
         }
-        if (success === false) {
-          swal.fire({
-            title: 'Incorrect Login Information',
-            icon: 'error'
-          });
-        }
       });
+      if (success === false) {
+        swal.fire({
+          title: 'Incorrect Login Information',
+          icon: 'error'
+        });
+      }
     });
   }
 }
