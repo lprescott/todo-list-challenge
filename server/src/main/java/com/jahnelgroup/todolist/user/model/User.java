@@ -8,6 +8,7 @@ import lombok.NonNull;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
