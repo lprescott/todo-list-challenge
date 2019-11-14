@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoList } from '../../../models/TodoList';
 import { TodolistService } from '../../../services/list/todolist.service';
 import { TodoService } from '../../../services/todo/todo.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/User';
 import { UserService } from '../../../services/user/user.service';
 
@@ -18,12 +18,18 @@ export class ListListComponent implements OnInit {
   constructor(
     private todoListService: TodolistService,
     private todoService: TodoService,
-    private route: ActivatedRoute,
+    private aroute: ActivatedRoute,
     private userService: UserService,
+    private route: Router
   ) {}
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.params.id);
+    const id = Number(this.aroute.snapshot.params.id);
+
+    if (sessionStorage.getItem('user') === null || sessionStorage.getItem('user') !== String(id)) {
+      this.route.navigate(['']);
+    }
+
     this.todoListService.getTodoLists().subscribe(lists => {
       this.lists = lists.filter(list => list.user.id === id);
     });

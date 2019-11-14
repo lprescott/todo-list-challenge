@@ -15,6 +15,9 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private route: Router) { }
 
   ngOnInit() {
+    if (sessionStorage.getItem('user') !== null) {
+      sessionStorage.removeItem('user');
+    }
   }
 
   onSubmit() {
@@ -22,6 +25,7 @@ export class LoginComponent implements OnInit {
     this.userService.getUsers().subscribe(users => {
       users = users.filter(user => {
         if (this.username === user.name) {
+          sessionStorage.setItem('user', String(user.id));
           this.route.navigate(['/home/' + user.id]);
           success = true;
         }

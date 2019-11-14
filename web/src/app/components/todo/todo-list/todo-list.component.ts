@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../../models/Todo';
 import { TodoService } from '../../../services/todo/todo.service';
 import { TodoList } from '../../../models/TodoList';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TodolistService } from '../../../services/list/todolist.service';
 
 @Component({
@@ -16,18 +16,23 @@ export class TodoListComponent implements OnInit {
 
   // taking todoService in the constructor allows it to be accessed from inside the class
   constructor(
-    private route: ActivatedRoute,
+    private aroute: ActivatedRoute,
     private todoService: TodoService,
-    private todolistService: TodolistService
+    private todolistService: TodolistService,
+    private route: Router
   ) {}
 
   // receives existing todos from server on initialization, using todoService
   ngOnInit() {
-    const id = Number(this.route.snapshot.params.id);
+    const id = Number(this.aroute.snapshot.params.id);
     this.list.id = id;
 
     this.todolistService.getTodoList(id).subscribe(list => {
-      this.list.name = list.name;
+      this.list = list;
+
+      if (sessionStorage.getItem('user') === null || sessionStorage.getItem('user') !== String(this.list.user.id)) {
+        this.route.navigate(['']);
+      }
     });
 
     this.todoService.getTodos().subscribe(todos => {
