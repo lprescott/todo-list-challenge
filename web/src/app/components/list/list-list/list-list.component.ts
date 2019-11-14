@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoList } from '../../../models/TodoList';
 import { TodolistService } from '../../../services/list/todolist.service';
 import { TodoService } from '../../../services/todo/todo.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-list',
@@ -13,12 +14,14 @@ export class ListListComponent implements OnInit {
 
   constructor(
     private todoListService: TodolistService,
-    private todoService: TodoService
+    private todoService: TodoService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    const id = Number(this.route.snapshot.params.id);
     this.todoListService.getTodoLists().subscribe(lists => {
-      this.lists = lists;
+      this.lists = lists.filter(list => list.user.id === id);
     });
   }
 
