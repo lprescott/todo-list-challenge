@@ -3,6 +3,8 @@ import { TodoList } from '../../../models/TodoList';
 import { TodolistService } from '../../../services/list/todolist.service';
 import { TodoService } from '../../../services/todo/todo.service';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../../../models/User';
+import { UserService } from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-list-list',
@@ -11,11 +13,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListListComponent implements OnInit {
   lists: TodoList[] = [];
+  user: User;
 
   constructor(
     private todoListService: TodolistService,
     private todoService: TodoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UserService,
   ) {}
 
   ngOnInit() {
@@ -23,6 +27,8 @@ export class ListListComponent implements OnInit {
     this.todoListService.getTodoLists().subscribe(lists => {
       this.lists = lists.filter(list => list.user.id === id);
     });
+
+    this.userService.getUser(id).subscribe(user => this.user = user);
   }
 
   deleteList(list: TodoList) {

@@ -1,5 +1,5 @@
 <div class="container">
-    <app-list-new (addList)="addList($event)"></app-list-new>
+    <app-list-new (addList)="addList($event)" [user]="user"></app-list-new>
     <app-list-item
             *ngFor="let list of lists"
             [list]="list"

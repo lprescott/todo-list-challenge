@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { User } from '../../../models/User';
 
 @Component({
   selector: 'app-list-new',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListNewComponent implements OnInit {
   @Output() addList: EventEmitter<any> = new EventEmitter<any>();
+  @Input() user: User;
 
   name: string;
 
