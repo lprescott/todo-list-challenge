@@ -5,7 +5,7 @@ import { TodoService } from '../../services/todo.service';
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.scss' ]
+  styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
   // the current model inputted from the above component todo-list
@@ -18,16 +18,15 @@ export class TodoItemComponent implements OnInit {
   @Output() updateTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   // taking todoService in the constructor allows it to be accessed from inside the class
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   // set the class of a todo dynamically to todo, and is-complete
   setClasses() {
     const classes = {
       todo: true,
-      'is-complete': (this.todo) ? this.todo.completed : false,
+      'is-complete': this.todo ? this.todo.completed : false
     };
 
     return classes;
@@ -35,7 +34,6 @@ export class TodoItemComponent implements OnInit {
 
   // updates the current todos title text
   onSave(todo: Todo, newTitle: string) {
-
     // check if no change or no length
     if (this.todo.title === newTitle || newTitle.length === 0) {
       console.log('\'' + this.todo.title + '\' not updated');
@@ -54,20 +52,20 @@ export class TodoItemComponent implements OnInit {
 
   // emits the function deleteTodo to todo-list component and logs
   onDelete(todo: Todo) {
-
     // deletes and emit
     this.deleteTodo.emit(todo);
   }
 
   // toggles the completed boolean value in ui, server, then logs
   onToggle(todo: Todo) {
-
     // toggles UI
     todo.completed = !todo.completed;
 
     // toggles Server
     this.todoService.toggleCompleted(todo).subscribe(td => {
-      console.log('Toggled \'' + todo.title + '\' completion to ' + todo.completed);
+      console.log(
+        'Toggled \'' + todo.title + '\' completion to ' + todo.completed
+      );
       console.log(td);
     });
   }

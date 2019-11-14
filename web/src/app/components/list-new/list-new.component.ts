@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list-new',
@@ -6,18 +6,15 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./list-new.component.scss']
 })
 export class ListNewComponent implements OnInit {
-
   @Output() addList: EventEmitter<any> = new EventEmitter<any>();
 
   name: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit() {
-
     const list = {
       name: this.name
     };

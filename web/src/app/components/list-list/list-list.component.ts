@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TodoList} from '../../models/TodoList';
-import {TodolistService} from '../../services/todolist.service';
-import {TodoService} from '../../services/todo.service';
+import { TodoList } from '../../models/TodoList';
+import { TodolistService } from '../../services/todolist.service';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-list-list',
@@ -9,23 +9,24 @@ import {TodoService} from '../../services/todo.service';
   styleUrls: ['./list-list.component.scss']
 })
 export class ListListComponent implements OnInit {
-
   lists: TodoList[] = [];
 
-  constructor(private todoListService: TodolistService, private todoService: TodoService) {  }
+  constructor(
+    private todoListService: TodolistService,
+    private todoService: TodoService
+  ) {}
 
   ngOnInit() {
-    this.todoListService.getTodoLists().subscribe( lists => {
+    this.todoListService.getTodoLists().subscribe(lists => {
       this.lists = lists;
     });
   }
 
   deleteList(list: TodoList) {
-    this.todoListService.deleteTodoList(list).subscribe( del => {
-        this.lists = this.lists.filter(t => t.id !== list.id);
-        console.log('Deleted \'' + list.name + '\'');
-      }
-    );
+    this.todoListService.deleteTodoList(list).subscribe(del => {
+      this.lists = this.lists.filter(t => t.id !== list.id);
+      console.log('Deleted \'' + list.name + '\'');
+    });
   }
 
   addList(list: TodoList) {
