@@ -1,7 +1,7 @@
-package com.jahnelgroup.todolist.todo.controller;
+package com.jahnelgroup.todolist.list.controller;
 
-import com.jahnelgroup.todolist.todo.model.TodoList;
-import com.jahnelgroup.todolist.todo.service.TodoListService;
+import com.jahnelgroup.todolist.list.model.TodoList;
+import com.jahnelgroup.todolist.list.service.TodoListService;
 import com.jahnelgroup.todolist.todo.service.TodoService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

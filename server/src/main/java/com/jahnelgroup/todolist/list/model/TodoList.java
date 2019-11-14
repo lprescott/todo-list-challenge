@@ -1,6 +1,6 @@
-package com.jahnelgroup.todolist.todo.model;
+package com.jahnelgroup.todolist.list.model;
 
-import com.jahnelgroup.todolist.list.model.TodoList;
+import com.jahnelgroup.todolist.user.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,19 +12,16 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Todo {
+public class TodoList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
-    private String title;
-
-    @NonNull
-    private Boolean completed;
+    private String name;
 
     @NonNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "todoList_id")
-    private TodoList todoList;
+    @JoinColumn(name = "user_id")
+    private User user;
 }

@@ -1,4 +1,4 @@
-package com.jahnelgroup.todolist.todo.model;
+package com.jahnelgroup.todolist.user.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class TodoList {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

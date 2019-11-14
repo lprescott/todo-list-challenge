@@ -47,13 +47,13 @@ public class TodoController {
      */
     @GetMapping("/{id}")
     public ResponseEntity<Todo> findById(@PathVariable Long id) {
-        Optional<Todo> stock = todoService.findById(id);
-        if (!stock.isPresent()) {
+        Optional<Todo> todo = todoService.findById(id);
+        if (!todo.isPresent()) {
             log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
 
-        return ResponseEntity.ok(stock.get());
+        return ResponseEntity.ok(todo.get());
     }
 
     /**
