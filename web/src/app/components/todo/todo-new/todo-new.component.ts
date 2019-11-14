@@ -4,7 +4,6 @@ import {TodolistService} from '../../../services/list/todolist.service';
 import {TodoList} from '../../../models/TodoList';
 import {TodoService} from '../../../services/todo/todo.service';
 import {Todo} from '../../../models/Todo';
-import { UserService } from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-todo-new',

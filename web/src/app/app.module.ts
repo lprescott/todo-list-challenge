@@ -14,6 +14,8 @@ import { ListNewComponent } from './components/list/list-new/list-new.component'
 import { ListListComponent } from './components/list/list-list/list-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/login/login.component';
+import { TodolistService } from './services/list/todolist.service';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -31,11 +33,12 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
     FontAwesomeModule
   ],
   providers: [
-    TodoService
+    TodoService,
+    TodolistService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
