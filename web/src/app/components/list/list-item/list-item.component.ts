@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TodoList } from '../../../models/TodoList';
-import { TodolistService } from '../../../services/todolist.service';
+import { TodolistService } from '../../../services/list/todolist.service';
 import { Router } from '@angular/router';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert2';
-import { TodoService } from '../../../services/todo.service';
+import { TodoService } from '../../../services/todo/todo.service';
 
 @Component({
   selector: 'app-list-item',

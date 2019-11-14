@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
-import { Todo } from '../models/Todo';
+import { Todo } from '../../models/Todo';
 import { catchError } from 'rxjs/operators';
 
 // this const outlines the used http content-type in a JSON format
