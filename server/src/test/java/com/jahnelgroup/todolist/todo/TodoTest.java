@@ -1,4 +1,4 @@
-package com.jahnelgroup.todolist.todo;
+package com.jahnelgroup.todolist;
 
 import com.jahnelgroup.todolist.TodoListApplication;
 import com.jahnelgroup.todolist.todo.model.Todo;
@@ -13,11 +13,9 @@ import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.util.NoSuchElementException;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TodoListApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class TodoTests {
+public class TodoTest {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
