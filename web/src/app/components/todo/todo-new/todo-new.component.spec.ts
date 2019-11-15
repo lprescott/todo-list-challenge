@@ -27,10 +27,4 @@ describe('TodoNewComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render page header', () => {
-    fixture = TestBed.createComponent(TodoNewComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('#header1').textContent);
-  });
 });
