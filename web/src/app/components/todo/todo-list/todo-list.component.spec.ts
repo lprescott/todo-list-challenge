@@ -4,7 +4,8 @@ import { TodoListComponent } from './todo-list.component';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { TodoNewComponent } from '../todo-new/todo-new.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -13,7 +14,7 @@ describe('TodoListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TodoListComponent, TodoItemComponent, TodoNewComponent],
-      imports: [FormsModule, HttpClientModule]
+      imports: [FormsModule, HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
   }));
