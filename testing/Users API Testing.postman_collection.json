@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "d72facac-5e71-42be-9e3a-dd8ebccb7de6",
-		"name": "Todos API Testing",
+		"_postman_id": "fc0db374-1b4c-4903-846e-0336b967fb57",
+		"name": "Users API Testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "localhost:8080/todos/1",
+			"name": "localhost:8080/users",
 			"request": {
-				"method": "PUT",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"id\": 1,\r\n        \"title\": \"Test Item New Name\",\r\n        \"completed\": false,\r\n        \"todoList\": {\r\n            \"id\": 1,\r\n            \"name\": \"Todo List 1\",\r\n            \"user\": {\r\n                \"id\": 1,\r\n                \"name\": \"user1\"\r\n            }\r\n        }\r\n    }",
+					"raw": "{\n\t\"name\": \"user1\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -27,13 +27,65 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/todos/1",
+					"raw": "localhost:8080/users",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"todos",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/users/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"name\": \"user1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
 						"1"
 					]
 				}
@@ -41,7 +93,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/todos/1",
+			"name": "localhost:8080/users/1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -65,13 +117,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/todos/1",
+					"raw": "localhost:8080/users/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"todos",
+						"users",
 						"1"
 					]
 				}
@@ -79,9 +131,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/todos/1",
+			"name": "localhost:8080/users/1",
 			"request": {
-				"method": "DELETE",
+				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -92,7 +144,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"id\": 1\r\n    }",
+					"raw": "{\n\t\"id\": 1,\n\t\"name\": \"username\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -100,73 +152,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/todos/1",
+					"raw": "localhost:8080/users/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"todos",
+						"users",
 						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "localhost:8080/todos",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"title\": \"Test Item 1\",\r\n        \"completed\": false,\r\n        \"todoList\": {\r\n            \"id\": 1,\r\n            \"name\": \"Todo List 1\",\r\n            \"user\": {\r\n                \"id\": 1,\r\n                \"name\": \"user1\"\r\n            }\r\n        }\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/todos",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"todos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "localhost:8080/todos",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost:8080/todos",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"todos"
 					]
 				}
 			},
