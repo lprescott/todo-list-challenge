@@ -39,13 +39,14 @@ public class TodoService {
 
     /**
      * deletes all Todos given an ID of their todolist
+     *
      * @param id the todolist's id
      */
     public void deleteByListId(Long id) {
         List<Todo> temp = new ArrayList<>();
         temp = findAll();
-        for(int i = 0; i < temp.size(); i ++) {
-            if(temp.get(i).getTodoList().getId() == id) {
+        for (int i = 0; i < temp.size(); i++) {
+            if (temp.get(i).getTodoList().getId() == id) {
                 deleteById(temp.get(i).getId());
             }
         }

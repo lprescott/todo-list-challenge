@@ -30,6 +30,7 @@ class TodoListApplicationTests {
 
     /**
      * This function creates the full web path of the users api.
+     *
      * @return The web url of the users api.
      */
     private String getUsersURL() {
@@ -38,6 +39,7 @@ class TodoListApplicationTests {
 
     /**
      * This function creates the full web path of the todos api.
+     *
      * @return The web url of the todos api.
      */
     private String getTodosURL() {
@@ -46,6 +48,7 @@ class TodoListApplicationTests {
 
     /**
      * This function creates the full web path of the lists api.
+     *
      * @return The web url of the lists api.
      */
     private String getListsURL() {

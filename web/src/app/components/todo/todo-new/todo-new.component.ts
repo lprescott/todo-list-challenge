@@ -1,9 +1,9 @@
-import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {TodolistService} from '../../../services/list/todolist.service';
-import {TodoList} from '../../../models/TodoList';
-import {TodoService} from '../../../services/todo/todo.service';
-import {Todo} from '../../../models/Todo';
+import { TodolistService } from '../../../services/list/todolist.service';
+import { TodoList } from '../../../models/TodoList';
+import { TodoService } from '../../../services/todo/todo.service';
+import { Todo } from '../../../models/Todo';
 
 @Component({
   selector: 'app-todo-new',
@@ -11,7 +11,6 @@ import {Todo} from '../../../models/Todo';
   styleUrls: ['./todo-new.component.scss']
 })
 export class TodoNewComponent implements OnInit {
-
   // outputs addTodo  via an event emitter to todo-list
   @Output() addTodo: EventEmitter<any> = new EventEmitter<any>();
 
@@ -27,7 +26,7 @@ export class TodoNewComponent implements OnInit {
     private todoService: TodoService,
     private todolistService: TodolistService,
     private route: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     const id = Number(this.aroute.snapshot.params.id);
@@ -44,7 +43,6 @@ export class TodoNewComponent implements OnInit {
 
   // creation of a Todo model using 2-way data binding and emitting
   onSubmit() {
-
     // create a Todo model
     const todo = {
       title: this.title,

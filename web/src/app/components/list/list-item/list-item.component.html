@@ -1,20 +1,32 @@
 <form class="card form" (ngSubmit)="onSave(list, name.value)">
-    <div class="buttons">
-        <button class="btn goto" type="reset" title="Goto" (click)="onRoute(list)">
-            <fa-icon [icon]="faList"></fa-icon>
-        </button>
-        <button class="btn save" type="submit" title="Save">
-            Save
-        </button>
-        <button class="btn reset" type="reset" title="Reset">
-            Reset
-        </button>
-        <button class="btn delete" type="reset" (click)="onDelete(list)" title="Delete">
-            Delete
-        </button>
-    </div>
-    <hr>
-    <div class="list-input">
-        <input #name class="list-name" style="margin-top: 7px" type="text" [value]="(list) ? list.name : ''" [defaultValue]="(list) ? list.name : ''" >
-    </div>
+  <div class="buttons">
+    <button class="btn goto" type="reset" title="Goto" (click)="onRoute(list)">
+      <fa-icon [icon]="faList"></fa-icon>
+    </button>
+    <button class="btn save" type="submit" title="Save">
+      Save
+    </button>
+    <button class="btn reset" type="reset" title="Reset">
+      Reset
+    </button>
+    <button
+      class="btn delete"
+      type="reset"
+      (click)="onDelete(list)"
+      title="Delete"
+    >
+      Delete
+    </button>
+  </div>
+  <hr />
+  <div class="list-input">
+    <input
+      #name
+      class="list-name"
+      style="margin-top: 7px"
+      type="text"
+      [value]="list ? list.name : ''"
+      [defaultValue]="list ? list.name : ''"
+    />
+  </div>
 </form>

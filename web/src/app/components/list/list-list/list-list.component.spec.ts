@@ -14,10 +14,14 @@ describe('ListListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListListComponent, ListNewComponent, ListItemComponent ],
-      imports: [ FormsModule, HttpClientTestingModule, FontAwesomeModule, RouterTestingModule ]
-    })
-    .compileComponents();
+      declarations: [ListListComponent, ListNewComponent, ListItemComponent],
+      imports: [
+        FormsModule,
+        HttpClientTestingModule,
+        FontAwesomeModule,
+        RouterTestingModule
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

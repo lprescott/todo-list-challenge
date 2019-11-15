@@ -17,51 +17,53 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-
   // passing an HttpClient through the constructor allows its access
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // backend api's controller path
   usersUrl = '/users';
 
   // get all users
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl)
+    return this.http
+      .get<User[]>(this.usersUrl)
       .pipe(catchError(TodoService.handleError));
-
   }
 
   // delete the user with the passed id
   deleteUser(user: User): Observable<User> {
     const url = `${this.usersUrl}/${user.id}`;
-    return this.http.delete<User>(url, httpOptions)
+    return this.http
+      .delete<User>(url, httpOptions)
       .pipe(catchError(TodoService.handleError));
   }
 
   // add the passed observable
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.usersUrl, user, httpOptions)
+    return this.http
+      .post<User>(this.usersUrl, user, httpOptions)
       .pipe(catchError(TodoService.handleError));
   }
 
   // toggle completion of the passed observable
   toggleCompleted(user: User): Observable<any> {
     const url = `${this.usersUrl}/${user.id}`;
-    return this.http.put(url, user, httpOptions)
+    return this.http
+      .put(url, user, httpOptions)
       .pipe(catchError(TodoService.handleError));
   }
 
   // update the title of existing user
   updateUser(user: User): Observable<User> {
     const url = `${this.usersUrl}/${user.id}`;
-    return this.http.put<User>(url, user, httpOptions)
+    return this.http
+      .put<User>(url, user, httpOptions)
       .pipe(catchError(TodoService.handleError));
   }
 
   // get user by ID
   getUser(id: number): Observable<User> {
     const url = `${this.usersUrl}/${id}`;
-    return this.http.get<User>(url)
-      .pipe(catchError(TodoService.handleError));
+    return this.http.get<User>(url).pipe(catchError(TodoService.handleError));
   }
 }

@@ -23,6 +23,7 @@ public class TodoController {
 
     /**
      * returns all todos
+     *
      * @return a list of all todos in JSON, and http header
      */
     @GetMapping
@@ -32,6 +33,7 @@ public class TodoController {
 
     /**
      * adds a todo
+     *
      * @param todo the todo to add
      * @return the todo added, and http header
      */
@@ -42,6 +44,7 @@ public class TodoController {
 
     /**
      * gets a todo by id
+     *
      * @param id the id of the todo
      * @return the todo to get, and http header
      */
@@ -58,7 +61,8 @@ public class TodoController {
 
     /**
      * updates a todo by id
-     * @param id the id of the todo to update
+     *
+     * @param id   the id of the todo to update
      * @param todo the content of the updated todo
      * @return the updated todo, and http header
      */
@@ -74,6 +78,7 @@ public class TodoController {
 
     /**
      * delete a todo by id
+     *
      * @param id the id of the todo to delete
      * @return http header
      */

@@ -1,20 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        BrowserModule,
-        HttpClientModule,
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [BrowserModule, HttpClientModule, RouterTestingModule],
+      declarations: [AppComponent]
     }).compileComponents();
   }));
 

@@ -1,21 +1,21 @@
 .new {
   background-color: #44ca89;
-  color:#FFFFFF;
+  color: #ffffff;
   margin-left: 15px;
 }
 
 .add {
-  color:#FFFFFF;
+  color: #ffffff;
   background-color: #4cabff;
   margin-top: 15px;
-  padding:0.7em 1.5em;
+  padding: 0.7em 1.5em;
 }
 
 .logout {
-  color:#FFFFFF;
+  color: #ffffff;
   background-color: #4cabff;
   margin-top: 15px;
-  padding:0.7em 1.5em;
+  padding: 0.7em 1.5em;
   margin-left: calc(100% - 150px);
   margin-right: 0;
 }
@@ -35,13 +35,14 @@
 h2 {
   margin-top: 0;
   margin-bottom: 15px;
-  color: rgb(49, 49, 49)
+  color: rgb(49, 49, 49);
 }
 
-.ng-valid[required], .ng-valid.required  {
+.ng-valid[required],
+.ng-valid.required {
   border-left: 5px solid #44ca89; /* green */
 }
 
-.ng-invalid:not(form)  {
-  border-left: 5px solid #FF605C; /* red */
+.ng-invalid:not(form) {
+  border-left: 5px solid #ff605c; /* red */
 }

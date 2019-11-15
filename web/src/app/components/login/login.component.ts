@@ -3,7 +3,6 @@ import { UserService } from '../../services/user/user.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,9 +10,9 @@ import swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   username: string;
-  stylesObj = {'border-left': '5px solid #FF605C'};
+  stylesObj = { 'border-left': '5px solid #FF605C' };
 
-  constructor(private userService: UserService, private route: Router) { }
+  constructor(private userService: UserService, private route: Router) {}
 
   ngOnInit() {
     if (sessionStorage.getItem('user') !== null) {

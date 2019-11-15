@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule} from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo/todo-item/todo-item.component';
@@ -35,12 +35,8 @@ import { UserService } from './services/user/user.service';
     FormsModule,
     FontAwesomeModule
   ],
-  providers: [
-    TodoService,
-    TodolistService,
-    UserService
-  ],
+  providers: [TodoService, TodolistService, UserService],
   bootstrap: [AppComponent],
   schemas: []
 })
-export class AppModule { }
+export class AppModule {}

@@ -3,12 +3,14 @@ import { TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { TodoService } from './todo.service';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
 
 import { Todo } from '../../models/Todo';
 
 describe('TodoService', () => {
-
   // create a mock httpMock object and service used for testing
   let httpMock: HttpTestingController;
   let service: TodoService;
@@ -21,14 +23,8 @@ describe('TodoService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        BrowserModule,
-        HttpClientModule,
-        HttpClientTestingModule
-      ],
-      providers: [
-        TodoService
-      ]
+      imports: [BrowserModule, HttpClientModule, HttpClientTestingModule],
+      providers: [TodoService]
     });
 
     httpMock = TestBed.get(HttpTestingController);
@@ -41,9 +37,9 @@ describe('TodoService', () => {
   });
 
   it('should addTodo() and POST', () => {
-    service.addTodo(firstTodo).subscribe(todo =>
-      expect(todo).toEqual(firstTodo)
-    );
+    service
+      .addTodo(firstTodo)
+      .subscribe(todo => expect(todo).toEqual(firstTodo));
 
     const request = httpMock.expectOne('/todos');
 
@@ -53,9 +49,9 @@ describe('TodoService', () => {
   });
 
   it('should updateTodo() and PUT', () => {
-    service.updateTodo(firstTodo).subscribe(todo =>
-      expect(todo).toEqual(firstTodo)
-    );
+    service
+      .updateTodo(firstTodo)
+      .subscribe(todo => expect(todo).toEqual(firstTodo));
 
     const request = httpMock.expectOne('/todos/1');
 
@@ -65,9 +61,7 @@ describe('TodoService', () => {
   });
 
   it('should deleteTodo() and DELETE', () => {
-    service.deleteTodo(firstTodo).subscribe(() =>
-      expect(null).toEqual(null)
-    );
+    service.deleteTodo(firstTodo).subscribe(() => expect(null).toEqual(null));
 
     const request = httpMock.expectOne('/todos/1');
 
@@ -77,9 +71,7 @@ describe('TodoService', () => {
   });
 
   it('should getTodos() and GET', () => {
-    service.getTodos().subscribe(todos =>
-      expect(todos).toEqual([firstTodo])
-    );
+    service.getTodos().subscribe(todos => expect(todos).toEqual([firstTodo]));
 
     const request = httpMock.expectOne('/todos');
 
@@ -89,9 +81,9 @@ describe('TodoService', () => {
   });
 
   it('should toggleCompleted() and PUT', () => {
-    service.toggleCompleted(firstTodo).subscribe(todo =>
-      expect(todo.completed).toEqual(firstTodo.completed)
-    );
+    service
+      .toggleCompleted(firstTodo)
+      .subscribe(todo => expect(todo.completed).toEqual(firstTodo.completed));
 
     const request = httpMock.expectOne('/todos/1');
 

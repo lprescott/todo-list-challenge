@@ -1,14 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UserService } from './user.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { TodolistService } from '../list/todolist.service';
 import { User } from '../../models/User';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('UserService', () => {
-
   // create a mock httpMock object and service used for testing
   let httpMock: HttpTestingController;
   let service: UserService;
@@ -20,14 +22,8 @@ describe('UserService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        BrowserModule,
-        HttpClientModule,
-        HttpClientTestingModule
-      ],
-      providers: [
-        UserService
-      ]
+      imports: [BrowserModule, HttpClientModule, HttpClientTestingModule],
+      providers: [UserService]
     });
 
     httpMock = TestBed.get(HttpTestingController);
@@ -40,9 +36,9 @@ describe('UserService', () => {
   });
 
   it('should addUser() and POST', () => {
-    service.addUser(firstUser).subscribe(todo =>
-      expect(todo).toEqual(firstUser)
-    );
+    service
+      .addUser(firstUser)
+      .subscribe(todo => expect(todo).toEqual(firstUser));
 
     const request = httpMock.expectOne('/users');
 
@@ -52,9 +48,9 @@ describe('UserService', () => {
   });
 
   it('should updateUser() and PUT', () => {
-    service.updateUser(firstUser).subscribe(todo =>
-      expect(todo).toEqual(firstUser)
-    );
+    service
+      .updateUser(firstUser)
+      .subscribe(todo => expect(todo).toEqual(firstUser));
 
     const request = httpMock.expectOne('/users/1');
 
@@ -64,9 +60,7 @@ describe('UserService', () => {
   });
 
   it('should deleteUser() and DELETE', () => {
-    service.deleteUser(firstUser).subscribe(() =>
-      expect(null).toEqual(null)
-    );
+    service.deleteUser(firstUser).subscribe(() => expect(null).toEqual(null));
 
     const request = httpMock.expectOne('/users/1');
 
@@ -76,9 +70,7 @@ describe('UserService', () => {
   });
 
   it('should getUsers() and GET', () => {
-    service.getUsers().subscribe(todos =>
-      expect(todos).toEqual([firstUser])
-    );
+    service.getUsers().subscribe(todos => expect(todos).toEqual([firstUser]));
 
     const request = httpMock.expectOne('/users');
 

@@ -11,10 +11,9 @@ describe('ListNewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListNewComponent ],
-      imports: [ FormsModule, HttpClientTestingModule, RouterTestingModule ]
-    })
-    .compileComponents();
+      declarations: [ListNewComponent],
+      imports: [FormsModule, HttpClientTestingModule, RouterTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

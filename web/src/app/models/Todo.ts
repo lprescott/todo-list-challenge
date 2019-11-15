@@ -1,4 +1,4 @@
-import {TodoList} from './TodoList';
+import { TodoList } from './TodoList';
 
 export class Todo {
   id: number;

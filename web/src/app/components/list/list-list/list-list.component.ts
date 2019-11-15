@@ -26,7 +26,10 @@ export class ListListComponent implements OnInit {
   ngOnInit() {
     const id = Number(this.aroute.snapshot.params.id);
 
-    if (sessionStorage.getItem('user') === null || sessionStorage.getItem('user') !== String(id)) {
+    if (
+      sessionStorage.getItem('user') === null ||
+      sessionStorage.getItem('user') !== String(id)
+    ) {
       this.route.navigate(['']);
     }
 
@@ -34,7 +37,7 @@ export class ListListComponent implements OnInit {
       this.lists = lists.filter(list => list.user.id === id);
     });
 
-    this.userService.getUser(id).subscribe(user => this.user = user);
+    this.userService.getUser(id).subscribe(user => (this.user = user));
   }
 
   deleteList(list: TodoList) {

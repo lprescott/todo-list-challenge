@@ -1,12 +1,12 @@
 .delete {
   margin-right: 0;
-  color:#FFFFFF;
-  background-color: #FF605C;
+  color: #ffffff;
+  background-color: #ff605c;
 }
 
 .reset {
   margin-right: 15px;
-  color:#FFFFFF;
+  color: #ffffff;
   background-color: #ffb568;
 }
 
@@ -19,7 +19,7 @@
 
 .save {
   margin-right: 15px;
-  color:#FFFFFF;
+  color: #ffffff;
   background-color: #44ca89;
   margin-left: calc(100% - 245px);
 }
@@ -47,28 +47,31 @@ hr {
   outline: 0;
 }
 
-
 .regular-checkbox {
   -webkit-appearance: none;
   background-color: #fafafa;
   border: 1px solid #cacece;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
   padding: 9px;
   border-radius: 0.1em;
   display: inline-block;
   position: relative;
   margin-bottom: -5px;
-
 }
 
-.regular-checkbox:active, .regular-checkbox:checked:active {
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+.regular-checkbox:active,
+.regular-checkbox:checked:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .regular-checkbox:checked {
   background-color: #e9ecee;
   border: 1px solid #adb8c0;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+    inset 15px 10px -12px rgba(255, 255, 255, 0.1);
   color: #99a1a7;
 }
 
