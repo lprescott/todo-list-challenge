@@ -26,7 +26,7 @@ import { UserService } from './services/user/user.service';
     ListItemComponent,
     ListNewComponent,
     ListListComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +40,7 @@ import { UserService } from './services/user/user.service';
     TodolistService,
     UserService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: []
 })
 export class AppModule { }
