@@ -1,8 +1,9 @@
-package com.jahnelgroup.todolist;
+package com.jahnelgroup.todolist.todo;
 
+import com.jahnelgroup.todolist.TodoListApplication;
 import com.jahnelgroup.todolist.todo.model.Todo;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +15,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TodoListApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class TodoListApplicationTests {
+public class TodoTests {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
@@ -31,7 +32,7 @@ class TodoListApplicationTests {
     }
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
     }
 
     /**
