@@ -39,4 +39,56 @@ describe('TodolistService', () => {
     service = TestBed.get(TodolistService);
     expect(service).toBeTruthy();
   });
+
+  it('should addList() and POST', () => {
+    service.addTodoList(firstList).subscribe(todo =>
+      expect(todo).toEqual(firstList)
+    );
+
+    const request = httpMock.expectOne('/lists');
+
+    expect(request.request.method).toEqual('POST');
+    request.flush(firstList);
+    httpMock.verify();
+  });
+
+  it('should updateList() and PUT', () => {
+    service.updateTodoList(firstList).subscribe(todo =>
+      expect(todo).toEqual(firstList)
+    );
+
+    const request = httpMock.expectOne('/lists/1');
+
+    expect(request.request.method).toEqual('PUT');
+    request.flush(firstList);
+    httpMock.verify();
+  });
+
+  it('should deleteList() and DELETE', () => {
+    service.deleteTodoList(firstList).subscribe(() =>
+      expect(null).toEqual(null)
+    );
+
+    const request = httpMock.expectOne('/lists/1');
+
+    expect(request.request.method).toEqual('DELETE');
+    request.flush({});
+    httpMock.verify();
+  });
+
+  it('should getLists() and GET', () => {
+    service.getTodoLists().subscribe(todos =>
+      expect(todos).toEqual([firstList])
+    );
+
+    const request = httpMock.expectOne('/lists');
+
+    expect(request.request.method).toEqual('GET');
+    request.flush([firstList]);
+    httpMock.verify();
+  });
+
+  afterEach(() => {
+    httpMock.verify();
+  });
 });
