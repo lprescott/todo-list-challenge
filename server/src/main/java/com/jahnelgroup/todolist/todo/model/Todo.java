@@ -23,7 +23,6 @@ public class Todo {
     @NonNull
     private Boolean completed;
 
-    @NonNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "todoList_id")
     private TodoList todoList;

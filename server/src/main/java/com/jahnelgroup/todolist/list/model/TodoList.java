@@ -20,7 +20,6 @@ public class TodoList {
     @NonNull
     private String name;
 
-    @NonNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;

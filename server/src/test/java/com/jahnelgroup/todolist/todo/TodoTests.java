@@ -13,6 +13,8 @@ import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.NoSuchElementException;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TodoListApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TodoTests {
@@ -55,9 +57,11 @@ public class TodoTests {
      */
     @Test
     public void testGetTodoById() {
-        Todo todo = testRestTemplate.getForObject(getTodosURL() + "/1", Todo.class);
-        System.out.println(todo.getTitle());
-        Assert.assertNotNull(todo);
+        testCreateTodo();
+
+        Todo todo2 = testRestTemplate.getForObject(getTodosURL() + "/1", Todo.class);
+        System.out.println(todo2.getTitle());
+        Assert.assertNotNull(todo2);
     }
 
     /**
@@ -79,9 +83,11 @@ public class TodoTests {
      */
     @Test
     public void testUpdateTodo() {
+        testCreateTodo();
+
         int id = 1;
         Todo todoNew = testRestTemplate.getForObject(getTodosURL() + "/" + id, Todo.class);
-        todoNew.setTitle("Test Todo");
+        todoNew.setTitle("Test Todo New Name");
         todoNew.setCompleted(true);
 
         testRestTemplate.put(getTodosURL() + "/" + id, todoNew);
@@ -96,14 +102,13 @@ public class TodoTests {
      */
     @Test
     public void testDeleteTodo() {
-        int id = 2;
-        Todo todo = testRestTemplate.getForObject(getTodosURL() + "/" + id, Todo.class);
-        Assert.assertNotNull(todo);
-
-        testRestTemplate.delete(getTodosURL() + "/" + id);
+        testCreateTodo();
 
         try {
-            todo = testRestTemplate.getForObject(getTodosURL() + "/" + id, Todo.class);
+            int id = 1;
+            Todo todo = testRestTemplate.getForObject(getTodosURL() + "/" + id, Todo.class);
+            Assert.assertNotNull(todo);
+            testRestTemplate.delete(getTodosURL() + "/" + id);
         } catch (final HttpClientErrorException e) {
             Assert.assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
         }
