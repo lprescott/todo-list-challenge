@@ -18,22 +18,33 @@ export class TodolistItemComponent implements OnInit {
     private todoService: TodoService
   ) {}
 
+  // the current model inputted from the above component todolist-list
   @Input() list: TodoList;
+
+  // outputs deleteList via an event emitter to todolist-list
   @Output() deleteList: EventEmitter<TodoList> = new EventEmitter<TodoList>();
+
+  // outputs updateList via an event emitter to todolist-list
   @Output() updateList: EventEmitter<TodoList> = new EventEmitter<TodoList>();
 
+  // font-awesome icon's variable (list icon)
   faList = faList;
 
   ngOnInit() {}
 
+  // On updating the list name
   onSave(list: TodoList, newName: string) {
+
+    // no change, return
     if (this.list.name === newName || newName.length === 0) {
       console.log('\'' + this.list.name + '\' not updated');
       return;
     }
 
+    // change in UI
     this.list.name = newName;
 
+    // change on Server and log
     this.todoListService.updateTodoList(list).subscribe(up => {
       console.log('Updated list ' + list.id + ' to \'' + this.list.name + '\'');
       console.log(up);
@@ -76,6 +87,7 @@ export class TodolistItemComponent implements OnInit {
     });
   }
 
+  // routes the current user to the passes lists todos page, and logs
   onRoute(list: TodoList) {
     this.router
       .navigateByUrl('/user/' + list.user.id + '/list/' + list.id)

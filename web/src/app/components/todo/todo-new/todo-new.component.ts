@@ -14,9 +14,8 @@ export class TodoNewComponent implements OnInit {
   // outputs addTodo  via an event emitter to todo-list
   @Output() addTodo: EventEmitter<any> = new EventEmitter<any>();
 
-  @Input() todos: Todo[];
+  // the list inputted from todo-list component
   @Input() list: TodoList;
-  @Input() id: number;
 
   // required for 2-way data binding through ngModel
   title: string;
@@ -48,6 +47,7 @@ export class TodoNewComponent implements OnInit {
     this.title = undefined;
   }
 
+  // returns to the users home page
   goHome() {
     this.route.navigate(['/user/' + this.list.user.id]);
   }
