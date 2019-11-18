@@ -25,12 +25,14 @@ export class TodolistService {
   // passing an HttpClient through the constructor allows its access
   constructor(private http: HttpClient) {}
 
+  // get all todolists
   getTodoLists(): Observable<TodoList[]> {
     return this.http
       .get<TodoList[]>(this.todoListsUrl)
       .pipe(catchError(TodoService.handleError));
   }
 
+  // delete the passed todolist
   deleteTodoList(todoList: TodoList): Observable<TodoList> {
     const url = `${this.todoListsUrl}/${todoList.id}`;
     return this.http
@@ -38,12 +40,14 @@ export class TodolistService {
       .pipe(catchError(TodoService.handleError));
   }
 
+  // add the passed todolist
   addTodoList(todoList: TodoList): Observable<TodoList> {
     return this.http
       .post<TodoList>(this.todoListsUrl, todoList, httpOptions)
       .pipe(catchError(TodoService.handleError));
   }
 
+  // update the passed todolist
   updateTodoList(todoList: TodoList): Observable<TodoList> {
     const url = `${this.todoListsUrl}/${todoList.id}`;
     return this.http
@@ -51,6 +55,7 @@ export class TodolistService {
       .pipe(catchError(TodoService.handleError));
   }
 
+  // get todolist by id
   getTodoList(id: number): Observable<TodoList> {
     const url = `${this.todoListsUrl}/${id}`;
     return this.http
