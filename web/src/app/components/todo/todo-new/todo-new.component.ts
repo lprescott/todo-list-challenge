@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TodolistService } from '../../../services/todolist/todolist.service';
 import { TodoList } from '../../../models/TodoList';
 import { TodoService } from '../../../services/todo/todo.service';
-import { Todo } from '../../../models/Todo';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-new',
@@ -11,22 +11,27 @@ import { Todo } from '../../../models/Todo';
   styleUrls: ['./todo-new.component.scss']
 })
 export class TodoNewComponent implements OnInit {
+
+  constructor(
+    private aroute: ActivatedRoute,
+    private todoService: TodoService,
+    private todolistService: TodolistService,
+    private route: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.newTodoForm = formBuilder.group({
+      title: [''],
+    });
+  }
+
   // outputs addTodo  via an event emitter to todo-list
   @Output() addTodo: EventEmitter<any> = new EventEmitter<any>();
 
   // the list inputted from todo-list component
   @Input() list: TodoList;
 
-  // required for 2-way data binding through ngModel
-  title: string;
-  name: string;
-
-  constructor(
-    private aroute: ActivatedRoute,
-    private todoService: TodoService,
-    private todolistService: TodolistService,
-    private route: Router
-  ) {}
+  // the components formgroup
+  private newTodoForm: FormGroup;
 
   ngOnInit() {
   }
@@ -35,7 +40,7 @@ export class TodoNewComponent implements OnInit {
   onSubmit() {
     // create a Todo model
     const todo = {
-      title: this.title,
+      title: this.newTodoForm.controls.title.value,
       completed: false,
       todoList: this.list
     };
@@ -43,8 +48,8 @@ export class TodoNewComponent implements OnInit {
     // emit upwards to todo-list component
     this.addTodo.emit(todo);
 
-    // clear text
-    this.title = undefined;
+    // reset
+    this.newTodoForm.reset();
   }
 
   // returns to the users home page
