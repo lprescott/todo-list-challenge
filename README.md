@@ -82,3 +82,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Acknowledgments 
 - Special thanks to the team at Jahnel Group, and everyone who gave their input
+- <a target="_blank" href="/icons/set/add-list">Add List icon</a> by <a target="_blank" href="https://icons8.com">Icons8</a>
+- [FontAwesome](https://fontawesome.com/) for their list icon.
