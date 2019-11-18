@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/User';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-list-new',
@@ -16,14 +17,19 @@ export class TodolistNewComponent implements OnInit {
   // input the current user from the above todolist-list component
   @Input() user: User;
 
-  // The two-way data-binded name of new todolist
-  name: string;
+  // the components formgroup
+  private newListForm: FormGroup;
 
   constructor(
     private userService: UserService,
     private aroute: ActivatedRoute,
-    private route: Router
-  ) {}
+    private route: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.newListForm = formBuilder.group({
+      name: [''],
+    });
+  }
 
   ngOnInit() {}
 
@@ -33,7 +39,7 @@ export class TodolistNewComponent implements OnInit {
 
     // create list object
     const list = {
-      name: this.name,
+      name: this.newListForm.controls.name.value,
       user: undefined
     };
 
@@ -44,7 +50,7 @@ export class TodolistNewComponent implements OnInit {
     });
 
     // reset name
-    this.name = undefined;
+    this.newListForm.reset();
   }
 
   // redirect to homepage

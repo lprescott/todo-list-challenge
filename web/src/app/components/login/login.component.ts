@@ -10,7 +10,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  // styling for username input
   stylesObj = { 'border-left': '5px solid #FF605C' };
+
+  // the components formgroup
   private loginForm: FormGroup;
 
   constructor(
@@ -31,7 +35,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.get('username').value);
     let success = false;
     // find user (if it exists) and redirect
     this.userService.getUsers().subscribe(users => {

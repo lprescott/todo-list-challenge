@@ -3,20 +3,20 @@
     <h2>Welcome, {{ user?.name }} to the Todo List Challenge</h2>
   </div>
   <div class="content">
-    <form (ngSubmit)="onSubmit()" #listForm="ngForm">
+    <form [formGroup]="newListForm" (ngSubmit)="onSubmit()">
       <div class="list-input">
         <input
           required
-          [(ngModel)]="name"
           type="text"
           id="name"
           class="list-name"
           name="name"
+          formControlName="name"
           placeholder="The name of a new todo list..."
         />
       </div>
       <button
-        [disabled]="!listForm.form.valid"
+        [disabled]="!newListForm.valid"
         class="btn add"
         type="submit"
         title="Add"

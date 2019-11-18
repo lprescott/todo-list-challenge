@@ -17,6 +17,7 @@
         />
       </div>
       <button
+        [disabled]="!loginForm.valid"
         class="btn login"
         type="submit"
         title="Login"
