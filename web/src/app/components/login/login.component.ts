@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
     this.userService.getUsers().subscribe(users => {
       users = users.filter(user => {
         if (this.username === user.name) {
-          sessionStorage.setItem('uid', String(user.id));
           this.route.navigate(['/user/' + user.id]).then(r => {
             sessionStorage.setItem('uid', String(user.id));
             console.log('logged on with uid: ' + user.id);
