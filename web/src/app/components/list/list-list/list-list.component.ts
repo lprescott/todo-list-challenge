@@ -26,13 +26,6 @@ export class ListListComponent implements OnInit {
   ngOnInit() {
     const id = Number(this.aroute.snapshot.params.id);
 
-    if (
-      sessionStorage.getItem('user') === null ||
-      sessionStorage.getItem('user') !== String(id)
-    ) {
-      this.route.navigate(['']);
-    }
-
     this.todoListService.getTodoLists().subscribe(lists => {
       this.lists = lists.filter(list => list.user.id === id);
     });

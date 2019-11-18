@@ -78,7 +78,7 @@ export class ListItemComponent implements OnInit {
 
   onRoute(list: TodoList) {
     this.router
-      .navigateByUrl('/list/' + list.id)
-      .then(r => console.log('Successfully redirected to /list/' + list.id));
+      .navigateByUrl('/user/' + list.user.id + '/list/' + list.id)
+      .then(r => console.log('Successfully redirected to /user/' + list.user.id + '/list/' + list.id));
   }
 }

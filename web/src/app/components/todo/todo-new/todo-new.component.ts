@@ -29,7 +29,7 @@ export class TodoNewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = Number(this.aroute.snapshot.params.id);
+    const id = Number(this.aroute.snapshot.params.lid);
     this.list.id = id;
 
     this.todolistService.getTodoList(id).subscribe(list => {
@@ -58,6 +58,6 @@ export class TodoNewComponent implements OnInit {
   }
 
   goHome() {
-    this.route.navigate(['/home/' + this.list.user.id]);
+    this.route.navigate(['/user/' + this.list.user.id]);
   }
 }

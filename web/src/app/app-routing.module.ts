@@ -6,8 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'home/:id', component: ListListComponent },
-  { path: 'list/:id', component: TodoListComponent },
+  { path: 'user/:id', component: ListListComponent },
+  { path: 'user/:uid/list/:lid', component: TodoListComponent },
   { path: '**', redirectTo: '' }
 ];
 
