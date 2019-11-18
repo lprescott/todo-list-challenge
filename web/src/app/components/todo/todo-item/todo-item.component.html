@@ -1,4 +1,4 @@
-<form class="card form" (ngSubmit)="onSave(todo, title.value)">
+<form class="card form" [formGroup]="editTodoForm" (ngSubmit)="onSave(todo, this.editTodoForm.controls.title.value)">
   <div class="buttons">
     <input
       type="checkbox"
@@ -25,10 +25,10 @@
   <hr />
   <div class="todo-input" [ngClass]="setClasses()">
     <input
-      #title
       class="todo-title"
       style="margin-top: 7px"
       type="text"
+      formControlName="title"
       [value]="todo?.title"
       [defaultValue]="todo?.title"
     />

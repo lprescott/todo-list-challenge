@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Todo } from '../../../models/Todo';
 import { TodoService } from '../../../services/todo/todo.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,6 +9,14 @@ import { TodoService } from '../../../services/todo/todo.service';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
+
+  // taking todoService in the constructor allows it to be accessed from inside the class
+  constructor(private todoService: TodoService, private formBuilder: FormBuilder) {
+    this.editTodoForm = this.formBuilder.group({
+      title: [''],
+    });
+  }
+
   // the current model inputted from the above component todo-list
   @Input() todo: Todo;
 
@@ -17,8 +26,8 @@ export class TodoItemComponent implements OnInit {
   // outputs updateTodo via an event emitter to todo-list
   @Output() updateTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
-  // taking todoService in the constructor allows it to be accessed from inside the class
-  constructor(private todoService: TodoService) {}
+  // the components formgroup
+  private editTodoForm: FormGroup;
 
   ngOnInit() {}
 
