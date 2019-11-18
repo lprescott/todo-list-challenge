@@ -63,7 +63,7 @@ class TodoListApplicationTests {
     @Test
     public void testGetAllUsers() {
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
         ResponseEntity<String> response = testRestTemplate.exchange(getUsersURL(),
                 HttpMethod.GET, entity, String.class);
@@ -78,8 +78,7 @@ class TodoListApplicationTests {
     public void testGetUserById() {
         testCreateUser();
 
-        User user2 = testRestTemplate.getForObject(getUsersURL() + "/1", User.class);
-        System.out.println(user2.getName());
+        User user2 = testRestTemplate.getForObject(getUsersURL() + "/4", User.class);
         Assert.assertNotNull(user2);
     }
 
@@ -138,7 +137,7 @@ class TodoListApplicationTests {
     @Test
     public void testGetAllTodos() {
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
         ResponseEntity<String> response = testRestTemplate.exchange(getTodosURL(),
                 HttpMethod.GET, entity, String.class);
@@ -215,7 +214,7 @@ class TodoListApplicationTests {
     @Test
     public void testGetAllLists() {
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
         ResponseEntity<String> response = testRestTemplate.exchange(getListsURL(),
                 HttpMethod.GET, entity, String.class);
@@ -274,7 +273,7 @@ class TodoListApplicationTests {
         testCreateList();
 
         try {
-            int id = 1;
+            int id = 4;
             TodoList list = testRestTemplate.getForObject(getListsURL() + "/" + id, TodoList.class);
             Assert.assertNotNull(list);
             testRestTemplate.delete(getListsURL() + "/" + id);
