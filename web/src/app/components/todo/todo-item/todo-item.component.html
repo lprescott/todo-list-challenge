@@ -3,7 +3,7 @@
     <input
       type="checkbox"
       class="regular-checkbox"
-      [checked]="todo ? todo.completed : false"
+      [checked]="todo?.completed"
       (change)="onToggle(todo)"
       title="Mark As Completed"
     />
@@ -29,8 +29,8 @@
       class="todo-title"
       style="margin-top: 7px"
       type="text"
-      [value]="todo ? todo.title : ''"
-      [defaultValue]="todo ? todo.title : ''"
+      [value]="todo?.title"
+      [defaultValue]="todo?.title"
     />
   </div>
 </form>
