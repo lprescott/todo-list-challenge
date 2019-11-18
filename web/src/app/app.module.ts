@@ -33,7 +33,8 @@ import { TodolistListComponent } from './components/todolist/todolist-list/todol
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [TodoService, TodolistService, UserService],
   bootstrap: [AppComponent],

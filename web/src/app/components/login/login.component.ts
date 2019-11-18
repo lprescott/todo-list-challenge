@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,18 @@ import swal from 'sweetalert2';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username: string;
   stylesObj = { 'border-left': '5px solid #FF605C' };
+  private loginForm: FormGroup;
 
-  constructor(private userService: UserService, private route: Router) {}
+  constructor(
+    private userService: UserService,
+    private route: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.loginForm = formBuilder.group({
+      username: [''],
+    });
+  }
 
   ngOnInit() {
     // log out if logged in
@@ -22,11 +31,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.loginForm.get('username').value);
     let success = false;
     // find user (if it exists) and redirect
     this.userService.getUsers().subscribe(users => {
       users = users.filter(user => {
-        if (this.username === user.name) {
+        if (this.loginForm.controls.username.value === user.name) {
           this.route.navigate(['/user/' + user.id]).then(r => {
             sessionStorage.setItem('uid', String(user.id));
             console.log('logged on with uid: ' + user.id);
