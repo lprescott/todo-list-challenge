@@ -41,7 +41,9 @@ hr {
 }
 
 .todo-title {
+  max-width: calc(100% - 10px);
   width: calc(100% - 10px);
+  min-width: calc(100% - 10px);
   border: none;
   outline: 0;
 }
