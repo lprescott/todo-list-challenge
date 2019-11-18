@@ -11,11 +11,11 @@ import { TodoNewComponent } from './components/todo/todo-new/todo-new.component'
 import { TodoService } from './services/todo/todo.service';
 import { TodolistItemComponent } from './components/todolist/todolist-item/todolist-item.component';
 import { TodolistNewComponent } from './components/todolist/todolist-new/todolist-new.component';
-import { TodolistListComponent } from './components/todolist/todolist-list/todolist-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './components/login/login.component';
 import { TodolistService } from './services/todolist/todolist.service';
 import { UserService } from './services/user/user.service';
+import { TodolistListComponent } from './components/todolist/todolist-list/todolist-list.component';
 
 @NgModule({
   declarations: [
