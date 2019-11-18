@@ -11,9 +11,6 @@ import { TodolistService } from '../../../services/todolist/todolist.service';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  list = {} as TodoList;
-  todos: Todo[] = [];
-  id: number;
 
   // taking todoService in the constructor allows it to be accessed from inside the class
   constructor(
@@ -22,6 +19,11 @@ export class TodoListComponent implements OnInit {
     private todolistService: TodolistService,
     private route: Router
   ) {}
+
+  // list object, list of todos and list id
+  list = {} as TodoList;
+  todos: Todo[] = [];
+  id: number;
 
   // receives existing todos from server on initialization, using todoService
   ngOnInit() {

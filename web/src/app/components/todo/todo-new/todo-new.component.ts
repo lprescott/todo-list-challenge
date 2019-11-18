@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TodolistService } from '../../../services/todolist/todolist.service';
 import { TodoList } from '../../../models/TodoList';
 import { TodoService } from '../../../services/todo/todo.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-new',
@@ -20,7 +20,7 @@ export class TodoNewComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.newTodoForm = formBuilder.group({
-      title: [''],
+      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
     });
   }
 

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/User';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-list-new',
@@ -18,7 +18,7 @@ export class TodolistNewComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.newListForm = formBuilder.group({
-      name: [''],
+      name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
     });
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Todo } from '../../../models/Todo';
 import { TodoService } from '../../../services/todo/todo.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-item',
@@ -13,7 +13,7 @@ export class TodoItemComponent implements OnInit {
   // taking todoService in the constructor allows it to be accessed from inside the class
   constructor(private todoService: TodoService, private formBuilder: FormBuilder) {
     this.editTodoForm = this.formBuilder.group({
-      title: [''],
+      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
     });
   }
 

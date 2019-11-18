@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert2';
 import { TodoService } from '../../../services/todo/todo.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-list-item',
@@ -21,7 +21,7 @@ export class TodolistItemComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.editListForm = formBuilder.group({
-      name: [''],
+      name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
     });
   }
 
