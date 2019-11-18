@@ -1,5 +1,5 @@
 <div class="container">
-  <app-todo-new (addTodo)="addTodo($event)"></app-todo-new>
+  <app-todo-new (addTodo)="addTodo($event)" [list]="list" [todos]="todos" [id]="id"></app-todo-new>
   <app-todo-item
     *ngFor="let todo of todos"
     [todo]="todo"

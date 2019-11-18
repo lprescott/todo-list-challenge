@@ -14,12 +14,13 @@ export class TodoNewComponent implements OnInit {
   // outputs addTodo  via an event emitter to todo-list
   @Output() addTodo: EventEmitter<any> = new EventEmitter<any>();
 
+  @Input() todos: Todo[];
+  @Input() list: TodoList;
+  @Input() id: number;
+
   // required for 2-way data binding through ngModel
   title: string;
   name: string;
-
-  list = {} as TodoList;
-  todos: Todo[] = [];
 
   constructor(
     private aroute: ActivatedRoute,
@@ -29,16 +30,6 @@ export class TodoNewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = Number(this.aroute.snapshot.params.lid);
-    this.list.id = id;
-
-    this.todolistService.getTodoList(id).subscribe(list => {
-      this.list = list;
-    });
-
-    this.todoService.getTodos().subscribe(todos => {
-      this.todos = todos.filter(td => td.todoList.id === this.list.id);
-    });
   }
 
   // creation of a Todo model using 2-way data binding and emitting

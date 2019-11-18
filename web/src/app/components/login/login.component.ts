@@ -15,11 +15,11 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private route: Router) {}
 
   ngOnInit() {
-
   }
 
   onSubmit() {
     let success = false;
+    // find user (if it exists) and redirect
     this.userService.getUsers().subscribe(users => {
       users = users.filter(user => {
         if (this.username === user.name) {
@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
           success = true;
         }
       });
+      // show error on no users found
       if (success === false) {
         swal.fire({
           title: 'Incorrect Login Information',

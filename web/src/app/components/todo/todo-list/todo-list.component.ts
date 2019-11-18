@@ -13,6 +13,7 @@ import { TodolistService } from '../../../services/todolist/todolist.service';
 export class TodoListComponent implements OnInit {
   list = {} as TodoList;
   todos: Todo[] = [];
+  id: number;
 
   // taking todoService in the constructor allows it to be accessed from inside the class
   constructor(
@@ -24,10 +25,11 @@ export class TodoListComponent implements OnInit {
 
   // receives existing todos from server on initialization, using todoService
   ngOnInit() {
-    const id = Number(this.aroute.snapshot.params.lid);
-    this.list.id = id;
 
-    this.todolistService.getTodoList(id).subscribe(list => {
+    this.id = Number(this.aroute.snapshot.params.lid);
+    this.list.id = this.id;
+
+    this.todolistService.getTodoList(this.id).subscribe(list => {
       this.list = list;
     });
 
