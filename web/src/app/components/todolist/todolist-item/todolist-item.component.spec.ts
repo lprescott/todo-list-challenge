@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListItemComponent } from './list-item.component';
+import { TodolistItemComponent } from './todolist-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router } from '@angular/router';
-import { TodolistService } from '../../../services/list/todolist.service';
+import { TodolistService } from '../../../services/todolist/todolist.service';
 import { TodoService } from '../../../services/todo/todo.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ListItemComponent', () => {
-  let component: ListItemComponent;
-  let fixture: ComponentFixture<ListItemComponent>;
+  let component: TodolistItemComponent;
+  let fixture: ComponentFixture<TodolistItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ListItemComponent],
+      declarations: [TodolistItemComponent],
       imports: [
         FontAwesomeModule,
         RouterTestingModule,
@@ -25,7 +25,7 @@ describe('ListItemComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListItemComponent);
+    fixture = TestBed.createComponent(TodolistItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

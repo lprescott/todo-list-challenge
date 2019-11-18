@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TodoList } from '../../../models/TodoList';
-import { TodolistService } from '../../../services/list/todolist.service';
+import { TodolistService } from '../../../services/todolist/todolist.service';
 import { Router } from '@angular/router';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert2';
@@ -8,10 +8,10 @@ import { TodoService } from '../../../services/todo/todo.service';
 
 @Component({
   selector: 'app-list-item',
-  templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
+  templateUrl: './todolist-item.component.html',
+  styleUrls: ['./todolist-item.component.scss']
 })
-export class ListItemComponent implements OnInit {
+export class TodolistItemComponent implements OnInit {
   constructor(
     private router: Router,
     private todoListService: TodolistService,

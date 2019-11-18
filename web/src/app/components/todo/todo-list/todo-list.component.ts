@@ -3,7 +3,7 @@ import { Todo } from '../../../models/Todo';
 import { TodoService } from '../../../services/todo/todo.service';
 import { TodoList } from '../../../models/TodoList';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TodolistService } from '../../../services/list/todolist.service';
+import { TodolistService } from '../../../services/todolist/todolist.service';
 
 @Component({
   selector: 'app-todo-list',

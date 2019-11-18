@@ -5,10 +5,10 @@ import { User } from '../../../models/User';
 
 @Component({
   selector: 'app-list-new',
-  templateUrl: './list-new.component.html',
-  styleUrls: ['./list-new.component.scss']
+  templateUrl: './todolist-new.component.html',
+  styleUrls: ['./todolist-new.component.scss']
 })
-export class ListNewComponent implements OnInit {
+export class TodolistNewComponent implements OnInit {
   @Output() addList: EventEmitter<any> = new EventEmitter<any>();
   @Input() user: User;
 

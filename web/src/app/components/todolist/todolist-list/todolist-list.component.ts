@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoList } from '../../../models/TodoList';
-import { TodolistService } from '../../../services/list/todolist.service';
+import { TodolistService } from '../../../services/todolist/todolist.service';
 import { TodoService } from '../../../services/todo/todo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/User';
@@ -8,10 +8,10 @@ import { UserService } from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-list-list',
-  templateUrl: './list-list.component.html',
-  styleUrls: ['./list-list.component.scss']
+  templateUrl: './todolist-list.component.html',
+  styleUrls: ['./todolist-list.component.scss']
 })
-export class ListListComponent implements OnInit {
+export class TodolistListComponent implements OnInit {
   lists: TodoList[] = [];
   user: User;
 
