@@ -1,4 +1,4 @@
-<form class="card form" (ngSubmit)="onSave(list, name.value)">
+<form class="card form" [formGroup]="editListForm" (ngSubmit)="onSave(list, this.editListForm.controls.name.value)">
   <div class="buttons">
     <button class="btn goto" type="reset" title="Goto" (click)="onRoute(list)">
       <fa-icon [icon]="faList"></fa-icon>
@@ -21,10 +21,10 @@
   <hr />
   <div class="list-input">
     <input
-      #name
       class="list-name"
       style="margin-top: 7px"
       type="text"
+      formControlName="name"
       [value]="list?.name"
       [defaultValue]="list?.name"
     />

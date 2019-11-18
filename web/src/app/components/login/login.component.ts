@@ -11,12 +11,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  // styling for username input
-  stylesObj = { 'border-left': '5px solid #FF605C' };
-
-  // the components formgroup
-  private loginForm: FormGroup;
-
   constructor(
     private userService: UserService,
     private route: Router,
@@ -26,6 +20,12 @@ export class LoginComponent implements OnInit {
       username: [''],
     });
   }
+
+  // styling for username input
+  stylesObj = { 'border-left': '5px solid #FF605C' };
+
+  // the components formgroup
+  private loginForm: FormGroup;
 
   ngOnInit() {
     // log out if logged in

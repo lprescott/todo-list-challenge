@@ -11,15 +11,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class TodolistNewComponent implements OnInit {
 
-  // outputs addList via an event emitter to todolist-list
-  @Output() addList: EventEmitter<any> = new EventEmitter<any>();
-
-  // input the current user from the above todolist-list component
-  @Input() user: User;
-
-  // the components formgroup
-  private newListForm: FormGroup;
-
   constructor(
     private userService: UserService,
     private aroute: ActivatedRoute,
@@ -30,6 +21,15 @@ export class TodolistNewComponent implements OnInit {
       name: [''],
     });
   }
+
+  // outputs addList via an event emitter to todolist-list
+  @Output() addList: EventEmitter<any> = new EventEmitter<any>();
+
+  // input the current user from the above todolist-list component
+  @Input() user: User;
+
+  // the components formgroup
+  private newListForm: FormGroup;
 
   ngOnInit() {}
 

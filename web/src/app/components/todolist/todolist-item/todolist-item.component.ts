@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import swal from 'sweetalert2';
 import { TodoService } from '../../../services/todo/todo.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-list-item',
@@ -12,11 +13,17 @@ import { TodoService } from '../../../services/todo/todo.service';
   styleUrls: ['./todolist-item.component.scss']
 })
 export class TodolistItemComponent implements OnInit {
+
   constructor(
     private router: Router,
     private todoListService: TodolistService,
-    private todoService: TodoService
-  ) {}
+    private todoService: TodoService,
+    private formBuilder: FormBuilder
+  ) {
+    this.editListForm = formBuilder.group({
+      name: [''],
+    });
+  }
 
   // the current model inputted from the above component todolist-list
   @Input() list: TodoList;
@@ -26,6 +33,9 @@ export class TodolistItemComponent implements OnInit {
 
   // outputs updateList via an event emitter to todolist-list
   @Output() updateList: EventEmitter<TodoList> = new EventEmitter<TodoList>();
+
+  // the components formgroup
+  private editListForm: FormGroup;
 
   // font-awesome icon's variable (list icon)
   faList = faList;
