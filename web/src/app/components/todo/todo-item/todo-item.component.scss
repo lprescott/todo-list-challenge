@@ -1,5 +1,5 @@
 .is-complete {
-  input {
+  textarea {
     text-decoration: line-through;
   }
 }
@@ -41,7 +41,7 @@ hr {
 }
 
 .todo-title {
-  width: calc(100% - 15px);
+  width: calc(100% - 10px);
   border: none;
   outline: 0;
 }

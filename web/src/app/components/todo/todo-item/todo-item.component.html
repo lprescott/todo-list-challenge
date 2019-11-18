@@ -24,13 +24,14 @@
   </div>
   <hr />
   <div class="todo-input" [ngClass]="setClasses()">
-    <input
+    <textarea
+      autosize
       class="todo-title"
       style="margin-top: 7px"
-      type="text"
       formControlName="title"
+      id="todo-"
       [value]="todo?.title"
       [defaultValue]="todo?.title"
-    />
+    ></textarea>
   </div>
 </form>
