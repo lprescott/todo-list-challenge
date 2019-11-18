@@ -15,6 +15,10 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private route: Router) {}
 
   ngOnInit() {
+    // log out if logged in
+    if (sessionStorage.getItem('uid') !== null) {
+      sessionStorage.removeItem('uid');
+    }
   }
 
   onSubmit() {
@@ -23,7 +27,11 @@ export class LoginComponent implements OnInit {
     this.userService.getUsers().subscribe(users => {
       users = users.filter(user => {
         if (this.username === user.name) {
-          this.route.navigate(['/user/' + user.id]);
+          sessionStorage.setItem('uid', String(user.id));
+          this.route.navigate(['/user/' + user.id]).then(r => {
+            sessionStorage.setItem('uid', String(user.id));
+            console.log('logged on with uid: ' + user.id);
+          });
           success = true;
         }
       });

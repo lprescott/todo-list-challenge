@@ -26,9 +26,19 @@ export class TodoListComponent implements OnInit {
   // receives existing todos from server on initialization, using todoService
   ngOnInit() {
 
+    // get url parameter
     this.id = Number(this.aroute.snapshot.params.lid);
     this.list.id = this.id;
 
+    // check if logged in
+    if (
+      sessionStorage.getItem('uid') === null ||
+      sessionStorage.getItem('uid') !== String(this.aroute.snapshot.params.uid)
+    ) {
+      this.route.navigate(['']);
+    }
+
+    // get existing todos
     this.todolistService.getTodoList(this.id).subscribe(list => {
       this.list = list;
     });

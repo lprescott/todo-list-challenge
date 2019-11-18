@@ -29,7 +29,7 @@ export class TodolistNewComponent implements OnInit {
 
   onSubmit() {
     // get current user id
-    const id = Number(this.aroute.snapshot.params.id);
+    const id = Number(this.aroute.snapshot.params.uid);
 
     // create list object
     const list = {

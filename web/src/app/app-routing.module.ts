@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'user/:id', component: TodolistListComponent },
+  { path: 'user/:uid', component: TodolistListComponent },
   { path: 'user/:uid/list/:lid', component: TodoListComponent },
   { path: '**', redirectTo: '' }
 ];

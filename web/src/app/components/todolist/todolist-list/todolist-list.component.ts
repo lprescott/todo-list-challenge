@@ -24,12 +24,23 @@ export class TodolistListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = Number(this.aroute.snapshot.params.id);
+    // get url parameter
+    const id = Number(this.aroute.snapshot.params.uid);
 
+    // check if logged in
+    if (
+      sessionStorage.getItem('uid') === null ||
+      sessionStorage.getItem('uid') !== String(id)
+    ) {
+      this.route.navigate(['']);
+    }
+
+    // get existing todolists
     this.todoListService.getTodoLists().subscribe(lists => {
       this.lists = lists.filter(list => list.user.id === id);
     });
 
+    // get current user
     this.userService.getUser(id).subscribe(user => (this.user = user));
   }
 
