@@ -57,6 +57,15 @@ class TodoListApplicationTests {
 
 
     /**
+     * This function creates the full web path of the auth api.
+     *
+     * @return The web url of the lists api.
+     */
+    private String getAuthURL() {
+        return "http://localhost:" + port + "/auth";
+    }
+
+    /**
      * Here we test getting all the users in the database
      * using the GET method
      */
@@ -280,5 +289,33 @@ class TodoListApplicationTests {
         } catch (final HttpClientErrorException e) {
             Assert.assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
         }
+    }
+
+    /**
+     * Here we test that a users login api works.
+     */
+    @Test
+    public void testLogin() {
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+
+        ResponseEntity<String> response = testRestTemplate.exchange(getAuthURL()+"/test",
+                HttpMethod.GET, entity, String.class);
+
+        Assert.assertNotNull(response.getBody());
+    }
+
+    /**
+     * Here we test that a user can be authenticated with the correct JWT.
+     */
+    @Test
+    public void testAuth() {
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+
+        ResponseEntity<String> response = testRestTemplate.exchange(getAuthURL()+"/dsnf897safdphds",
+                HttpMethod.GET, entity, String.class);
+
+        Assert.assertNotNull(response.getBody());
     }
 }

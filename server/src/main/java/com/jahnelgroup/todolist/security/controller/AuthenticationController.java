@@ -57,7 +57,6 @@ public class AuthenticationController {
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body("{\"uid\":" + userID + "}");
 
         } catch (Exception e) {
-            System.out.println("Failure");
             return new ResponseEntity<>("Unauthorized", HttpStatus.UNAUTHORIZED);
         }
     }
