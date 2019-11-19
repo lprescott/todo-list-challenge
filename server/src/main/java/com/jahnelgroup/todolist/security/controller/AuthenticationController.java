@@ -1,6 +1,6 @@
 package com.jahnelgroup.todolist.security.controller;
 
-import com.jahnelgroup.todolist.security.JWT;
+import com.jahnelgroup.todolist.security.JsonWebToken;
 import com.jahnelgroup.todolist.user.model.User;
 import com.jahnelgroup.todolist.user.service.UserService;
 import io.jsonwebtoken.Claims;
@@ -10,10 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,7 +35,7 @@ public class AuthenticationController {
 
         for(User u : all) {
             if(u.getName().equals(username)) {
-                jwtToken = JWT.createJWT("todolist.jahnelgroup.com",  "" + u.getId(), 0);
+                jwtToken = JsonWebToken.createJWT("todolist.jahnelgroup.com",  "" + u.getId(), 0);
                 return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body("{\"user\":{\"id\":" + u.getId()
                         + ",\"name\":\"" + u.getName() + "\"},\"jwt\":\"" + jwtToken + "\"}");
             }
@@ -52,7 +49,7 @@ public class AuthenticationController {
     public ResponseEntity<String> authenticate(@PathVariable String jwt) {
 
         try{
-            Claims claims = JWT.decodeJWT(jwt);
+            Claims claims = JsonWebToken.decodeJWT(jwt);
             String userID = claims.getSubject();
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body("{\"uid\":" + userID + "}");
 

@@ -5,6 +5,7 @@ import { TodoList } from '../../../models/TodoList';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TodolistService } from '../../../services/todolist/todolist.service';
 import { JwtService } from '../../../services/security/jwt.service';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-todo-list',
@@ -40,11 +41,11 @@ export class TodoListComponent implements OnInit {
       this.list = list;
 
       // check if logged in
-      if ( sessionStorage.getItem('jwt') === null ) {
+      if ( document.cookie.indexOf('jwt') === -1 ) {
         this.route.navigate(['']);
       } else {
         // authenticate
-        this.jwtService.authenticate(sessionStorage.getItem('jwt')).subscribe(user => {
+        this.jwtService.authenticate(LoginComponent.getCookie('jwt')).subscribe(user => {
           console.log(user);
 
           // reroute if the parsing is unsuccessful or uid doesn't match lid

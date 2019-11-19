@@ -11,7 +11,7 @@ import java.security.Key;
 import java.util.Date;
 import java.util.UUID;
 
-public class JWT {
+public class JsonWebToken {
 
     // The secret key. This should be in a property file NOT under source
     // control and not hard coded in real life. I'm putting it here for

@@ -34,10 +34,16 @@ export class LoginComponent implements OnInit {
   // the response from the server
   private json: any;
 
+  // function to receive a cookie by name
+  static getCookie(name) {
+    const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
+  }
+
   ngOnInit() {
     // log out if logged in
-    if (sessionStorage.getItem('jwt') !== null) {
-      sessionStorage.removeItem('jwt');
+    if (document.cookie.indexOf('jwt') !== -1 ) {
+      document.cookie = 'jwt=;';
     }
   }
 
@@ -55,7 +61,7 @@ export class LoginComponent implements OnInit {
         }
 
         this.route.navigate(['/user/' + this.json.user.id]).then(r => {
-          sessionStorage.setItem('jwt', String(this.json.jwt));
+          document.cookie = 'jwt=' + String(this.json.jwt);
           console.log('logged on with uid: ' + this.json.user.id);
         });
       },
