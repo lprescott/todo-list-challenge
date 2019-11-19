@@ -5,6 +5,7 @@ import { TodoService } from '../../../services/todo/todo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/User';
 import { UserService } from '../../../services/user/user.service';
+import { JwtService } from '../../../services/security/jwt.service';
 
 @Component({
   selector: 'app-list-list',
@@ -14,13 +15,15 @@ import { UserService } from '../../../services/user/user.service';
 export class TodolistListComponent implements OnInit {
   lists: TodoList[] = [];
   user: User;
+  private json: any;
 
   constructor(
     private todoListService: TodolistService,
     private todoService: TodoService,
     private aroute: ActivatedRoute,
     private userService: UserService,
-    private route: Router
+    private route: Router,
+    private jwtService: JwtService
   ) {}
 
   ngOnInit() {
@@ -28,11 +31,23 @@ export class TodolistListComponent implements OnInit {
     const id = Number(this.aroute.snapshot.params.uid);
 
     // check if logged in
-    if (
-      sessionStorage.getItem('uid') === null ||
-      sessionStorage.getItem('uid') !== String(id)
-    ) {
+    if ( sessionStorage.getItem('jwt') === null ) {
       this.route.navigate(['']);
+    } else {
+      // authenticate
+      this.jwtService.authenticate(sessionStorage.getItem('jwt')).subscribe(user => {
+        console.log(user);
+
+        try {
+          this.json = JSON.parse(user);
+        } catch (e) {
+          this.json = user;
+        }
+
+        if ( this.json.uid !== id) {
+          this.route.navigate(['']);
+        }
+      });
     }
 
     // get existing todolists

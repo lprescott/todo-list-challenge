@@ -52,7 +52,7 @@ public class JWT {
         return builder.compact();
     }
 
-    public static Claims decodeJWT(String jwt) {
+    public static Claims decodeJWT(String jwt) throws Exception {
 
         //This line will throw an exception if it is not a signed JWS (as expected)
         Claims claims = Jwts.parser()
