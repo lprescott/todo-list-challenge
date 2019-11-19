@@ -3,6 +3,7 @@ import { UserService } from '../../services/user/user.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { JwtService } from '../../services/security/jwt.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private userService: UserService,
     private route: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private jwtService: JwtService
   ) {
     this.loginForm = formBuilder.group({
       username: [
@@ -41,10 +43,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     // find user (if it exists) and redirect
-    this.userService.login(this.loginForm.controls.username.value).subscribe(
+    this.jwtService.login(this.loginForm.controls.username.value).subscribe(
       returnable => {
         console.log(returnable);
 
+        // get and store jwt if login was successful
         try {
           this.json = JSON.parse(returnable);
         } catch (e) {

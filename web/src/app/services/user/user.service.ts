@@ -66,10 +66,4 @@ export class UserService {
     const url = `${this.usersUrl}/${id}`;
     return this.http.get<User>(url).pipe(catchError(TodoService.handleError));
   }
-
-  // login by username
-  login(username: string): Observable<string> {
-    const url = `${this.usersUrl}/login/${username}`;
-    return this.http.get<string>(url).pipe(catchError(TodoService.handleError));
-  }
 }

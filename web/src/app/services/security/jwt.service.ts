@@ -20,7 +20,13 @@ export class JwtService {
 
   // get user id if authenticated
   authenticate(jwt: string): Observable<string> {
-    const url = `users/authenticate/${jwt}`;
+    const url = `auth/${jwt}`;
+    return this.http.get<string>(url).pipe(catchError(TodoService.handleError));
+  }
+
+  // login by username
+  login(username: string): Observable<string> {
+    const url = `auth/login/${username}`;
     return this.http.get<string>(url).pipe(catchError(TodoService.handleError));
   }
 }

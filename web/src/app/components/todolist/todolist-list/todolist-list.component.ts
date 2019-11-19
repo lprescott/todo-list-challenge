@@ -38,6 +38,7 @@ export class TodolistListComponent implements OnInit {
       this.jwtService.authenticate(sessionStorage.getItem('jwt')).subscribe(user => {
         console.log(user);
 
+        // reroute if the parsing is unsuccessful or uid doesn't match id
         try {
           this.json = JSON.parse(user);
         } catch (e) {
