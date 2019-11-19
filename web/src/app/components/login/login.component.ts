@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   stylesObj = { 'border-left': '5px solid #FF605C' };
 
   // the components formgroup
-  private loginForm: FormGroup;
+  loginForm: FormGroup;
 
   ngOnInit() {
     // log out if logged in

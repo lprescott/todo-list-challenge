@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodolistNewComponent } from './todolist-new.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -12,7 +12,11 @@ describe('ListNewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TodolistNewComponent],
-      imports: [FormsModule, HttpClientTestingModule, RouterTestingModule]
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        ReactiveFormsModule
+      ]
     }).compileComponents();
   }));
 
