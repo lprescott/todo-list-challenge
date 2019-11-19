@@ -31,4 +31,12 @@ describe('TodoNewComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('form invalid when empty', () => {
+    expect(component.newTodoForm.valid).toBeFalsy();
+  });
+  it('form invalid when w/ large input', () => {
+    component.newTodoForm.controls.title.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+      'Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.\n');
+    expect(component.newTodoForm.valid).toBeFalsy();
+  });
 });

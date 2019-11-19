@@ -29,7 +29,7 @@ export class TodolistNewComponent implements OnInit {
   @Input() user: User;
 
   // the components formgroup
-  private newListForm: FormGroup;
+  newListForm: FormGroup;
 
   ngOnInit() {}
 

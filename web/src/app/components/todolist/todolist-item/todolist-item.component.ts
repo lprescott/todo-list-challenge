@@ -35,7 +35,7 @@ export class TodolistItemComponent implements OnInit {
   @Output() updateList: EventEmitter<TodoList> = new EventEmitter<TodoList>();
 
   // the components formgroup
-  private editListForm: FormGroup;
+  editListForm: FormGroup;
 
   // font-awesome icon's variable (list icon)
   faList = faList;

@@ -27,7 +27,7 @@ export class TodoItemComponent implements OnInit {
   @Output() updateTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   // the components formgroup
-  private editTodoForm: FormGroup;
+  editTodoForm: FormGroup;
 
   ngOnInit() {}
 

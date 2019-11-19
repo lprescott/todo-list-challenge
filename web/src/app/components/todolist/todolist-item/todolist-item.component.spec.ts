@@ -32,7 +32,16 @@ describe('ListItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create todolist item component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('form invalid when empty', () => {
+    expect(component.editListForm.valid).toBeFalsy();
+  });
+
+  it('form invalid when w/ large input', () => {
+    component.editListForm.controls.name.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ');
+    expect(component.editListForm.valid).toBeFalsy();
   });
 });

@@ -31,7 +31,7 @@ export class TodoNewComponent implements OnInit {
   @Input() list: TodoList;
 
   // the components formgroup
-  private newTodoForm: FormGroup;
+  newTodoForm: FormGroup;
 
   ngOnInit() {
   }

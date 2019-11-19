@@ -30,7 +30,7 @@ describe('ListListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create todolist list component', () => {
     expect(component).toBeTruthy();
   });
 });
