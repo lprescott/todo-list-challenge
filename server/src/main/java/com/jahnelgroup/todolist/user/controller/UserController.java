@@ -1,5 +1,6 @@
 package com.jahnelgroup.todolist.user.controller;
 
+import com.jahnelgroup.todolist.security.JWT;
 import com.jahnelgroup.todolist.user.model.User;
 import com.jahnelgroup.todolist.user.service.UserService;
 import lombok.NonNull;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/users")
@@ -67,8 +69,9 @@ public class UserController {
 
     @GetMapping("/login/{username}")
     public ResponseEntity<?> login(@PathVariable String username) {
-        List<User> all = this.userService.findAll();
 
+        String jwtToken;
+        List<User> all = this.userService.findAll();
         if(all.size() == 0) {
             log.info("Username " + username + " does not exist.");
             return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
@@ -77,8 +80,9 @@ public class UserController {
         Optional<User> user;
         for(User u : all) {
             if(u.getName().equals(username)) {
-               user = userService.findById(u.getId());
-               return ResponseEntity.ok(user.get());
+                user = userService.findById(u.getId());
+                jwtToken = JWT.createJWT("todolist.jahnelgroup.com", "users/" + u.getId(), 0);
+                return ResponseEntity.ok(user.get());
             }
         }
 
