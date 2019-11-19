@@ -10,14 +10,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   constructor(
     private userService: UserService,
     private route: Router,
     private formBuilder: FormBuilder
   ) {
     this.loginForm = formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+      username: [
+        '',
+        [Validators.required, Validators.minLength(1), Validators.maxLength(20)]
+      ]
     });
   }
 
@@ -27,25 +29,39 @@ export class LoginComponent implements OnInit {
   // the components formgroup
   loginForm: FormGroup;
 
+  // the response from the server
+  private json: any;
+
   ngOnInit() {
     // log out if logged in
-    if (sessionStorage.getItem('uid') !== null) {
-      sessionStorage.removeItem('uid');
+    if (sessionStorage.getItem('jwt') !== null) {
+      sessionStorage.removeItem('jwt');
     }
   }
 
   onSubmit() {
     // find user (if it exists) and redirect
-    this.userService.login(this.loginForm.controls.username.value).subscribe(user => {
-      this.route.navigate(['/user/' + user.id]).then(r => {
-        sessionStorage.setItem('uid', String(user.id));
-        console.log('logged on with uid: ' + user.id);
-      });
-    }, error => {
-      swal.fire({
-        title: 'Incorrect Login Information',
-        icon: 'error'
-      });
-    });
+    this.userService.login(this.loginForm.controls.username.value).subscribe(
+      returnable => {
+        console.log(returnable);
+
+        try {
+          this.json = JSON.parse(returnable);
+        } catch (e) {
+          this.json = returnable;
+        }
+
+        this.route.navigate(['/user/' + this.json.user.id]).then(r => {
+          sessionStorage.setItem('jwt', String(this.json.jwt));
+          console.log('logged on with uid: ' + this.json.user.id);
+        });
+      },
+      error => {
+        swal.fire({
+          title: 'Incorrect Login Information',
+          icon: 'error'
+        });
+      }
+    );
   }
 }
