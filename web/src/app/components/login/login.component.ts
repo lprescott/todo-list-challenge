@@ -35,25 +35,17 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    let success = false;
     // find user (if it exists) and redirect
-    this.userService.getUsers().subscribe(users => {
-      users = users.filter(user => {
-        if (this.loginForm.controls.username.value === user.name) {
-          this.route.navigate(['/user/' + user.id]).then(r => {
-            sessionStorage.setItem('uid', String(user.id));
-            console.log('logged on with uid: ' + user.id);
-          });
-          success = true;
-        }
+    this.userService.login(this.loginForm.controls.username.value).subscribe(user => {
+      this.route.navigate(['/user/' + user.id]).then(r => {
+        sessionStorage.setItem('uid', String(user.id));
+        console.log('logged on with uid: ' + user.id);
       });
-      // show error on no users found
-      if (success === false) {
-        swal.fire({
-          title: 'Incorrect Login Information',
-          icon: 'error'
-        });
-      }
+    }, error => {
+      swal.fire({
+        title: 'Incorrect Login Information',
+        icon: 'error'
+      });
     });
   }
 }

@@ -5,6 +5,7 @@ import com.jahnelgroup.todolist.user.service.UserService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,5 +63,26 @@ public class UserController {
         userService.deleteById(id);
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/login/{username}")
+    public ResponseEntity<?> login(@PathVariable String username) {
+        List<User> all = this.userService.findAll();
+
+        if(all.size() == 0) {
+            log.info("Username " + username + " does not exist.");
+            return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
+        }
+
+        Optional<User> user;
+        for(User u : all) {
+            if(u.getName().equals(username)) {
+               user = userService.findById(u.getId());
+               return ResponseEntity.ok(user.get());
+            }
+        }
+
+        log.info("Username " + username + " does not exist.");
+        return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
     }
 }
