@@ -6,7 +6,6 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 import { BrowserModule } from '@angular/platform-browser';
-import { TodolistService } from '../todolist/todolist.service';
 import { User } from '../../models/User';
 import { HttpClientModule } from '@angular/common/http';
 
