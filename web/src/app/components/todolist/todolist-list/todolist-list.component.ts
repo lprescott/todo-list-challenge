@@ -32,24 +32,26 @@ export class TodolistListComponent implements OnInit {
     const id = Number(this.aroute.snapshot.params.uid);
 
     // check if logged in
-    if ( document.cookie.indexOf('jwt') === -1 ) {
+    if (document.cookie.indexOf('jwt') === -1) {
       this.route.navigate(['']);
     } else {
       // authenticate
-      this.jwtService.authenticate(LoginComponent.getCookie('jwt')).subscribe(user => {
-        console.log(user);
+      this.jwtService
+        .authenticate(LoginComponent.getCookie('jwt'))
+        .subscribe(user => {
+          console.log(user);
 
-        // reroute if the parsing is unsuccessful or uid doesn't match id
-        try {
-          this.json = JSON.parse(user);
-        } catch (e) {
-          this.json = user;
-        }
+          // reroute if the parsing is unsuccessful or uid doesn't match id
+          try {
+            this.json = JSON.parse(user);
+          } catch (e) {
+            this.json = user;
+          }
 
-        if ( this.json.uid !== id) {
-          this.route.navigate(['']);
-        }
-      });
+          if (this.json.uid !== id) {
+            this.route.navigate(['']);
+          }
+        });
     }
 
     // get existing todolists
@@ -62,7 +64,7 @@ export class TodolistListComponent implements OnInit {
   }
 
   deleteList(list: TodoList) {
-    this.todoListService.deleteTodoList(list).subscribe(del => {
+    this.todoListService.deleteTodoList(list).subscribe(() => {
       this.lists = this.lists.filter(t => t.id !== list.id);
       console.log('Deleted \'' + list.name + '\'');
     });

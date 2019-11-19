@@ -1,10 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodolistNewComponent } from './todolist-new.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TodoList } from '../../../models/TodoList';
 
 describe('ListNewComponent', () => {
   let component: TodolistNewComponent;
@@ -36,7 +35,9 @@ describe('ListNewComponent', () => {
   });
 
   it('form invalid when w/ large input', () => {
-    component.newListForm.controls.name.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ');
+    component.newListForm.controls.name.setValue(
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+    );
     expect(component.newListForm.valid).toBeFalsy();
   });
 

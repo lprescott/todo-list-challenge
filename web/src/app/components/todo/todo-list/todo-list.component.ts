@@ -13,7 +13,6 @@ import { LoginComponent } from '../../login/login.component';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-
   // taking todoService in the constructor allows it to be accessed from inside the class
   constructor(
     private aroute: ActivatedRoute,
@@ -31,7 +30,6 @@ export class TodoListComponent implements OnInit {
 
   // receives existing todos from the server on initialization, using todoService
   ngOnInit() {
-
     // get url parameter
     this.id = Number(this.aroute.snapshot.params.lid);
     this.list.id = this.id;
@@ -41,24 +39,28 @@ export class TodoListComponent implements OnInit {
       this.list = list;
 
       // check if logged in
-      if ( document.cookie.indexOf('jwt') === -1 ) {
-        this.route.navigate(['']);
+      if (document.cookie.indexOf('jwt') === -1) {
+        this.route.navigate(['']).then(() => console.log('Not logged in.'));
       } else {
         // authenticate
-        this.jwtService.authenticate(LoginComponent.getCookie('jwt')).subscribe(user => {
-          console.log(user);
+        this.jwtService
+          .authenticate(LoginComponent.getCookie('jwt'))
+          .subscribe(user => {
+            console.log(user);
 
-          // reroute if the parsing is unsuccessful or uid doesn't match lid
-          try {
-            this.json = JSON.parse(user);
-          } catch (e) {
-            this.json = user;
-          }
+            // reroute if the parsing is unsuccessful or uid doesn't match lid
+            try {
+              this.json = JSON.parse(user);
+            } catch (e) {
+              this.json = user;
+            }
 
-          if ( this.json.uid !== this.list.user.id) {
-            this.route.navigate(['']);
-          }
-        });
+            if (this.json.uid !== this.list.user.id) {
+              this.route
+                .navigate([''])
+                .then(() => console.log('Not correct id.'));
+            }
+          });
       }
     });
 
@@ -70,7 +72,7 @@ export class TodoListComponent implements OnInit {
   // removes todo passed as argument from ui and server, using todoService
   deleteTodo(todo: Todo) {
     // remove from Server
-    this.todoService.deleteTodo(todo).subscribe(del => {
+    this.todoService.deleteTodo(todo).subscribe(() => {
       // remove from UI after deleted from server
       this.todos = this.todos.filter(t => t.id !== todo.id);
       console.log('Deleted \'' + todo.title + '\'');

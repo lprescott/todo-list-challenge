@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -35,7 +35,9 @@ describe('LoginComponent', () => {
   });
 
   it('form invalid when w/ large input', () => {
-    component.loginForm.controls.username.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ');
+    component.loginForm.controls.username.setValue(
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+    );
     expect(component.loginForm.valid).toBeFalsy();
   });
 

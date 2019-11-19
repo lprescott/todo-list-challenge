@@ -1,4 +1,8 @@
-<form class="card form" [formGroup]="editListForm" (ngSubmit)="onSave(list, this.editListForm.controls.name.value)">
+<form
+  class="card form"
+  [formGroup]="editListForm"
+  (ngSubmit)="onSave(list, this.editListForm.controls.name.value)"
+>
   <div class="buttons">
     <button class="btn goto" type="reset" title="Goto" (click)="onRoute(list)">
       <fa-icon [icon]="faList"></fa-icon>

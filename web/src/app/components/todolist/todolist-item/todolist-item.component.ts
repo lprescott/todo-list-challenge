@@ -13,7 +13,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./todolist-item.component.scss']
 })
 export class TodolistItemComponent implements OnInit {
-
   constructor(
     private router: Router,
     private todoListService: TodolistService,
@@ -21,7 +20,10 @@ export class TodolistItemComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.editListForm = formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+      name: [
+        '',
+        [Validators.required, Validators.minLength(1), Validators.maxLength(20)]
+      ]
     });
   }
 
@@ -44,7 +46,6 @@ export class TodolistItemComponent implements OnInit {
 
   // On updating the list name
   onSave(list: TodoList, newName: string) {
-
     // no change, return
     if (this.list.name === newName || newName.length === 0) {
       console.log('\'' + this.list.name + '\' not updated');
@@ -87,12 +88,16 @@ export class TodolistItemComponent implements OnInit {
           .then(result => {
             if (result.value) {
               this.deleteList.emit(list);
-              swal.fire('Deleted!', 'Your list has been deleted.', 'success');
+              swal
+                .fire('Deleted!', 'Your list has been deleted.', 'success')
+                .then(() => console.log('Deleted list.'));
             }
           });
       } else {
         this.deleteList.emit(list);
-        swal.fire('Deleted!', 'Your list has been deleted.', 'success');
+        swal
+          .fire('Deleted!', 'Your list has been deleted.', 'success')
+          .then(() => console.log('Deleted list.'));
       }
     });
   }
@@ -101,6 +106,13 @@ export class TodolistItemComponent implements OnInit {
   onRoute(list: TodoList) {
     this.router
       .navigateByUrl('/user/' + list.user.id + '/list/' + list.id)
-      .then(r => console.log('Successfully redirected to /user/' + list.user.id + '/list/' + list.id));
+      .then(() =>
+        console.log(
+          'Successfully redirected to /user/' +
+            list.user.id +
+            '/list/' +
+            list.id
+        )
+      );
   }
 }

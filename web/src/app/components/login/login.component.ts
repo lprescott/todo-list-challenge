@@ -25,9 +25,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // styling for username input
-  stylesObj = { 'border-left': '5px solid #FF605C' };
-
   // the components formgroup
   loginForm: FormGroup;
 
@@ -42,7 +39,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // log out if logged in
-    if (document.cookie.indexOf('jwt') !== -1 ) {
+    if (document.cookie.indexOf('jwt') !== -1) {
       document.cookie = 'jwt=;';
     }
   }
@@ -60,16 +57,18 @@ export class LoginComponent implements OnInit {
           this.json = returnable;
         }
 
-        this.route.navigate(['/user/' + this.json.user.id]).then(r => {
+        this.route.navigate(['/user/' + this.json.user.id]).then(() => {
           document.cookie = 'jwt=' + String(this.json.jwt);
           console.log('logged on with uid: ' + this.json.user.id);
         });
       },
-      error => {
-        swal.fire({
-          title: 'Incorrect Login Information',
-          icon: 'error'
-        });
+      () => {
+        swal
+          .fire({
+            title: 'Incorrect Login Information',
+            icon: 'error'
+          })
+          .then(() => console.log('failed to login'));
       }
     );
   }

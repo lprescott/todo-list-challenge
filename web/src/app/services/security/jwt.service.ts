@@ -15,8 +15,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class JwtService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // get user id if authenticated
   authenticate(jwt: string): Observable<string> {

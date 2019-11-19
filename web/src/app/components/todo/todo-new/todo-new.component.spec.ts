@@ -16,9 +16,8 @@ describe('TodoNewComponent', () => {
         RouterTestingModule,
         ReactiveFormsModule
       ],
-      declarations: [ TodoNewComponent ]
-    })
-    .compileComponents();
+      declarations: [TodoNewComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -36,8 +35,10 @@ describe('TodoNewComponent', () => {
   });
 
   it('form invalid when w/ large input', () => {
-    component.newTodoForm.controls.title.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
-      'Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.\n');
+    component.newTodoForm.controls.title.setValue(
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+        'Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.\n'
+    );
     expect(component.newTodoForm.valid).toBeFalsy();
   });
 

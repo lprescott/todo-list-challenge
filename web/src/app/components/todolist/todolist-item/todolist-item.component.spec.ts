@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodolistItemComponent } from './todolist-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Router } from '@angular/router';
 import { TodolistService } from '../../../services/todolist/todolist.service';
 import { TodoService } from '../../../services/todo/todo.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -41,7 +40,9 @@ describe('ListItemComponent', () => {
   });
 
   it('form invalid when w/ large input', () => {
-    component.editListForm.controls.name.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ');
+    component.editListForm.controls.name.setValue(
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+    );
     expect(component.editListForm.valid).toBeFalsy();
   });
 
@@ -50,8 +51,7 @@ describe('ListItemComponent', () => {
     component.editListForm.controls.name.setValue('Todo Item Test');
     fixture.detectChanges();
 
-    const button = fixture.debugElement.nativeElement.querySelector('#save');
-    button.click();
+    fixture.debugElement.nativeElement.querySelector('#save').click();
 
     fixture.whenStable().then(() => {
       expect(component.onSave).toHaveBeenCalled();

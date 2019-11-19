@@ -9,11 +9,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
-
   // taking todoService in the constructor allows it to be accessed from inside the class
-  constructor(private todoService: TodoService, private formBuilder: FormBuilder) {
+  constructor(
+    private todoService: TodoService,
+    private formBuilder: FormBuilder
+  ) {
     this.editTodoForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+      title: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(100)
+        ]
+      ]
     });
   }
 
@@ -33,12 +42,10 @@ export class TodoItemComponent implements OnInit {
 
   // set the class of a todo dynamically to todo, and is-complete
   setClasses() {
-    const classes = {
+    return {
       todo: true,
       'is-complete': this.todo ? this.todo.completed : false
     };
-
-    return classes;
   }
 
   // updates the current todos title text

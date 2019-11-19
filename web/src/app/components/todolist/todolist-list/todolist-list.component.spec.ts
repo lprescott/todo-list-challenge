@@ -14,7 +14,11 @@ describe('ListListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TodolistListComponent, TodolistNewComponent, TodolistItemComponent],
+      declarations: [
+        TodolistListComponent,
+        TodolistNewComponent,
+        TodolistItemComponent
+      ],
       imports: [
         HttpClientTestingModule,
         FontAwesomeModule,

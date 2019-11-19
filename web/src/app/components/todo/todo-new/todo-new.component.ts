@@ -11,7 +11,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./todo-new.component.scss']
 })
 export class TodoNewComponent implements OnInit {
-
   constructor(
     private aroute: ActivatedRoute,
     private todoService: TodoService,
@@ -20,7 +19,14 @@ export class TodoNewComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.newTodoForm = formBuilder.group({
-      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+      title: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(100)
+        ]
+      ]
     });
   }
 
@@ -33,8 +39,7 @@ export class TodoNewComponent implements OnInit {
   // the components formgroup
   newTodoForm: FormGroup;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   // creation of a Todo model using 2-way data binding and emitting
   onSubmit() {

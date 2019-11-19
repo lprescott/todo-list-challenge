@@ -14,14 +14,13 @@ describe('TodoListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoListComponent, TodoItemComponent, TodoNewComponent],
+      declarations: [TodoListComponent, TodoItemComponent, TodoNewComponent],
       imports: [
         HttpClientTestingModule,
         ReactiveFormsModule,
         RouterTestingModule
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

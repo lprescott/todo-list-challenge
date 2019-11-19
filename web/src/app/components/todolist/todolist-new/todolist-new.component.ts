@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./todolist-new.component.scss']
 })
 export class TodolistNewComponent implements OnInit {
-
   constructor(
     private userService: UserService,
     private aroute: ActivatedRoute,
@@ -18,7 +17,10 @@ export class TodolistNewComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.newListForm = formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+      name: [
+        '',
+        [Validators.required, Validators.minLength(1), Validators.maxLength(20)]
+      ]
     });
   }
 
