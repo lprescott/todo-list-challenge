@@ -44,4 +44,17 @@ describe('ListItemComponent', () => {
     component.editListForm.controls.name.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ');
     expect(component.editListForm.valid).toBeFalsy();
   });
+
+  it('should call onSave when valid', async(() => {
+    spyOn(component, 'onSave');
+    component.editListForm.controls.name.setValue('Todo Item Test');
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.nativeElement.querySelector('#save');
+    button.click();
+
+    fixture.whenStable().then(() => {
+      expect(component.onSave).toHaveBeenCalled();
+    });
+  }));
 });

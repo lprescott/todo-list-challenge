@@ -39,4 +39,17 @@ describe('ListNewComponent', () => {
     component.newListForm.controls.name.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ');
     expect(component.newListForm.valid).toBeFalsy();
   });
+
+  it('should call onSubmit when valid', async(() => {
+    spyOn(component, 'onSubmit');
+    component.newListForm.controls.name.setValue('Todo List Test');
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+
+    fixture.whenStable().then(() => {
+      expect(component.onSubmit).toHaveBeenCalled();
+    });
+  }));
 });

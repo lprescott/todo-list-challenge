@@ -34,4 +34,17 @@ describe('TodoItemComponent', () => {
       'Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.\n');
     expect(component.editTodoForm.valid).toBeFalsy();
   });
+
+  it('should call onSave when valid', async(() => {
+    spyOn(component, 'onSave');
+    component.editTodoForm.controls.title.setValue('Todo Item Test');
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+
+    fixture.whenStable().then(() => {
+      expect(component.onSave).toHaveBeenCalled();
+    });
+  }));
 });
