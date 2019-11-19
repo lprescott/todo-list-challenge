@@ -29,7 +29,7 @@ export class TodoListComponent implements OnInit {
   id: number;
   private json: any;
 
-  // receives existing todos from server on initialization, using todoService
+  // receives existing todos from the server on initialization, using todoService
   ngOnInit() {
 
     // get url parameter
