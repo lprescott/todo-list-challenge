@@ -28,14 +28,14 @@ public class AuthenticationController {
 
         String jwtToken;
         List<User> all = this.userService.findAll();
-        if(all.size() == 0) {
+        if (all.size() == 0) {
             log.info("Username " + username + " does not exist.");
             return new ResponseEntity<>("Unauthorized", HttpStatus.UNAUTHORIZED);
         }
 
-        for(User u : all) {
-            if(u.getName().equals(username)) {
-                jwtToken = JsonWebToken.createJWT("todolist.jahnelgroup.com",  "" + u.getId(), 0);
+        for (User u : all) {
+            if (u.getName().equals(username)) {
+                jwtToken = JsonWebToken.createJWT("todolist.jahnelgroup.com", "" + u.getId(), 0);
                 return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body("{\"user\":{\"id\":" + u.getId()
                         + ",\"name\":\"" + u.getName() + "\"},\"jwt\":\"" + jwtToken + "\"}");
             }
@@ -48,7 +48,7 @@ public class AuthenticationController {
     @GetMapping("/{jwt}")
     public ResponseEntity<String> authenticate(@PathVariable String jwt) {
 
-        try{
+        try {
             Claims claims = JsonWebToken.decodeJWT(jwt);
             String userID = claims.getSubject();
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body("{\"uid\":" + userID + "}");

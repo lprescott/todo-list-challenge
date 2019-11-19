@@ -55,12 +55,10 @@ public class JsonWebToken {
     }
 
     // Decode a passed JWT and throw an error on malformation
-    public static Claims decodeJWT(String jwt) throws Exception {
-
+    public static Claims decodeJWT(String jwt) {
         //This line will throw an exception if it is not signed
-        Claims claims = Jwts.parser()
+        return Jwts.parser()
                 .setSigningKey(DatatypeConverter.parseBase64Binary(SECRET_KEY))
                 .parseClaimsJws(jwt).getBody();
-        return claims;
     }
 }

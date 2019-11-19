@@ -51,12 +51,12 @@ public class TodoController {
     @GetMapping("/{id}")
     public ResponseEntity<Todo> findById(@PathVariable Long id) {
         Optional<Todo> todo = todoService.findById(id);
-        if (!todo.isPresent()) {
+        if (todo.isEmpty()) {
             log.error("Id " + id + " is not existed");
-            ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().build();
+        } else {
+            return ResponseEntity.ok(todo.get());
         }
-
-        return ResponseEntity.ok(todo.get());
     }
 
     /**
@@ -68,7 +68,7 @@ public class TodoController {
      */
     @PutMapping("/{id}")
     public ResponseEntity<Todo> update(@PathVariable Long id, @Valid @RequestBody Todo todo) {
-        if (!todoService.findById(id).isPresent()) {
+        if (todoService.findById(id).isEmpty()) {
             log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
@@ -84,7 +84,7 @@ public class TodoController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
-        if (!todoService.findById(id).isPresent()) {
+        if (todoService.findById(id).isEmpty()) {
             log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }

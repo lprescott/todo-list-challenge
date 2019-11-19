@@ -37,17 +37,17 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<User> findById(@PathVariable Long id) {
         Optional<User> user = userService.findById(id);
-        if (!user.isPresent()) {
+        if (user.isEmpty()) {
             log.error("Id " + id + " is not existed");
-            ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().build();
+        } else {
+            return ResponseEntity.ok(user.get());
         }
-
-        return ResponseEntity.ok(user.get());
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User user) {
-        if (!userService.findById(id).isPresent()) {
+        if (userService.findById(id).isEmpty()) {
             log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
@@ -57,7 +57,7 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
-        if (!userService.findById(id).isPresent()) {
+        if (userService.findById(id).isEmpty()) {
             log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }

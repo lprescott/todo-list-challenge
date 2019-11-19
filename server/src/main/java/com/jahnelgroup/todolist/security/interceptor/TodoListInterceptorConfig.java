@@ -8,8 +8,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Component
 public class TodoListInterceptorConfig implements WebMvcConfigurer {
 
+    private TodoListInterceptor todoListInterceptor;
+
     @Autowired
-    TodoListInterceptor todoListInterceptor;
+    public TodoListInterceptorConfig(TodoListInterceptor todoListInterceptor) {
+        this.todoListInterceptor = todoListInterceptor;
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry interceptorRegistry) {
