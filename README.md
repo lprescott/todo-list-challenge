@@ -112,13 +112,7 @@ Run `ng build` in `web` to build the project. The build artifacts will be stored
 #### Backend 
 Run `mvn package` in `server` to package the project for production. Remember to run `ng build` first with the `--prod` flag enabled first.
 - The database's configuration settings must be updated to the relevant database credentials when deploying. 
-- The above sql scripts will also have to run again to correctly initialize the database.
- 
-## Built with
-- Angular — The web framework used
-- Angular CLI — The command line interface
-- NPM — The package manager used
-- VSCode and IntelliJ — The text-editor and IDE used for development                                                 |
+- The above sql scripts will also have to run again to correctly initialize the database.                                           |
 
 ## Versioning 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
