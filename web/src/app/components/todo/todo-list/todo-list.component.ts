@@ -93,5 +93,7 @@ export class TodoListComponent implements OnInit {
 
   // This function uses by *ngFor with trackBy to only reload content
   // from the server if their ids change
-  trackByTodos(index: number, todo: Todo): number { return todo.id; }
+  trackByTodos(index: number, todo: Todo): number {
+    return todo.id;
+  }
 }

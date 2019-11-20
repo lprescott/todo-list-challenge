@@ -22,7 +22,7 @@ public class TodoListInterceptor implements HandlerInterceptor {
                 JsonWebToken.decodeJWT(Objects.requireNonNull(WebUtils.getCookie(request, "jwt")).getValue());
                 return true;
             } catch (Exception e) {
-                response.sendRedirect("");
+                response.sendRedirect(request.getContextPath() + "/index.html");
                 return false;
             }
         }
