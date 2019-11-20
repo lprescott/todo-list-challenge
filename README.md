@@ -57,7 +57,17 @@ Database          | [MySQL](https://www.mysql.com/)                             
 Security          | Cookie Based JWT (Json Web Token)                                  |
 Persistence       | JPA (Using Spring Data)                                            |
 Client Build Tools| [angular-cli](https://github.com/angular/angular-cli), Webpack, npm| [webpack-dev-server](https://webpack.js.org/guides/development/#webpack-dev-server)
-Server Build Tools| Maven(Java)       
+Server Build Tools| Maven(Java)      
+
+### Installing
+
+- To get `Node.js`, go to [nodejs.org](https://nodejs.org/ "Nodejs.org").
+- To get the Angular CLI, run `npm install -g @angular/cli`.
+- Run `npm install` to install all node dependencies including [rxjs](https://rxjs-dev.firebaseapp.com/). 
+- To download Java, go to [oracle.com](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+- To download Maven, go to [apache.org](https://maven.apache.org/)
+- Run `mvn install` to install all maven dependencies.
+- To download MySQL, visit [mysql.org/downloads](https://dev.mysql.com/downloads/)
 
 ### Development server
 
@@ -73,16 +83,6 @@ Run `mvn spring-boot:run` in `server` for a dev server. Navigate to `http://loca
 
 #### Frontend
 Run `ng serve` in `web` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Installing
-
-- To get `Node.js`, go to [nodejs.org](https://nodejs.org/ "Nodejs.org").
-- To get the Angular CLI, run `npm install -g @angular/cli`.
-- Run `npm install` to install all node dependencies including [rxjs](https://rxjs-dev.firebaseapp.com/). 
-- To download Java, go to [oracle.com](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- To download Maven, go to [apache.org](https://maven.apache.org/)
-- Run `mvn install` to install all maven dependencies.
-- To download MySQL, visit [mysql.org/downloads](https://dev.mysql.com/downloads/)
 
 ## Running the tests
 
