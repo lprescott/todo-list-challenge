@@ -1,6 +1,6 @@
 import { TodoList } from './TodoList';
 
-export class Todo {
+export interface Todo {
   id: number;
   title: string;
   completed: boolean;

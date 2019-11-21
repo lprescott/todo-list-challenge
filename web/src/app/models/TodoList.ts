@@ -1,6 +1,6 @@
 import { User } from './User';
 
-export class TodoList {
+export interface TodoList {
   id: number;
   name: string;
   user: User;
