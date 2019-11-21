@@ -45,11 +45,9 @@ export class TodolistNewComponent implements OnInit {
       user: undefined
     };
 
-    // get user by id, then set many to one relationship and emit
-    this.userService.getUser(id).subscribe(user => {
-      list.user = user;
-      this.addList.emit(list);
-    });
+    // assign user and emit
+    list.user = this.user;
+    this.addList.emit(list);
 
     // reset name
     this.newListForm.reset();
