@@ -6,15 +6,15 @@
   </div>
   <div class="content">
     <form [formGroup]="newTodoForm" (ngSubmit)="onSubmit()">
-        <textarea
+        <input
           required
           type="text"
           id="title"
           class="todo-title"
           name="title"
           formControlName="title"
-          placeholder="A new todo task&#x0a;&#8942;"
-        ></textarea>
+          placeholder="A new todo task..."
+        >
       <button
         [disabled]="!newTodoForm.valid"
         class="btn add"
