@@ -1,7 +1,7 @@
 <form
   class="card form"
   [formGroup]="editTodoForm"
-  (ngSubmit)="onSave(todo, this.editTodoForm.controls.title.value)"
+  (ngSubmit)="onSave(todo, this?.editTodoForm.controls.title.value)"
 >
   <div class="buttons">
     <input
