@@ -46,18 +46,16 @@ export class TodoListComponent implements OnInit {
         this.jwtService
           .authenticate(LoginComponent.getCookie('jwt'))
           .subscribe(user => {
+            // reroute if uid doesn't match lid
+            this.json = user;
 
-            // reroute if the parsing is unsuccessful or uid doesn't match lid
-            try {
-              this.json = JSON.parse(user);
-            } catch (e) {
-              this.json = user;
-            }
-
-            if (this.json.uid !== this.list.user.id) {
-              this.route
-                .navigate([''])
-                .then(() => console.log('Not correct user.'));
+            if (
+              this.json.uid !== this.list.user.id ||
+              this.json.uid !== Number(this.aroute.snapshot.params.uid)
+            ) {
+              this.route.navigate(['']).then(() => {
+                document.cookie = 'jwt=;';
+              });
             }
           });
       }

@@ -42,11 +42,10 @@ export class TodolistNewComponent implements OnInit {
     // create list object
     const list = {
       name: this.newListForm.controls.name.value,
-      user: undefined
+      user: this.user
     };
 
     // assign user and emit
-    list.user = this.user;
     this.addList.emit(list);
 
     // reset name
@@ -55,7 +54,6 @@ export class TodolistNewComponent implements OnInit {
 
   // redirect to homepage
   logout() {
-    // log out if logged in
     document.cookie = 'jwt=;';
     this.route.navigate(['']);
     console.log('Successfully logged out.');

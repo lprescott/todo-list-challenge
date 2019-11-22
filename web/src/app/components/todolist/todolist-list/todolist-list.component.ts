@@ -31,23 +31,21 @@ export class TodolistListComponent implements OnInit {
     // get url parameter
     const id = Number(this.aroute.snapshot.params.uid);
 
-    // check if logged in
-    if (document.cookie.indexOf('jwt') === -1) {
-      this.route.navigate(['']);
-    } else {
-      // authenticate
-      this.jwtService
-        .authenticate(LoginComponent.getCookie('jwt'))
-        .subscribe(user => {
+    // authenticate
+    this.jwtService
+      .authenticate(LoginComponent.getCookie('jwt'))
+      .subscribe(user => {
 
-          // reroute if uid doesn't match id
-          this.json = user;
+        // reroute if uid doesn't match id
+        this.json = user;
 
-          if (this.json.uid !== id) {
-            this.route.navigate(['']);
-          }
-        });
-    }
+        if (this.json.uid !== id) {
+          this.route.navigate(['']);
+        }
+      }, () => {
+        document.cookie = 'jwt=;';
+        this.route.navigate(['']);
+      });
 
     // get existing todolists
     this.todoListService.getTodoLists().subscribe(lists => {

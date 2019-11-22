@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     return v ? v[2] : null;
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   onSubmit() {
     // find user (if it exists) and redirect
