@@ -40,12 +40,8 @@ export class TodolistListComponent implements OnInit {
         .authenticate(LoginComponent.getCookie('jwt'))
         .subscribe(user => {
 
-          // reroute if the parsing is unsuccessful or uid doesn't match id
-          try {
-            this.json = JSON.parse(user);
-          } catch (e) {
-            this.json = user;
-          }
+          // reroute if uid doesn't match id
+          this.json = user;
 
           if (this.json.uid !== id) {
             this.route.navigate(['']);

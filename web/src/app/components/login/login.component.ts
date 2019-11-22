@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JwtService } from '../../services/security/jwt.service';
@@ -12,7 +11,6 @@ import swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private userService: UserService,
     private route: Router,
     private formBuilder: FormBuilder,
     private jwtService: JwtService
@@ -44,19 +42,17 @@ export class LoginComponent implements OnInit {
     this.jwtService.login(this.loginForm.controls.username.value).subscribe(
       returnable => {
 
-        // get and store jwt if login was successful
-        try {
-          this.json = JSON.parse(returnable);
-        } catch (e) {
-          this.json = returnable;
-        }
+        // parse return
+        this.json = returnable;
 
+        // redirect to user page, and store jwt
         this.route.navigate(['/user/' + this.json.user.id]).then(() => {
           document.cookie = 'jwt=' + String(this.json.jwt);
           console.log('You are logged on.');
         });
       },
       () => {
+        // throw alert on incorrect login information
         swal
           .fire({
             title: 'Incorrect Login Information',
