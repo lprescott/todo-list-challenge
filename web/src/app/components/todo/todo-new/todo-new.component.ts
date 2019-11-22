@@ -60,5 +60,6 @@ export class TodoNewComponent implements OnInit {
   // returns to the users home page
   goHome() {
     this.route.navigate(['/user/' + this.list.user.id]);
+    console.log('Successfully redirected.');
   }
 }

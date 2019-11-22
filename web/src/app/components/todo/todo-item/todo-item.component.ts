@@ -52,7 +52,7 @@ export class TodoItemComponent implements OnInit {
   onSave(todo: Todo, newTitle: string) {
     // check if no change or no length
     if (this.todo.title === newTitle || newTitle.length === 0) {
-      console.log('\'' + this.todo.title + '\' not updated');
+      console.log('Todo not updated.');
       return;
     }
 
@@ -61,8 +61,7 @@ export class TodoItemComponent implements OnInit {
 
     // update on server
     this.todoService.updateTodo(todo).subscribe(up => {
-      console.log('Updated todo ' + todo.id + ' to \'' + this.todo.title + '\'');
-      console.log(up);
+      console.log('Updated todo.');
     });
   }
 
@@ -80,9 +79,8 @@ export class TodoItemComponent implements OnInit {
     // toggles Server
     this.todoService.toggleCompleted(todo).subscribe(td => {
       console.log(
-        'Toggled \'' + todo.title + '\' completion to ' + todo.completed
+        'Toggled todo.'
       );
-      console.log(td);
     });
   }
 }

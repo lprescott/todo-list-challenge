@@ -16,7 +16,6 @@ import { LoginComponent } from './components/login/login.component';
 import { TodolistService } from './services/todolist/todolist.service';
 import { UserService } from './services/user/user.service';
 import { TodolistListComponent } from './components/todolist/todolist-list/todolist-list.component';
-import { AutosizeModule } from 'ngx-autosize';
 
 @NgModule({
   declarations: [
@@ -35,8 +34,7 @@ import { AutosizeModule } from 'ngx-autosize';
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    ReactiveFormsModule,
-    AutosizeModule
+    ReactiveFormsModule
   ],
   providers: [TodoService, TodolistService, UserService],
   bootstrap: [AppComponent],

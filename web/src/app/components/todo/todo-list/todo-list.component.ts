@@ -46,7 +46,6 @@ export class TodoListComponent implements OnInit {
         this.jwtService
           .authenticate(LoginComponent.getCookie('jwt'))
           .subscribe(user => {
-            console.log(user);
 
             // reroute if the parsing is unsuccessful or uid doesn't match lid
             try {
@@ -58,7 +57,7 @@ export class TodoListComponent implements OnInit {
             if (this.json.uid !== this.list.user.id) {
               this.route
                 .navigate([''])
-                .then(() => console.log('Not correct id.'));
+                .then(() => console.log('Not correct user.'));
             }
           });
       }
@@ -75,7 +74,7 @@ export class TodoListComponent implements OnInit {
     this.todoService.deleteTodo(todo).subscribe(() => {
       // remove from UI after deleted from server
       this.todos = this.todos.filter(t => t.id !== todo.id);
-      console.log('Deleted \'' + todo.title + '\'');
+      console.log('Deleted todo.');
     });
   }
 
@@ -86,8 +85,7 @@ export class TodoListComponent implements OnInit {
       // adds to ui after added to server
       this.todos.push(td);
       // log
-      console.log('Added \'' + todo.title + '\'');
-      console.log(td);
+      console.log('Added todo.');
     });
   }
 

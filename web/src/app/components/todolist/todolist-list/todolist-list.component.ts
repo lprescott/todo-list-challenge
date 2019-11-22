@@ -39,7 +39,6 @@ export class TodolistListComponent implements OnInit {
       this.jwtService
         .authenticate(LoginComponent.getCookie('jwt'))
         .subscribe(user => {
-          console.log(user);
 
           // reroute if the parsing is unsuccessful or uid doesn't match id
           try {
@@ -66,15 +65,13 @@ export class TodolistListComponent implements OnInit {
   deleteList(list: TodoList) {
     this.todoListService.deleteTodoList(list).subscribe(() => {
       this.lists = this.lists.filter(t => t.id !== list.id);
-      console.log('Deleted \'' + list.name + '\'');
     });
   }
 
   addList(list: TodoList) {
     this.todoListService.addTodoList(list).subscribe(ls => {
       this.lists.push(ls);
-      console.log('Added \'' + list.name + '\'');
-      console.log(ls);
+      console.log('Added list.');
     });
   }
 

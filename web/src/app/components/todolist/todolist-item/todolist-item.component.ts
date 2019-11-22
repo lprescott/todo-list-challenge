@@ -48,7 +48,7 @@ export class TodolistItemComponent implements OnInit {
   onSave(list: TodoList, newName: string) {
     // no change, return
     if (this.list.name === newName || newName.length === 0) {
-      console.log('\'' + this.list.name + '\' not updated');
+      console.log('List not updated');
       return;
     }
 
@@ -57,8 +57,7 @@ export class TodolistItemComponent implements OnInit {
 
     // change on Server and log
     this.todoListService.updateTodoList(list).subscribe(up => {
-      console.log('Updated list ' + list.id + ' to \'' + this.list.name + '\'');
-      console.log(up);
+      console.log('Updated list.');
     });
   }
 
@@ -108,10 +107,7 @@ export class TodolistItemComponent implements OnInit {
       .navigateByUrl('/user/' + list.user.id + '/list/' + list.id)
       .then(() =>
         console.log(
-          'Successfully redirected to /user/' +
-            list.user.id +
-            '/list/' +
-            list.id
+          'Successfully redirected.'
         )
       );
   }

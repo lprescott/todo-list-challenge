@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { Router } from '@angular/router';
-import swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JwtService } from '../../services/security/jwt.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -37,18 +37,12 @@ export class LoginComponent implements OnInit {
     return v ? v[2] : null;
   }
 
-  ngOnInit() {
-    // log out if logged in
-    if (document.cookie.indexOf('jwt') !== -1) {
-      document.cookie = 'jwt=;';
-    }
-  }
+  ngOnInit() { }
 
   onSubmit() {
     // find user (if it exists) and redirect
     this.jwtService.login(this.loginForm.controls.username.value).subscribe(
       returnable => {
-        console.log(returnable);
 
         // get and store jwt if login was successful
         try {
@@ -59,7 +53,7 @@ export class LoginComponent implements OnInit {
 
         this.route.navigate(['/user/' + this.json.user.id]).then(() => {
           document.cookie = 'jwt=' + String(this.json.jwt);
-          console.log('logged on with uid: ' + this.json.user.id);
+          console.log('You are logged on.');
         });
       },
       () => {
@@ -68,7 +62,7 @@ export class LoginComponent implements OnInit {
             title: 'Incorrect Login Information',
             icon: 'error'
           })
-          .then(() => console.log('failed to login'));
+          .then(() => console.log('Failed to login.'));
       }
     );
   }
