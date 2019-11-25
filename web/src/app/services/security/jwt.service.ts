@@ -15,7 +15,15 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class JwtService {
+
+  loggedIn = false;
+
   constructor(private http: HttpClient) {}
+
+  // Set the boolean loggedIn, to the passed value
+  setLoggedIn(val: boolean) {
+    this.loggedIn = val;
+  }
 
   // get user id if authenticated
   authenticate(jwt: string): Observable<string> {

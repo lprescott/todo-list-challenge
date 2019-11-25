@@ -44,6 +44,7 @@ export class TodolistListComponent implements OnInit {
         }
       }, () => {
         document.cookie = 'jwt=;';
+        this.jwtService.setLoggedIn(false);
         this.route.navigate(['']);
       });
 

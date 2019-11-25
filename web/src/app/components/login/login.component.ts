@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
         this.json = returnable;
 
         // redirect to user page, and store jwt
+        this.jwtService.setLoggedIn(true);
         this.route.navigate(['/user/' + this.json.user.id]).then(() => {
           document.cookie = 'jwt=' + String(this.json.jwt);
           console.log('You are logged on.');

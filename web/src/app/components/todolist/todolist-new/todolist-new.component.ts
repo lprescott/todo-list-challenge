@@ -1,3 +1,4 @@
+import { JwtService } from './../../../services/security/jwt.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from '../../../services/user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,7 +15,8 @@ export class TodolistNewComponent implements OnInit {
     private userService: UserService,
     private aroute: ActivatedRoute,
     private route: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private jwtService: JwtService,
   ) {
     this.newListForm = formBuilder.group({
       name: [
@@ -55,6 +57,7 @@ export class TodolistNewComponent implements OnInit {
   // redirect to homepage
   logout() {
     document.cookie = 'jwt=;';
+    this.jwtService.setLoggedIn(false);
     this.route.navigate(['']);
     console.log('Successfully logged out.');
   }

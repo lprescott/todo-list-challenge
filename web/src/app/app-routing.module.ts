@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/security/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TodolistListComponent } from './components/todolist/todolist-list/todolist-list.component';
@@ -6,8 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'user/:uid', component: TodolistListComponent },
-  { path: 'user/:uid/list/:lid', component: TodoListComponent },
+  { path: 'user/:uid', component: TodolistListComponent, canActivate: [AuthGuard] },
+  { path: 'user/:uid/list/:lid', component: TodoListComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '' }
 ];
 
