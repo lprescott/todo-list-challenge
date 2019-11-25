@@ -15,8 +15,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.jwtService.loggedIn === false) {
       return false;
-    } else {
-      return true;
     }
+    return true;
   }
 }

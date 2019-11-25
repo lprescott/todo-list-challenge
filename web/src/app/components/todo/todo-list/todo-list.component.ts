@@ -53,10 +53,7 @@ export class TodoListComponent implements OnInit {
               this.json.uid !== this.list.user.id ||
               this.json.uid !== Number(this.aroute.snapshot.params.uid)
             ) {
-              this.route.navigate(['']).then(() => {
-                document.cookie = 'jwt=;';
-                this.jwtService.setLoggedIn(false);
-              });
+              this.jwtService.logout();
             }
           });
       }

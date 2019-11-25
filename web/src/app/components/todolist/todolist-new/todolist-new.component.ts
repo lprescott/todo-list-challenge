@@ -56,9 +56,7 @@ export class TodolistNewComponent implements OnInit {
 
   // redirect to homepage
   logout() {
-    document.cookie = 'jwt=;';
-    this.jwtService.setLoggedIn(false);
-    this.route.navigate(['']);
+    this.jwtService.logout();
     console.log('Successfully logged out.');
   }
 }
