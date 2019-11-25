@@ -20,7 +20,7 @@ mvn install             # Install Spring Boot Backend Dependencies
 ```bash
 .
 │  README.md
-└──[testing]                           # Sample PostMan requests for testing
+└──[postman]                           # Sample PostMan requests for testing
 │
 └──[sql]                               # SQL scripts for database init
 │
