@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/main-es2015.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/main-es2015.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/main-es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/main-es5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/main-es5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/main-es5.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es2015.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es2015.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es5.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/styles-es2015.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/styles-es2015.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/styles-es2015.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/styles-es2015.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/styles-es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/styles-es5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/styles-es5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/styles-es5.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es2015.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es2015.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es2015.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es2015.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/grant_permission.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/grant_permission.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,12 +71,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Luke Prescott\AppData\Roaming\npm\node_modules\prettier" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
@@ -81,6 +101,7 @@
     <configuration name="E2E Tests (web)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/web/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/web/node_modules/protractor" />
       <protractor-options value="" />
       <envs />
       <scope-kind value="ALL" />
@@ -92,6 +113,7 @@
     <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jahnelgroup.server.ServerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,6 +128,12 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Angular Application (web)" />
+      <item itemvalue="npm.Angular CLI Server (web)" />
+      <item itemvalue="Protractor.E2E Tests (web)" />
+      <item itemvalue="Spring Boot.ServerApplication" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -119,6 +147,7 @@
       <updated>1574871593479</updated>
       <workItem from="1574871596054" duration="5758000" />
       <workItem from="1574882153015" duration="1548000" />
+      <workItem from="1574891879126" duration="1099000" />
     </task>
     <servers />
   </component>
