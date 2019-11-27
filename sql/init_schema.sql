@@ -1,1 +1,1 @@
-create schema challenge;
+create schema test_db;

@@ -1,9 +1,0 @@
-<div class="container">
-  <app-todo-new (addTodo)="addTodo($event)" [list]="list"> </app-todo-new>
-  <app-todo-item
-    *ngFor="let todo of todos; trackBy: trackByTodos"
-    [todo]="todo"
-    (deleteTodo)="deleteTodo($event)"
-  >
-  </app-todo-item>
-</div>
