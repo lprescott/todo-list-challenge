@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/main-es2015.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/main-es2015.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/main-es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/main-es5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/main-es5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/main-es5.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es2015.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es2015.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/polyfills-es5.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/styles-es2015.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/styles-es2015.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/styles-es2015.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/styles-es2015.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/styles-es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/styles-es5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/styles-es5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/styles-es5.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es2015.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es2015.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es2015.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es2015.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es5.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/static/vendor-es5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/grant_permission.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/grant_permission.sql" afterDir="false" />
-    </list>
+    <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +129,7 @@
       <updated>1574871593479</updated>
       <workItem from="1574871596054" duration="5758000" />
       <workItem from="1574882153015" duration="1548000" />
-      <workItem from="1574891879126" duration="1099000" />
+      <workItem from="1574891879126" duration="1369000" />
     </task>
     <servers />
   </component>
