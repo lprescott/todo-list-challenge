@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/init_users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/init_users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,13 +59,9 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs.protractor.protractor_package" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Luke Prescott\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
@@ -83,11 +77,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.ServerApplication">
     <configuration name="E2E Tests (web)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/web/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
-      <protractor-package value="$PROJECT_DIR$/web/node_modules/protractor" />
       <protractor-options value="" />
       <envs />
       <scope-kind value="ALL" />
@@ -95,6 +88,13 @@
     </configuration>
     <configuration name="Angular Application (web)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
+    </configuration>
+    <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jahnelgroup.server.ServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Angular CLI Server (web)" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/web/package.json" />
@@ -106,21 +106,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="JavaScript Debug.Angular Application (web)" />
-      <item itemvalue="npm.Angular CLI Server (web)" />
-      <item itemvalue="Protractor.E2E Tests (web)" />
-    </list>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand />
-          <select />
-        </treeState>
-      </serviceView>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
