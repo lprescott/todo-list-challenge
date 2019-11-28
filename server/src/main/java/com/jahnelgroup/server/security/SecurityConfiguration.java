@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -37,7 +39,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
             .antMatchers("/").hasRole("USER")
-            .and().formLogin();
+            .antMatchers("/resources/**").permitAll()
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .loginPage("/login")
+        //    .defaultSuccessUrl("/index.html")
+            .permitAll()
+            .and()
+        .logout()
+            .permitAll()
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+        //    .deleteCookies("JSESSIONID")
+        //    .invalidateHttpSession(true)
+            .logoutSuccessUrl("/login?logout");
+        //    .and()
+        //.httpBasic()
+        //    .and()
+        //    .csrf()
+        //    .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 
     @Bean
