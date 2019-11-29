@@ -31,7 +31,7 @@ export class UserService {
   }
 
   getCurrentUser(): Observable<User> {
-    const url = '/user';
+    const url = '/user/current';
     return this.http.get<User>(url).pipe(catchError(UserService.handleError));
   }
 }
