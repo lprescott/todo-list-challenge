@@ -1,8 +1,6 @@
 package com.jahnelgroup.server.models;
 
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "user")
 @Getter
 @Setter
+@ToString
 public class User {
 
     @Id

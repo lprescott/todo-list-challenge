@@ -11,18 +11,30 @@ import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
 
+    private int id;
     private String username;
     private String password;
     private boolean active;
     private List<GrantedAuthority> authorities;
 
     public MyUserDetails(User user) {
+        this.id = user.getId();
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.active = user.isActive();
         this.authorities = Arrays.stream(user.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
+    }
+
+    public User toUser() {
+        User temp = new User();
+        temp.setId(this.id);
+        temp.setActive(this.active);
+        temp.setUsername(this.username);
+        temp.setPassword(this.password);
+        temp.setRoles(this.authorities.get(0).toString());
+        return temp;
     }
 
     @Override
