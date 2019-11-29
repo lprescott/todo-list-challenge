@@ -1,4 +1,4 @@
-package com.jahnelgroup.server.controller;
+package com.jahnelgroup.server.repository;
 
 import com.jahnelgroup.server.models.User;
 import com.jahnelgroup.server.service.MyUserDetailsService;
@@ -7,8 +7,11 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * this function adds three default users to the database
+ */
 @Component
-public class DBController {
+public class UserInitializer {
 
     @Autowired
     private MyUserDetailsService myUserDetailsService;

@@ -18,10 +18,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MyUserDetailsService implements UserDetailsService {
 
-    @Autowired
     private UserRepository userRepository;
 
-    @Autowired
+    @Autowired // Field injection here to avoid circular dependency
     private PasswordEncoder passwordEncoder;
 
     @Autowired

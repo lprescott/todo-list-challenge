@@ -17,6 +17,10 @@ public class MyUserDetails implements UserDetails {
     private boolean active;
     private List<GrantedAuthority> authorities;
 
+    /**
+     * converts a passed user into a MyUserDetails class
+     * @param user the passed user object
+     */
     public MyUserDetails(User user) {
         this.id = user.getId();
         this.username = user.getUsername();
@@ -27,6 +31,10 @@ public class MyUserDetails implements UserDetails {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * converts a MyUserDetails class to a User class
+     * @return a user object
+     */
     public User toUser() {
         User temp = new User();
         temp.setId(this.id);

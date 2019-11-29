@@ -15,13 +15,17 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    private MyUserDetailsService myUserDetailsService;
+
     @Autowired
-    MyUserDetailsService myUserDetailsService;
+    public SecurityConfiguration(MyUserDetailsService myUserDetailsService) {
+        this.myUserDetailsService = myUserDetailsService;
+    }
 
     /**
      * authenticate using my userDetailsService
-     * @param auth
-     * @throws Exception
+     * @param auth the passed AuthenticationManagerBuilder
+     * @throws Exception the thrown exception if myUserDetailsService is incorrectly configured
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -31,8 +35,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * authorize requests this way
-     * @param http
-     * @throws Exception
+     * @param http the http request passed
+     * @throws Exception the exception caught on incorrect configuration
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
