@@ -14,7 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private int id;
+    private Integer id;
 
     @NonNull
     @Column(name = "username")
@@ -25,7 +25,7 @@ public class User {
     private String password;
 
     @Column(name = "active")
-    private boolean active;
+    private Boolean active;
 
     @NonNull
     @Column(name = "roles")
