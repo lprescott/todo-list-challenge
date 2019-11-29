@@ -1,26 +1,115 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Custom Login Page</title>
+    <title>Todo List Challenge Login</title>
+    <style>
+        .card {
+            margin: 15px auto;
+            max-width: 1200px;
+            min-width: 320px;
+            background: #fff;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 0.2em;
+            height: 200px;
+        }
+
+        .card:hover {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .btn {
+            border: none;
+            display: inline-block;
+            padding: 0.7em 0.7em;
+            margin: 15px 0.3em 0.3em 0;
+            border-radius: 0.2em;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
+            inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
+            inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+            text-align: center;
+            position: relative;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #4cabff;
+            padding: 0.7em 1.5em;
+        }
+
+        .btn:active {
+            box-shadow: inset 0 0.6em 2em -0.3em rgba(0, 0, 0, 0.15),
+            inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+        }
+
+        .btn:focus {
+            outline: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        #username, #password{
+            width: 100%;
+            border: 1px solid #4cabff;
+            outline: 0;
+            border-radius: 0.1em;
+            padding: 5px;
+            font-size: 14pt;
+        }
+
+        #password{
+            margin-top: 15px;
+        }
+
+        h1{
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
-<div>
+<div class="card">
+    <h1>Login</h1>
     <form th:action="@{/login}" method="post">
-        <fieldset>
-            <legend>Please Login</legend>
-            <div th:if="${param.error}" class="alert alert-error">
-                Invalid username and password.
-            </div>
-            <div th:if="${param.logout}" class="alert alert-success">
-                You have been logged out.
-            </div>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username"/>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"/>
-            <div class="form-actions">
-                <button type="submit" class="btn">Log in</button>
-            </div>
-        </fieldset>
+        <div th:if="${param.error}">
+            <script>
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Invalid username and password.',
+                    icon: 'error',
+                    confirmButtonText: 'Okay'
+                })
+            </script>
+        </div>
+        <div th:if="${param.logout}">
+            <script>
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'You have been logged out.',
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                })
+            </script>
+        </div>
+        <input required type="text" id="username" autocomplete="username" name="username" placeholder="username"/>
+        </br>
+        <input required type="password" id="password" autocomplete="password" name="password" placeholder="password"/>
+        <div class="form-actions">
+            <button type="submit" class="btn">Login</button>
+        </div>
     </form>
 </div>
 </body>
