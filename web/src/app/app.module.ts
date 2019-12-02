@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavbarComponent } from './components/layout/navbar/navbar.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [ UserService, CookieService ],
   bootstrap: [AppComponent]
