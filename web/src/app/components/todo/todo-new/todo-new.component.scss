@@ -20,10 +20,11 @@
   border-right: 1px solid #4cabff;
   border-bottom: 1px solid #4cabff;
   width: calc(100% - 16px);
-  max-width: calc(100% - 16px);
-  min-width: calc(100% - 16px);
   outline: 0;
   border-radius: 0.1em;
+  padding: 5px;
+  font-size: 14pt;
+  word-wrap: break-word;
 }
 
 h2 {

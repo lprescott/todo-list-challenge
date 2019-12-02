@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoItemComponent } from './todo-item.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
@@ -8,9 +10,9 @@ describe('TodoItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoItemComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule, ReactiveFormsModule],
+      declarations: [TodoItemComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +21,30 @@ describe('TodoItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create todo item component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('form invalid when empty', () => {
+    expect(component.editTodoForm.valid).toBeFalsy();
+  });
+
+  it('form invalid when w/ large input', () => {
+    component.editTodoForm.controls.title.setValue('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+      'Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.\n');
+    expect(component.editTodoForm.valid).toBeFalsy();
+  });
+
+  it('should call onSave when valid', async(() => {
+    spyOn(component, 'onSave');
+    component.editTodoForm.controls.title.setValue('Todo Item Test');
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+
+    fixture.whenStable().then(() => {
+      expect(component.onSave).toHaveBeenCalled();
+    });
+  }));
 });
