@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
@@ -15,6 +15,8 @@ import { TodoNewComponent } from './components/todo/todo-new/todo-new.component'
 import { TodoItemComponent } from './components/todo/todo-item/todo-item.component';
 import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {TodoListService} from './services/todo-list.service';
+import {TodoService} from './services/todo.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     FontAwesomeModule,
     ReactiveFormsModule
   ],
-  providers: [ UserService, CookieService ],
-  bootstrap: [AppComponent]
+  providers: [ UserService, TodoListService, TodoService, CookieService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

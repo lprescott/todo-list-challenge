@@ -4,11 +4,7 @@
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/todo/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/todo/service/TodoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/todolist/controller/TodoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/todolist/controller/TodoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/app/components/list/list-new/list-new.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/list/list-new/list-new.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/app/components/list/list-new/list-new.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/list/list-new/list-new.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/app/components/todo/todo-new/todo-new.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/todo/todo-new/todo-new.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +191,7 @@
       <workItem from="1574905116955" duration="1730000" />
       <workItem from="1575066545803" duration="270000" />
       <workItem from="1575294178091" duration="12261000" />
-      <workItem from="1575306463595" duration="4960000" />
+      <workItem from="1575306463595" duration="5982000" />
     </task>
     <servers />
   </component>
