@@ -1,4 +1,4 @@
-package com.jahnelgroup.server.models;
+package com.jahnelgroup.server.user.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

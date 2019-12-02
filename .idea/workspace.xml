@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Luke_Prescott.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Luke_Prescott.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/models/MyUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/models/Todo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/models/TodoList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/repository/UserInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/service/MyUserDetailsService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/user/user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/services/user.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/styles.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +50,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="TypeScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -85,7 +101,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Lombok plugin" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/web/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -110,7 +126,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ServerApplication">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="E2E Tests (web)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/web/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -123,7 +139,7 @@
     <configuration name="Angular Application (web)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
-    <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.jahnelgroup.server.ServerApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -152,7 +168,7 @@
       <item itemvalue="JavaScript Debug.Angular Application (web)" />
       <item itemvalue="npm.Angular CLI Server (web)" />
       <item itemvalue="Protractor.E2E Tests (web)" />
-      <item itemvalue="Spring Boot.ServerApplication" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
   </component>
   <component name="ServiceViewManager">
@@ -163,12 +179,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@69c03e15" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@78faaf75" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@69c03e15" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d14da38" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@78faaf75" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5517e7c5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -195,7 +211,8 @@
       <workItem from="1574905048903" duration="51000" />
       <workItem from="1574905116955" duration="1730000" />
       <workItem from="1575066545803" duration="270000" />
-      <workItem from="1575294178091" duration="1663000" />
+      <workItem from="1575294178091" duration="12261000" />
+      <workItem from="1575306463595" duration="4512000" />
     </task>
     <servers />
   </component>

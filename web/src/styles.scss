@@ -1,6 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+html,
 body {
-  font-family: 'Open Sans', sans-serif;
+  height: 100%;
   background-color: #f1f1f1;
+}
+body {
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin: 15px auto;
+  max-width: 1200px;
+  min-width: 320px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 0.2em;
+}
+.card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.btn {
+  border: none;
+  display: inline-block;
+  padding: 0.7em 0.7em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+.btn:active {
+  box-shadow: inset 0 0.6em 2em -0.3em rgba(0, 0, 0, 0.15),
+  inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.todo-title {
+  padding: 5px;
+  font-size: 14pt;
+  word-wrap: break-word;
+}
+
+.container {
+  margin-right: 15px;
+  margin-left: 15px;
 }

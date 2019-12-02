@@ -1,4 +1,4 @@
-package com.jahnelgroup.server.models;
+package com.jahnelgroup.server.user.model;
 
 import lombok.*;
 
@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
 

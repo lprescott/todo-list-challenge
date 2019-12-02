@@ -1,10 +1,11 @@
-package com.jahnelgroup.server.service;
+package com.jahnelgroup.server.user.service;
 
-import com.jahnelgroup.server.models.MyUserDetails;
-import com.jahnelgroup.server.models.User;
-import com.jahnelgroup.server.repository.UserRepository;
+import com.jahnelgroup.server.user.repository.UserRepository;
+import com.jahnelgroup.server.user.model.MyUserDetails;
+import com.jahnelgroup.server.user.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,7 +21,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;
 
-    @Autowired // Field injection here to avoid circular dependency
+    /*
+        Lazy Injection to avoid circular dependency
+        Allowed SecurityConfiguration to init the password encoder
+     */
+    @Autowired  @Lazy
     private PasswordEncoder passwordEncoder;
 
     @Autowired

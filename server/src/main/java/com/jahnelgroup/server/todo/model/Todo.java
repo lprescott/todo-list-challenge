@@ -1,5 +1,6 @@
-package com.jahnelgroup.server.models;
+package com.jahnelgroup.server.todo.model;
 
+import com.jahnelgroup.server.todolist.model.TodoList;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -15,7 +16,7 @@ import javax.persistence.*;
 public class Todo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "todo_id")
     private Integer id;
 

@@ -1,10 +1,12 @@
-package com.jahnelgroup.server.repository;
+package com.jahnelgroup.server.user.repository;
 
-import com.jahnelgroup.server.models.User;
+import com.jahnelgroup.server.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByUsername(String username);
 }

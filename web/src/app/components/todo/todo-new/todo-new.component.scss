@@ -1,0 +1,42 @@
+.todo-input {
+  width: 100%;
+}
+
+.new {
+  background-color: #44ca89;
+  color: #ffffff;
+  margin-left: 15px;
+}
+
+.add {
+  color: #ffffff;
+  background-color: #4cabff;
+  margin-top: 15px;
+  padding: 0.7em 1.5em;
+}
+
+#text {
+  border-top: 1px solid #4cabff;
+  border-right: 1px solid #4cabff;
+  border-bottom: 1px solid #4cabff;
+  width: calc(100% - 16px);
+  max-width: calc(100% - 16px);
+  min-width: calc(100% - 16px);
+  outline: 0;
+  border-radius: 0.1em;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: rgb(49, 49, 49);
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #44ca89; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #ff605c; /* red */
+}

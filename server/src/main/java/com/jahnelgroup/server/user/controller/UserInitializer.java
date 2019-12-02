@@ -1,14 +1,14 @@
-package com.jahnelgroup.server.repository;
+package com.jahnelgroup.server.user.controller;
 
-import com.jahnelgroup.server.models.User;
-import com.jahnelgroup.server.service.MyUserDetailsService;
+import com.jahnelgroup.server.user.service.MyUserDetailsService;
+import com.jahnelgroup.server.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
 /**
- * this function adds three default users to the database
+ * this function adds three default users to the database,
  */
 @Component
 public class UserInitializer {
