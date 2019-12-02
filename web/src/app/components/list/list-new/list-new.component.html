@@ -1,13 +1,10 @@
 <div class="card">
   <div class="heading">
-    <h2>Create a new todo list:</h2>
+    <h2>User Home</h2>
   </div>
   <div class="content">
     <form [formGroup]="newListForm" (ngSubmit)="onSubmit()">
       <div class="list-input">
-        <input type="hidden"
-               name="${_csrf.parameterName}"
-               value="${_csrf.token}"/>
         <input
           required
           type="text"
@@ -15,7 +12,7 @@
           class="list-title"
           name="title"
           formControlName="title"
-          placeholder="The title of a new todo list..."
+          placeholder="A new todo list..."
         />
       </div>
       <button

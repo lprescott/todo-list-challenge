@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Todo} from '../../../models/Todo';
 import {TodoService} from '../../../services/todo.service';
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-todo-item',
@@ -75,4 +76,8 @@ export class TodoItemComponent implements OnInit {
     });
   }
 
+  onReset(todo: Todo) {
+    this.editTodoForm.controls.text.setValue(todo.text);
+    return false;
+  }
 }
