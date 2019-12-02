@@ -2,7 +2,7 @@ import { TodoList } from './TodoList';
 
 export class Todo {
   id: number;
-  title: string;
+  text: string;
   completed: boolean;
-  todoList: TodoList;
+  todolist: TodoList;
 }

@@ -1,7 +1,7 @@
 <form
   class="card form"
   [formGroup]="editTodoForm"
-  (ngSubmit)="onSave(todo, this?.editTodoForm.controls.title.value)"
+  (ngSubmit)="onSave(todo, this?.editTodoForm.controls.text.value)"
 >
   <div class="buttons">
     <input
@@ -29,12 +29,12 @@
   <hr />
   <div class="todo-input" [ngClass]="setClasses()">
     <input
-      class="todo-title"
+      class="todo-text"
       style="margin-top: 7px"
-      formControlName="title"
-      id="todo-title"
-      [value]="todo?.title"
-      [defaultValue]="todo?.title"
+      formControlName="text"
+      id="todo-text"
+      [value]="todo?.text"
+      [defaultValue]="todo?.text"
     >
   </div>
 </form>

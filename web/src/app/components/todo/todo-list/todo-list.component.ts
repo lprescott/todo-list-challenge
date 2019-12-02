@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from '../../../models/Todo';
-import { TodoService } from '../../../services/todo/todo.service';
-import { TodoList } from '../../../models/TodoList';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TodolistService } from '../../../services/todolist/todolist.service';
-import { JwtService } from '../../../services/security/jwt.service';
-import { LoginComponent } from '../../login/login.component';
+import {User} from '../../../models/User';
+import {CookieService} from 'ngx-cookie-service';
+import {TodoList} from '../../../models/TodoList';
+import {Todo} from '../../../models/Todo';
+import {TodoService} from '../../../services/todo.service';
+import {TodoListService} from '../../../services/todo-list.service';
+import {ActivatedRoute} from '@angular/router';
+import {flatMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo-list',
@@ -13,58 +14,33 @@ import { LoginComponent } from '../../login/login.component';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  // taking todoService in the constructor allows it to be accessed from inside the class
+
+  user: User;
+  list = {} as TodoList; // list: TodoList;
+  todos: Todo[] = []; // todos: Todo[];
+
   constructor(
     private aroute: ActivatedRoute,
+    private cookie: CookieService,
     private todoService: TodoService,
-    private todolistService: TodolistService,
-    private route: Router,
-    private jwtService: JwtService
+    private todolistService: TodoListService
   ) {}
 
-  // list object, list of todos and list id
-  list = {} as TodoList;
-  todos: Todo[] = [];
-  id: number;
-  private json: any;
-
-  // receives existing todos from the server on initialization, using todoService
   ngOnInit() {
-    // get url parameter
-    this.id = Number(this.aroute.snapshot.params.lid);
-    this.list.id = this.id;
+    // get user
+    this.user = JSON.parse(this.cookie.get('user'));
 
-    // get existing todos
-    this.todolistService.getTodoList(this.id).subscribe(list => {
+    // get todolist
+    this.todolistService.getTodoList(Number(this.aroute.snapshot.params.lid)).subscribe(list => {
       this.list = list;
 
-      // check if logged in
-      if (document.cookie.indexOf('jwt') === -1) {
-        this.route.navigate(['']).then(() => console.log('Not logged in.'));
-      } else {
-        // authenticate
-        this.jwtService
-          .authenticate(LoginComponent.getCookie('jwt'))
-          .subscribe(user => {
-            // reroute if uid doesn't match lid
-            this.json = user;
-
-            if (
-              this.json.uid !== this.list.user.id ||
-              this.json.uid !== Number(this.aroute.snapshot.params.uid)
-            ) {
-              this.jwtService.logout();
-            }
-          });
-      }
-    });
-
-    this.todoService.getTodos().subscribe(todos => {
-      this.todos = todos.filter(td => td.todoList.id === this.list.id);
+      // get todos
+      this.todoService.getTodos().subscribe(todos => {
+        this.todos = todos.filter(todo => todo.todolist.id === this.list.id);
+      });
     });
   }
 
-  // removes todo passed as argument from ui and server, using todoService
   deleteTodo(todo: Todo) {
     // remove from Server
     this.todoService.deleteTodo(todo).subscribe(() => {
@@ -74,7 +50,6 @@ export class TodoListComponent implements OnInit {
     });
   }
 
-  // adds todo passed as argument via post, suing todoService
   addTodo(todo: Todo) {
     // adds to server
     this.todoService.addTodo(todo).subscribe(td => {
@@ -85,8 +60,6 @@ export class TodoListComponent implements OnInit {
     });
   }
 
-  // This function uses by *ngFor with trackBy to only reload content
-  // from the server if their ids change
   trackByTodos(index: number, todo: Todo): number {
     return todo.id;
   }

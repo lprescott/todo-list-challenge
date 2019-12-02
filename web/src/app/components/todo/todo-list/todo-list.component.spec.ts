@@ -1,12 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoListComponent } from './todo-list.component';
-import { TodoItemComponent } from '../todo-item/todo-item.component';
-import { TodoNewComponent } from '../todo-new/todo-new.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ActivatedRoute } from '@angular/router';
 
 describe('TodoListComponent', () => {
   let component: TodoListComponent;
@@ -14,13 +8,9 @@ describe('TodoListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TodoListComponent, TodoItemComponent, TodoNewComponent],
-      imports: [
-        HttpClientTestingModule,
-        ReactiveFormsModule,
-        RouterTestingModule
-      ]
-    }).compileComponents();
+      declarations: [ TodoListComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
@@ -29,7 +19,7 @@ describe('TodoListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create todo list component', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

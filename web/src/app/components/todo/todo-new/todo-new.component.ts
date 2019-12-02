@@ -1,9 +1,6 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TodolistService } from '../../../services/todolist/todolist.service';
-import { TodoList } from '../../../models/TodoList';
-import { TodoService } from '../../../services/todo/todo.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {TodoList} from '../../../models/TodoList';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-todo-new',
@@ -11,15 +8,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./todo-new.component.scss']
 })
 export class TodoNewComponent implements OnInit {
+
+  @Input() list: TodoList;
+  @Output() addTodo: EventEmitter<any> = new EventEmitter<any>();
+
+  newTodoForm: FormGroup;
+
   constructor(
-    private aroute: ActivatedRoute,
-    private todoService: TodoService,
-    private todolistService: TodolistService,
-    private route: Router,
     private formBuilder: FormBuilder
   ) {
     this.newTodoForm = formBuilder.group({
-      title: [
+      text: [
         '',
         [
           Validators.required,
@@ -30,24 +29,15 @@ export class TodoNewComponent implements OnInit {
     });
   }
 
-  // outputs addTodo  via an event emitter to todo-list
-  @Output() addTodo: EventEmitter<any> = new EventEmitter<any>();
+  ngOnInit() {
+  }
 
-  // the list inputted from todo-list component
-  @Input() list: TodoList;
-
-  // the components formgroup
-  newTodoForm: FormGroup;
-
-  ngOnInit() {}
-
-  // creation of a Todo model using 2-way data binding and emitting
   onSubmit() {
     // create a Todo model
     const todo = {
-      title: this.newTodoForm.controls.title.value,
+      text: this.newTodoForm.controls.text.value,
       completed: false,
-      todoList: this.list
+      todolist: this.list
     };
 
     // emit upwards to todo-list component
@@ -57,9 +47,4 @@ export class TodoNewComponent implements OnInit {
     this.newTodoForm.reset();
   }
 
-  // returns to the users home page
-  goHome() {
-    this.route.navigate(['/user/' + this.list.user.id]);
-    console.log('Successfully redirected.');
-  }
 }

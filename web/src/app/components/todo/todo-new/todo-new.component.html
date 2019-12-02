@@ -1,20 +1,20 @@
 <div class="card">
   <div class="heading">
     <h2 id="header1">
-      {{ this.list?.name }}
+      {{ this.list?.title }}
     </h2>
   </div>
   <div class="content">
     <form [formGroup]="newTodoForm" (ngSubmit)="onSubmit()">
-        <input
-          required
-          type="text"
-          id="title"
-          class="todo-title"
-          name="title"
-          formControlName="title"
-          placeholder="A new todo task..."
-        >
+      <input
+        required
+        type="text"
+        id="text"
+        class="todo-text"
+        name="text"
+        formControlName="text"
+        placeholder="A new todo task..."
+      >
       <button
         [disabled]="!newTodoForm.valid"
         class="btn add"
@@ -23,9 +23,7 @@
       >
         Add
       </button>
-      <button class="btn home" type="reset" (click)="goHome()" title="Home">
-        Home
-      </button>
+
     </form>
   </div>
 </div>

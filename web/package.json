@@ -1,5 +1,5 @@
 {
-  "name": "todo-list-challenge",
+  "name": "web",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,15 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "prettier": {
-    "singleQuote": true,
-    "tabWidth": 2,
-    "semi": true
-  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.13",
-    "@angular/cdk": "~8.2.3",
     "@angular/common": "~8.2.13",
     "@angular/compiler": "~8.2.13",
     "@angular/core": "~8.2.13",
@@ -29,10 +23,11 @@
     "@fortawesome/angular-fontawesome": "^0.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "ngx-cookie-service": "^2.2.0",
     "angular2-jwt": "^0.2.3",
     "prettier": "^1.19.1",
     "rxjs": "~6.4.0",
-    "sweetalert2": "^9.3.5",
+    "sweetalert2": "^9.4.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

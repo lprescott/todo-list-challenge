@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Todo } from '../../../models/Todo';
-import { TodoService } from '../../../services/todo/todo.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Todo} from '../../../models/Todo';
+import {TodoService} from '../../../services/todo.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -9,13 +9,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
-  // taking todoService in the constructor allows it to be accessed from inside the class
+
+  @Input() todo: Todo;
+  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() updateTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+
+  editTodoForm: FormGroup;
+
   constructor(
     private todoService: TodoService,
     private formBuilder: FormBuilder
   ) {
     this.editTodoForm = this.formBuilder.group({
-      title: [
+      text: [
         '',
         [
           Validators.required,
@@ -26,21 +32,9 @@ export class TodoItemComponent implements OnInit {
     });
   }
 
-  // the current model inputted from the above component todo-list
-  @Input() todo: Todo;
+  ngOnInit() {
+  }
 
-  // outputs deleteTodo via an event emitter to todo-list
-  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
-
-  // outputs updateTodo via an event emitter to todo-list
-  @Output() updateTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
-
-  // the components formgroup
-  editTodoForm: FormGroup;
-
-  ngOnInit() {}
-
-  // set the class of a todo dynamically to todo, and is-complete
   setClasses() {
     return {
       todo: true,
@@ -48,16 +42,15 @@ export class TodoItemComponent implements OnInit {
     };
   }
 
-  // updates the current todos title text
-  onSave(todo: Todo, newTitle: string) {
+  onSave(todo: Todo, newText: string) {
     // check if no change or no length
-    if (this.todo.title === newTitle || newTitle.length === 0) {
+    if (this.todo.text === newText || newText.length === 0) {
       console.log('Todo not updated.');
       return;
     }
 
     // update on client side memory
-    this.todo.title = newTitle;
+    this.todo.text = newText;
 
     // update on server
     this.todoService.updateTodo(todo).subscribe(up => {
@@ -65,13 +58,11 @@ export class TodoItemComponent implements OnInit {
     });
   }
 
-  // emits the function deleteTodo to todo-list component and logs
   onDelete(todo: Todo) {
     // deletes and emit
     this.deleteTodo.emit(todo);
   }
 
-  // toggles the completed boolean value in ui, server, then logs
   onToggle(todo: Todo) {
     // toggles UI
     todo.completed = !todo.completed;
@@ -83,4 +74,5 @@ export class TodoItemComponent implements OnInit {
       );
     });
   }
+
 }

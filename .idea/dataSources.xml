@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL - challenge@localhost" uuid="fd67bb61-f581-492e-af79-6668492701d4">
+    <data-source source="LOCAL" name="test_db@localhost" uuid="6e915e66-6456-4402-8fb8-2c71cd611eb8">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>Todo List Challenge</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/challenge?useSSL=false&amp;serverTimezone=EST&amp;allowPublicKeyRetrieval=true</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/test_db</jdbc-url>
     </data-source>
   </component>
 </project>

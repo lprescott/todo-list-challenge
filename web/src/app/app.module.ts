@@ -1,43 +1,42 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
-import { TodoItemComponent } from './components/todo/todo-item/todo-item.component';
+import { UserComponent } from './components/user/user.component';
+import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
+import { UserService } from './services/user.service';
+import { CookieService } from 'ngx-cookie-service';
+import { NavbarComponent } from './components/layout/navbar/navbar.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ListNewComponent } from './components/list/list-new/list-new.component';
+import { ListItemComponent } from './components/list/list-item/list-item.component';
 import { TodoNewComponent } from './components/todo/todo-new/todo-new.component';
-import { TodoService } from './services/todo/todo.service';
-import { TodolistItemComponent } from './components/todolist/todolist-item/todolist-item.component';
-import { TodolistNewComponent } from './components/todolist/todolist-new/todolist-new.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LoginComponent } from './components/login/login.component';
-import { TodolistService } from './services/todolist/todolist.service';
-import { UserService } from './services/user/user.service';
-import { TodolistListComponent } from './components/todolist/todolist-list/todolist-list.component';
+import { TodoItemComponent } from './components/todo/todo-item/todo-item.component';
+import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {TodoListService} from './services/todo-list.service';
+import {TodoService} from './services/todo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent,
-    TodoItemComponent,
+    UserComponent,
+    NavbarComponent,
+    ListNewComponent,
+    ListItemComponent,
     TodoNewComponent,
-    TodolistItemComponent,
-    TodolistNewComponent,
-    TodolistListComponent,
-    LoginComponent
+    TodoItemComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    FormsModule,
+    AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule
   ],
-  providers: [TodoService, TodolistService, UserService],
-  bootstrap: [AppComponent],
-  schemas: []
+  providers: [ UserService, TodoListService, TodoService, CookieService ],
+  bootstrap: [ AppComponent ]
 })
-export class AppModule {}
+export class AppModule { }

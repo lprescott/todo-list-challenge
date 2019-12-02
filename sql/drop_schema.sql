@@ -1,1 +1,1 @@
-drop schema challenge;
+drop schema test_db;
