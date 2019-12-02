@@ -63,8 +63,6 @@ public class TodoListController {
             ResponseEntity.badRequest().build();
         }
 
-        System.out.println("delete mapping called");
-
         try {
             todoService.deleteByListId(id);
         } catch (Throwable throwable) {

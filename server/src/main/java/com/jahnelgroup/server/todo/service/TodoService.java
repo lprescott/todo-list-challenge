@@ -42,9 +42,7 @@ public class TodoService {
      * @param id the todolist's id
      */
     public void deleteByListId(Integer id) {
-
-        System.out.println("deleteByListId called");
-
+        
         List<Todo> temp;
         temp = findAll();
         for (Todo todo : temp) {

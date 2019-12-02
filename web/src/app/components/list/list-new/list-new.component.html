@@ -5,16 +5,15 @@
   <div class="content">
     <form [formGroup]="newListForm" (ngSubmit)="onSubmit()">
       <div class="list-input">
-        <!--
         <input type="hidden"
                name="${_csrf.parameterName}"
-               value="${_csrf.token}"/> -->
+               value="${_csrf.token}"/>
         <input
           required
           type="text"
-          id="name"
-          class="list-name"
-          name="name"
+          id="title"
+          class="list-title"
+          name="title"
           formControlName="title"
           placeholder="The title of a new todo list..."
         />
