@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/security/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './components/user/user.component';
