@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,11 +159,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.JwtUtil" />
       <item itemvalue="JavaScript Debug.Angular Application (web)" />
       <item itemvalue="npm.Angular CLI Server (web)" />
       <item itemvalue="Protractor.E2E Tests (web)" />
       <item itemvalue="Spring Boot.Application" />
-      <item itemvalue="Application.JwtUtil" />
     </list>
     <recent_temporary>
       <list>
