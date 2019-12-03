@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,7 +109,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="Application.JwtUtil">
+    <configuration name="JwtUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jahnelgroup.server.security.JwtUtil" />
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jahnelgroup.server.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="E2E Tests (web)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/web/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -151,7 +165,13 @@
       <item itemvalue="npm.Angular CLI Server (web)" />
       <item itemvalue="Protractor.E2E Tests (web)" />
       <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="Application.JwtUtil" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.JwtUtil" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -202,7 +222,7 @@
       <workItem from="1575316817924" duration="167000" />
       <workItem from="1575323928188" duration="138000" />
       <workItem from="1575341182746" duration="1639000" />
-      <workItem from="1575380829505" duration="10924000" />
+      <workItem from="1575380829505" duration="15197000" />
     </task>
     <servers />
   </component>

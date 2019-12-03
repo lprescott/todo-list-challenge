@@ -37,7 +37,7 @@ export class TodoListComponent implements OnInit {
 
       // check todolist user and user
       if (this.user.id !== list.user.id) {
-        this.router.navigate(['/#/user']);
+        this.router.navigate(['/user']);
       }
 
       // get todos
