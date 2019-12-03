@@ -5,7 +5,7 @@ import {TodoList} from '../../../models/TodoList';
 import {Todo} from '../../../models/Todo';
 import {TodoService} from '../../../services/todo.service';
 import {TodoListService} from '../../../services/todo-list.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {flatMap} from 'rxjs/operators';
 
 @Component({
@@ -23,7 +23,8 @@ export class TodoListComponent implements OnInit {
     private aroute: ActivatedRoute,
     private cookie: CookieService,
     private todoService: TodoService,
-    private todolistService: TodoListService
+    private todolistService: TodoListService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,6 +34,11 @@ export class TodoListComponent implements OnInit {
     // get todolist
     this.todolistService.getTodoList(Number(this.aroute.snapshot.params.lid)).subscribe(list => {
       this.list = list;
+
+      // check todolist user and user
+      if (this.user.id !== list.user.id) {
+        this.router.navigate(['/#/user']);
+      }
 
       // get todos
       this.todoService.getTodos().subscribe(todos => {

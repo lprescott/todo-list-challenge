@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/todo/controller/TodoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/todo/controller/TodoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/todolist/controller/TodoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/todolist/controller/TodoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/controller/UserInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/controller/UserInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/service/MyUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/service/MyUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +202,7 @@
       <workItem from="1575316817924" duration="167000" />
       <workItem from="1575323928188" duration="138000" />
       <workItem from="1575341182746" duration="1639000" />
-      <workItem from="1575380829505" duration="2536000" />
+      <workItem from="1575380829505" duration="10924000" />
     </task>
     <servers />
   </component>
