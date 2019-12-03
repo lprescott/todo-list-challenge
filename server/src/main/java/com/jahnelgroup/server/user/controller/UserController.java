@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,10 +21,12 @@ import java.util.Optional;
 public class UserController {
 
     private MyUserDetailsService myUserDetailsService;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserController(MyUserDetailsService myUserDetailsService) {
+    public UserController(MyUserDetailsService myUserDetailsService, PasswordEncoder passwordEncoder) {
         this.myUserDetailsService = myUserDetailsService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping(path = "/user/current")
@@ -38,6 +41,7 @@ public class UserController {
 
     @PostMapping("/users")
     public ResponseEntity<Object> create(@Valid @RequestBody User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return ResponseEntity.ok(myUserDetailsService.save(user));
     }
 

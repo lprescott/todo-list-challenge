@@ -3,6 +3,7 @@ package com.jahnelgroup.server.user.controller;
 import com.jahnelgroup.server.user.service.MyUserDetailsService;
 import com.jahnelgroup.server.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -13,8 +14,14 @@ import javax.annotation.PostConstruct;
 @Component
 public class UserInitializer {
 
-    @Autowired
     private MyUserDetailsService myUserDetailsService;
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public UserInitializer(MyUserDetailsService myUserDetailsService, PasswordEncoder passwordEncoder) {
+        this.myUserDetailsService = myUserDetailsService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @PostConstruct
     private void postConstruct() {
@@ -23,7 +30,7 @@ public class UserInitializer {
             User user1 = new User();
             user1.setId(1);
             user1.setUsername("user1");
-            user1.setPassword("pass");
+            user1.setPassword(passwordEncoder.encode("pass"));
             user1.setActive(true);
             user1.setRoles("ROLE_USER");
             myUserDetailsService.save(user1);
@@ -33,7 +40,7 @@ public class UserInitializer {
             User user2 = new User();
             user2.setId(2);
             user2.setUsername("user2");
-            user2.setPassword("pass");
+            user2.setPassword(passwordEncoder.encode("pass"));
             user2.setActive(true);
             user2.setRoles("ROLE_USER");
             myUserDetailsService.save(user2);
@@ -43,7 +50,7 @@ public class UserInitializer {
             User user3 = new User();
             user3.setId(3);
             user3.setUsername("user3");
-            user3.setPassword("pass");
+            user3.setPassword(passwordEncoder.encode("pass"));
             user3.setActive(true);
             user3.setRoles("ROLE_USER");
             myUserDetailsService.save(user3);

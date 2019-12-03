@@ -6,6 +6,7 @@ import com.jahnelgroup.server.todolist.model.TodoList;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,10 +20,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class TodoListController {
 
-    @NonNull
+    @Autowired
     private TodoListService todoListService;
 
-    @NonNull
+    @Autowired
     private TodoService todoService;
 
     @GetMapping

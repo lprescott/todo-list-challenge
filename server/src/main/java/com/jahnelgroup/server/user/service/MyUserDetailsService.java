@@ -21,13 +21,6 @@ public class MyUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;
 
-    /*
-        Lazy Injection to avoid circular dependency
-        Allowed SecurityConfiguration to init the password encoder
-     */
-    @Autowired  @Lazy
-    private PasswordEncoder passwordEncoder;
-
     @Autowired
     public MyUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -41,10 +34,7 @@ public class MyUserDetailsService implements UserDetailsService {
         return userRepository.findById(id);
     }
 
-    public User save(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
-    }
+    public User save(User user) { return userRepository.save(user); }
 
     public void deleteById(Integer id) {
         userRepository.deleteById(id);
