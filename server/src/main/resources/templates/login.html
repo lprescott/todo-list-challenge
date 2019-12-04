@@ -2,6 +2,7 @@
 <head>
     <title>Todo List Challenge</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/7473c67e68.js" crossorigin="anonymous"></script>
     <style>
         .card {
             position: absolute;
@@ -33,7 +34,6 @@
             border-radius: 0.2em;
             box-sizing: border-box;
             text-decoration: none;
-            font-family: 'Roboto', sans-serif;
             font-weight: 400;
             box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
             inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),
@@ -52,6 +52,31 @@
         }
 
         .btn:focus {
+            outline: 0;
+        }
+
+        .github-btn {
+            display: inline-block;
+            padding: 0.7em 0.7em;
+            margin: 15px 0.3em 0.3em 0;
+            border-radius: 0.2em;
+            border: 1px solid grey;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-weight: 400;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            background-color: white;
+        }
+
+        .github-btn:active {
+            box-shadow: inset 0 0.6em 2em -0.3em rgba(0, 0, 0, 0.15),
+            inset 0 0 0 0.05em rgba(255, 255, 255, 0.12);
+        }
+
+        .github-btn:focus {
             outline: 0;
         }
 
@@ -139,8 +164,10 @@
             <input required type="password" id="password" autocomplete="password" name="password" placeholder="password"/>
             <div class="form-actions">
                 <button type="submit" class="btn">Login</button>
+                <i style="font-size: small">or</i> &nbsp;
+                <button onclick="return false;" type="github" class="github-btn">Sign in with Github <i class="fab fa-github"></i></button>
             </div>
-            <i>or</i>
+
 
         </form>
     </div>
