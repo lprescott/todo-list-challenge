@@ -32,9 +32,9 @@ export class UserService {
     return throwError('Something bad happened; please try again later.');
   }
 
-  getCurrentUser(): Observable<User> {
+  getCurrentUser(): Observable<any> {
     const url = '/user/current';
-    return this.http.get<User>(url).pipe(catchError(UserService.handleError));
+    return this.http.get<any>(url).pipe(catchError(UserService.handleError));
   }
 
   // delete the user with the passed id

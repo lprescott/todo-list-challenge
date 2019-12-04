@@ -31,9 +31,6 @@ export class ListNewComponent implements OnInit {
   }
 
   onSubmit() {
-    // get current user id
-    const id = JSON.parse(this.cookie.get('user')).id;
-
     // create list object
     const list = {
       title: this.newListForm.controls.title.value,

@@ -17,13 +17,13 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserService, private cookie: CookieService, private todoListService: TodoListService) { }
 
   ngOnInit() {
-    this.userService.getCurrentUser().subscribe(user => {
-      this.user = user;
-      this.cookie.set('user', JSON.stringify(this.user));
-    });
+    this.userService.getCurrentUser().subscribe(response => {
+      this.user = response.user;
+      this.cookie.set('jwt', response.jwt);
 
-    this.todoListService.getTodoLists().subscribe(lists => {
-      this.lists = lists.filter(ls => ls.user.id === this.user.id);
+      this.todoListService.getTodoLists().subscribe(lists => {
+        this.lists = lists.filter(ls => ls.user.id === this.user.id);
+      });
     });
   }
 

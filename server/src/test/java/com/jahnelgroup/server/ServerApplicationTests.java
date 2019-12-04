@@ -16,7 +16,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ServerApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class TodoListApplicationTests {
+class ServerApplicationTests {
 
     @Autowired
     private TestRestTemplate testRestTemplate;

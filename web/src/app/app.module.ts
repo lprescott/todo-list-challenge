@@ -17,6 +17,7 @@ import { TodoListComponent } from './components/todo/todo-list/todo-list.compone
 import {ReactiveFormsModule} from '@angular/forms';
 import {TodoListService} from './services/todo-list.service';
 import {TodoService} from './services/todo.service';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [

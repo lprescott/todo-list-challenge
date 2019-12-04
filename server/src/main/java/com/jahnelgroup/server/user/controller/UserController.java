@@ -1,16 +1,19 @@
 package com.jahnelgroup.server.user.controller;
 
+import com.jahnelgroup.server.security.JwtUtil;
 import com.jahnelgroup.server.user.model.MyUserDetails;
 import com.jahnelgroup.server.user.service.MyUserDetailsService;
 import com.jahnelgroup.server.user.model.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -22,16 +25,23 @@ public class UserController {
 
     private MyUserDetailsService myUserDetailsService;
     private PasswordEncoder passwordEncoder;
+    private JwtUtil jwtUtil;
 
     @Autowired
-    public UserController(MyUserDetailsService myUserDetailsService, PasswordEncoder passwordEncoder) {
+    public UserController(MyUserDetailsService myUserDetailsService, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
         this.myUserDetailsService = myUserDetailsService;
         this.passwordEncoder = passwordEncoder;
+        this.jwtUtil = jwtUtil;
     }
 
     @GetMapping(path = "/user/current")
-    public ResponseEntity<User> getCurrentUser(@AuthenticationPrincipal MyUserDetails myUserDetails) {
-        return ResponseEntity.ok(myUserDetails.toUser());
+    public ResponseEntity<Object> getCurrentUser(@AuthenticationPrincipal MyUserDetails myUserDetails) {
+        User user = myUserDetails.toUser();
+
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(
+                "{\"user\": {\"id\": "+user.getId()+", \"username\":\""+user.getUsername()+"\", \"password\":\"null\", \"active\": \""+user.getActive()+"\", \"roles\":\""+user.getRoles()+"\"}, \"jwt\": \"" + this.jwtUtil.generateToken(myUserDetails) + "\"}"
+        );
+
     }
 
     @GetMapping("/users")
