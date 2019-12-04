@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/interceptor/TodoListInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/interceptor/TodoListInterceptor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -210,7 +207,7 @@
       <workItem from="1575469408248" duration="41000" />
       <workItem from="1575469461541" duration="126000" />
       <workItem from="1575469602257" duration="1876000" />
-      <workItem from="1575471515459" duration="6447000" />
+      <workItem from="1575471515459" duration="6573000" />
     </task>
     <servers />
   </component>
