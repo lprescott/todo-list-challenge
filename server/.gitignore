@@ -29,4 +29,17 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/resources/static/
+
+### Built Static Resources from Angular ###
+/src/main/resources/static/favicon.ico
+/src/main/resources/static/index.html
+/src/main/resources/static/main-es5.js
+/src/main/resources/static/main-es2015.js
+/src/main/resources/static/polyfills-es5.js
+/src/main/resources/static/polyfills-es2015.js
+/src/main/resources/static/runtime-es5.js
+/src/main/resources/static/runtime-es2015.js
+/src/main/resources/static/styles-es5.js
+/src/main/resources/static/styles-es2015.js
+/src/main/resources/static/vendor-es5.js
+/src/main/resources/static/vendor-es2015.js
