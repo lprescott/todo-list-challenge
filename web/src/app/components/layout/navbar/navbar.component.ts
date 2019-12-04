@@ -10,7 +10,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() user: User;
+  @Input() username: string;
 
   faSignOutAlt = faSignOutAlt;
   faHome = faHome;

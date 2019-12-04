@@ -5,6 +5,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/jahnelgroup/server/ServerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/jahnelgroup/server/ServerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/layout/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/list/list-new/list-new.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/list/list-new/list-new.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/user/user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/services/user.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,11 +92,11 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Luke Prescott\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
     <property name="ts.external.directory.path" value="C:\Users\Luke Prescott\Workspace\todo-list-challenge\web\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -162,17 +174,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@da7bd6ca" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@738b853a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@da7bd6ca" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4ccf719e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@da7bd6ca" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@87e27945" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@738b853a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b5c59c9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -209,6 +216,12 @@
       <workItem from="1575323928188" duration="138000" />
       <workItem from="1575341182746" duration="1639000" />
       <workItem from="1575380829505" duration="15197000" />
+      <workItem from="1575467309971" duration="1854000" />
+      <workItem from="1575469189098" duration="205000" />
+      <workItem from="1575469408248" duration="41000" />
+      <workItem from="1575469461541" duration="126000" />
+      <workItem from="1575469602257" duration="1876000" />
+      <workItem from="1575471515459" duration="2462000" />
     </task>
     <servers />
   </component>

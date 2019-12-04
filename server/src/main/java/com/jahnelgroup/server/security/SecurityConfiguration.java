@@ -53,7 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .logout()
             .permitAll()
             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-            .deleteCookies("user")
+            .deleteCookies("jwt")
             .deleteCookies("JSESSIONID")
             .deleteCookies("XSRF-TOKEN")
             .invalidateHttpSession(true)

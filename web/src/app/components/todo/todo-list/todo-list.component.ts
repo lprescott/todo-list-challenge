@@ -6,7 +6,7 @@ import {Todo} from '../../../models/Todo';
 import {TodoService} from '../../../services/todo.service';
 import {TodoListService} from '../../../services/todo-list.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {flatMap} from 'rxjs/operators';
+import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-todo-list',
@@ -15,9 +15,9 @@ import {flatMap} from 'rxjs/operators';
 })
 export class TodoListComponent implements OnInit {
 
-  user: User;
   list = {} as TodoList; // list: TodoList;
   todos: Todo[] = []; // todos: Todo[];
+  username: string;
 
   constructor(
     private aroute: ActivatedRoute,
@@ -28,15 +28,20 @@ export class TodoListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // get user
-    this.user = JSON.parse(this.cookie.get('user'));
+    // standalone usage of jwt decoder
+    const jwtHelper = new JwtHelperService();
+
+    // get user id and name
+    const jwt = jwtHelper.decodeToken(this.cookie.get('jwt'));
+    const uid = jwt.id;
+    this.username = jwt.sub;
 
     // get todolist
     this.todolistService.getTodoList(Number(this.aroute.snapshot.params.lid)).subscribe(list => {
       this.list = list;
 
       // check todolist user and user
-      if (this.user.id !== list.user.id) {
+      if (uid !== list.user.id) {
         this.router.navigate(['/user']);
       }
 
