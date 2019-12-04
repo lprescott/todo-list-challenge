@@ -53,7 +53,7 @@ Component         | Technology                                                  
 Frontend          | [Angular 8](https://github.com/angular/angular)                    |
 Backend (REST)    | [SpringBoot 2.2.0](https://projects.spring.io/spring-boot) (Java)  | [Embedded Tomcat Server](https://spring.io/blog/2014/03/07/deploying-spring-boot-applications)
 Database          | [MySQL](https://www.mysql.com/)                                    | [Community Server](https://dev.mysql.com/downloads/mysql/)
-Security          | Cookie Based JWT (Json Web Token)                                  |
+Security          | Spring Security                                                    |
 Persistence       | JPA (Using Spring Data)                                            |
 Client Build Tools| [angular-cli](https://github.com/angular/angular-cli), Webpack, npm| [webpack-dev-server](https://webpack.js.org/guides/development/#webpack-dev-server)
 Server Build Tools| Maven(Java)      
