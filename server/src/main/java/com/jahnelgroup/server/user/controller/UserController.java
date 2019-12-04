@@ -37,6 +37,7 @@ public class UserController {
     @GetMapping(path = "/user/current")
     public ResponseEntity<Object> getCurrentUser(@AuthenticationPrincipal MyUserDetails myUserDetails) {
         User user = myUserDetails.toUser();
+
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(
                 "{\"user\": {\"id\": "+user.getId()+", \"username\":\""+user.getUsername()+"\", \"password\":\"null\", \"active\": \""+user.getActive()+"\", \"roles\":\""+user.getRoles()+"\"}, \"jwt\": \"" + this.jwtUtil.generateToken(myUserDetails) + "\"}"
         );
