@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../../../models/User';
 import {CookieService} from 'ngx-cookie-service';
 import {TodoList} from '../../../models/TodoList';
 import {Todo} from '../../../models/Todo';

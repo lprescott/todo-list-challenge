@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/interceptor/TodoListInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/jahnelgroup/server/security/interceptor/TodoListInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,6 +109,37 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="ServerApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jahnelgroup.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jahnelgroup.server" />
+      <option name="MAIN_CLASS_NAME" value="com.jahnelgroup.server.ServerApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerApplicationTests.testCreateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jahnelgroup.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jahnelgroup.server" />
+      <option name="MAIN_CLASS_NAME" value="com.jahnelgroup.server.ServerApplicationTests" />
+      <option name="METHOD_NAME" value="testCreateUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="E2E Tests (web)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/web/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -150,7 +182,15 @@
       <item itemvalue="npm.Angular CLI Server (web)" />
       <item itemvalue="Protractor.E2E Tests (web)" />
       <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="JUnit.ServerApplicationTests" />
+      <item itemvalue="JUnit.ServerApplicationTests.testCreateUser" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ServerApplicationTests" />
+        <item itemvalue="JUnit.ServerApplicationTests.testCreateUser" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -165,7 +205,7 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@738b853a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b5c59c9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f8f1262b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -207,7 +247,7 @@
       <workItem from="1575469408248" duration="41000" />
       <workItem from="1575469461541" duration="126000" />
       <workItem from="1575469602257" duration="1876000" />
-      <workItem from="1575471515459" duration="6573000" />
+      <workItem from="1575471515459" duration="8773000" />
     </task>
     <servers />
   </component>
