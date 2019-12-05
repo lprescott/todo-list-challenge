@@ -7,6 +7,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -47,6 +48,14 @@ public class JwtUtil {
         claims.put("authorities", temp.getRoles());
         claims.put("active", temp.getActive());
         return createToken(claims, userDetails.getUsername());
+    }
+
+    public String generateToken(OAuth2User oauth2User) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("id", oauth2User.getAttribute("id"));
+        claims.put("authorities", "ROLE_USER");
+        claims.put("active", true);
+        return createToken(claims, oauth2User.getAttribute("login"));
     }
 
     private String createToken(Map<String, Object> claims, String subject) {

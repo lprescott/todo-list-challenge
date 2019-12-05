@@ -2,6 +2,7 @@ package com.jahnelgroup.server.user.controller;
 
 import com.jahnelgroup.server.security.JwtUtil;
 import com.jahnelgroup.server.user.model.MyUserDetails;
+import com.jahnelgroup.server.user.repository.UserRepository;
 import com.jahnelgroup.server.user.service.MyUserDetailsService;
 import com.jahnelgroup.server.user.model.User;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -35,11 +40,17 @@ public class UserController {
     }
 
     @GetMapping(path = "/user/current")
-    public ResponseEntity<Object> getCurrentUser(@AuthenticationPrincipal MyUserDetails myUserDetails) {
-        User user = myUserDetails.toUser();
+    public ResponseEntity<Object> getCurrentUser(Model model,
+                                                 @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient,
+                                                 @AuthenticationPrincipal OAuth2User oauth2User) {
+
+        if (myUserDetailsService.findById(oauth2User.getAttribute("id")).isEmpty()) {
+            User temp = new User(oauth2User.getAttribute("id"), oauth2User.getAttribute("login"), "null", true, "ROLE_USER");
+            myUserDetailsService.save(temp);
+        }
 
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(
-                "{\"user\": {\"id\": "+user.getId()+", \"username\":\""+user.getUsername()+"\", \"password\":\"null\", \"active\": \""+user.getActive()+"\", \"roles\":\""+user.getRoles()+"\"}, \"jwt\": \"" + this.jwtUtil.generateToken(myUserDetails) + "\"}"
+                "{\"user\": {\"id\": "+oauth2User.getAttribute("id")+", \"username\":\""+oauth2User.getAttribute("login")+"\", \"password\":\"null\", \"active\": \"true\", \"roles\":\"ROLE_USER\"}, \"jwt\": \"" + this.jwtUtil.generateToken(oauth2User) + "\"}"
         );
 
     }

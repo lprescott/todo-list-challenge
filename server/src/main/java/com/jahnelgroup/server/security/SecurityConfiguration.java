@@ -46,10 +46,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/").hasRole("USER")
             .anyRequest().authenticated()
             .and()
-        .formLogin()
-            .loginPage("/login")
-            .permitAll()
-            .and()
         .logout()
             .permitAll()
             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -57,10 +53,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .deleteCookies("JSESSIONID")
             .deleteCookies("XSRF-TOKEN")
             .invalidateHttpSession(true)
-            .logoutSuccessUrl("/login?logout")
             .and()
         .csrf()
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+            .and()
+        .oauth2Login();
     }
 
     /**

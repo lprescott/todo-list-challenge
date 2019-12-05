@@ -25,24 +25,6 @@ public class TodoListInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-
-        // Secure any rest api calls except those that are a user attempting to login
-        if (
-                request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE).toString().startsWith("/users") ||
-                request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE).toString().startsWith("/todos") ||
-                request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE).toString().startsWith("/lists")
-
-        ) {
-
-            UserDetails userDetails =
-                    (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-            if (jwtUtil.validateToken(WebUtils.getCookie(request, "jwt").getValue(), userDetails)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
         return true;
     }
 }
