@@ -115,13 +115,13 @@ Run `mvn package` in `server` to package the project for production. Remember to
 
 #### What you'll build
 
-##### Login
+#### Login
 ![Login](/screenshots/localhost_8080_login_logout.png)
-##### Home
+#### Home
 ![Home](/screenshots/localhost_8080_.png)
-##### Lists
+#### Lists
 ![New List](/screenshots/localhost_8080_(2).png)
-##### Todos
+#### Todos
 ![New Todo](/screenshots/localhost_8080_(3).png)
 
 ## Versioning 
