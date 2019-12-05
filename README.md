@@ -75,7 +75,6 @@ Running the sql scripts in the following order will allow the backend to compile
 1. `init_schema.sql` - creates a challenge database
 2. `set_timezone.sql` - sets the timezone to EST
 3. `grant_permissions` - creates a test_user with test_code as its password, and grants permissions to access the newly created challenge database
-4. `init_users.sql`  **Should be executed _after_ backend** creates three test users identified by `user1`, `user2` and `user3` that each have access to the todo list app.
 
 #### Backend
 Run `mvn spring-boot:run` in `server` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
