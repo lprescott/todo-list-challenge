@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="58645fc0-96be-4cb9-802d-235848c30d1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app/components/todo/todo-list/todo-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -179,11 +179,11 @@
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Angular Application (web)" />
+      <item itemvalue="JUnit.ServerApplicationTests" />
+      <item itemvalue="JUnit.ServerApplicationTests.testCreateUser" />
       <item itemvalue="npm.Angular CLI Server (web)" />
       <item itemvalue="Protractor.E2E Tests (web)" />
       <item itemvalue="Spring Boot.Application" />
-      <item itemvalue="JUnit.ServerApplicationTests" />
-      <item itemvalue="JUnit.ServerApplicationTests.testCreateUser" />
     </list>
     <recent_temporary>
       <list>
@@ -200,12 +200,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@738b853a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@deb1f8c4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@738b853a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f8f1262b" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@deb1f8c4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f49209c8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
