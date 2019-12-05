@@ -6,13 +6,13 @@ import {
 } from '@angular/common/http/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {TodoListService} from './todo-list.service';
-import {TodoList} from '../models/TodoList';
+import {ListService} from './list.service';
+import {TodoList} from '../../models/TodoList';
 
 describe('TodolistService', () => {
   // create a mock httpMock object and service used for testing
   let httpMock: HttpTestingController;
-  let service: TodoListService;
+  let service: ListService;
 
   // create a list for testing
   const firstList = new TodoList();
@@ -22,15 +22,15 @@ describe('TodolistService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [BrowserModule, HttpClientModule, HttpClientTestingModule],
-      providers: [TodoListService]
+      providers: [ListService]
     });
 
     httpMock = TestBed.get(HttpTestingController);
-    service = TestBed.get(TodoListService);
+    service = TestBed.get(ListService);
   });
 
   it('should be created', () => {
-    service = TestBed.get(TodoListService);
+    service = TestBed.get(ListService);
     expect(service).toBeTruthy();
   });
 

@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {User} from '../models/User';
+import {User} from '../../models/User';
 
 describe('UserService', () => {
   // create a mock httpMock object and service used for testing

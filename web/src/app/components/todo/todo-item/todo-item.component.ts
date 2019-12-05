@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Todo} from '../../../models/Todo';
-import {TodoService} from '../../../services/todo.service';
+import {TodoService} from '../../../services/todo/todo.service';
 import { text } from '@fortawesome/fontawesome-svg-core';
 
 @Component({

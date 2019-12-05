@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {TodoList} from '../../../models/TodoList';
 import {Todo} from '../../../models/Todo';
-import {TodoService} from '../../../services/todo.service';
-import {TodoListService} from '../../../services/todo-list.service';
+import {TodoService} from '../../../services/todo/todo.service';
+import {ListService} from '../../../services/list/list.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt';
 
@@ -22,7 +22,7 @@ export class TodoListComponent implements OnInit {
     private aroute: ActivatedRoute,
     private cookie: CookieService,
     private todoService: TodoService,
-    private todolistService: TodoListService,
+    private listService: ListService,
     private router: Router
   ) {}
 
@@ -35,20 +35,21 @@ export class TodoListComponent implements OnInit {
     const uid = jwt.id;
     this.username = jwt.sub;
 
-    // get todolist
-    this.todolistService.getTodoList(Number(this.aroute.snapshot.params.lid)).subscribe(list => {
-      this.list = list;
-
-      // check todolist user and user
-      if (uid !== list.user.id) {
-        this.router.navigate(['/user']);
-      }
-
-      // get todos
-      this.todoService.getTodos().subscribe(todos => {
-        this.todos = todos.filter(todo => todo.todolist.id === this.list.id);
-      });
+    // get list from resolver
+    this.aroute.data.subscribe(data => {
+      this.list = data.list;
     });
+
+    // check todolist user and user
+    if (uid !== this.list.user.id) {
+      this.router.navigate(['/user']);
+    }
+
+    // get todos
+    this.todoService.getTodos().subscribe(todos => {
+      this.todos = todos.filter(todo => todo.todolist.id === this.list.id);
+    });
+
   }
 
   deleteTodo(todo: Todo) {

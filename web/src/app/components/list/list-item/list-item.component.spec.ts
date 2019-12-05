@@ -5,8 +5,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import {ListItemComponent} from './list-item.component';
-import {TodoService} from '../../../services/todo.service';
-import {TodoListService} from '../../../services/todo-list.service';
+import {TodoService} from '../../../services/todo/todo.service';
+import {ListService} from '../../../services/list/list.service';
 
 describe('ListItemComponent', () => {
   let component: ListItemComponent;
@@ -21,7 +21,7 @@ describe('ListItemComponent', () => {
         HttpClientTestingModule,
         ReactiveFormsModule
       ],
-      providers: [TodoService, TodoListService]
+      providers: [TodoService, ListService]
     }).compileComponents();
   }));
 

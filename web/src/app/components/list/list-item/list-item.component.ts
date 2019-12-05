@@ -2,9 +2,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TodoList} from '../../../models/TodoList';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { faList } from '@fortawesome/free-solid-svg-icons';
-import {TodoListService} from '../../../services/todo-list.service';
+import {ListService} from '../../../services/list/list.service';
 import swal from 'sweetalert2';
-import {TodoService} from '../../../services/todo.service';
+import {TodoService} from '../../../services/todo/todo.service';
 import {Router} from '@angular/router';
 
 
@@ -23,7 +23,7 @@ export class ListItemComponent implements OnInit {
   faList = faList;
 
   constructor(
-    private todoListService: TodoListService,
+    private listService: ListService,
     private formBuilder: FormBuilder,
     private todoService: TodoService,
     private router: Router
@@ -50,7 +50,7 @@ export class ListItemComponent implements OnInit {
     this.list.title = newTitle;
 
     // change on Server and log
-    this.todoListService.updateTodoList(list).subscribe(up => {
+    this.listService.updateTodoList(list).subscribe(up => {
       console.log('Updated list.');
     });
   }

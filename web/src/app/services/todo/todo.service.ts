@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {Todo} from '../models/Todo';
+import {Todo} from '../../models/Todo';
 import {catchError} from 'rxjs/operators';
 
 const httpOptions = {

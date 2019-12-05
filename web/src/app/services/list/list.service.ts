@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {TodoList} from '../models/TodoList';
+import {TodoList} from '../../models/TodoList';
 import { catchError } from 'rxjs/operators';
 
 const httpOptions = {
@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class TodoListService {
+export class ListService {
 
   todoListsUrl = '/lists';
 

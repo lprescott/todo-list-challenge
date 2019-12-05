@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../services/user.service';
+import {UserService} from '../../services/user/user.service';
 import {User} from '../../models/User';
 import {CookieService} from 'ngx-cookie-service';
 import {TodoList} from '../../models/TodoList';
-import {TodoListService} from '../../services/todo-list.service';
+import {ListService} from '../../services/list/list.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -14,27 +15,32 @@ export class UserComponent implements OnInit {
   user: User;
   lists: TodoList[] = [];
 
-  constructor(private userService: UserService, private cookie: CookieService, private todoListService: TodoListService) { }
+  constructor(
+    private userService: UserService,
+    private cookie: CookieService,
+    private listService: ListService,
+    private aroute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.userService.getCurrentUser().subscribe(response => {
-      this.user = response.user;
-      this.cookie.set('jwt', response.jwt);
+    this.aroute.data.subscribe(data => {
+      this.user = data.response.user;
+      this.cookie.set('jwt', data.response.jwt);
+    });
 
-      this.todoListService.getTodoLists().subscribe(lists => {
-        this.lists = lists.filter(ls => ls.user.id === this.user.id);
-      });
+    this.listService.getTodoLists().subscribe(lists => {
+      this.lists = lists.filter(ls => ls.user.id === this.user.id);
     });
   }
 
   deleteList(list: TodoList) {
-    this.todoListService.deleteTodoList(list).subscribe(() => {
+    this.listService.deleteTodoList(list).subscribe(() => {
       this.lists = this.lists.filter(ls => ls.id !== list.id);
     });
   }
 
   addList(list: TodoList) {
-    this.todoListService.addTodoList(list).subscribe(ls => {
+    this.listService.addTodoList(list).subscribe(ls => {
       this.lists.push(ls);
     });
   }

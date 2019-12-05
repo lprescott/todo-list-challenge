@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
-import { UserService } from './services/user.service';
+import { UserService } from './services/user/user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -15,8 +15,8 @@ import { TodoNewComponent } from './components/todo/todo-new/todo-new.component'
 import { TodoItemComponent } from './components/todo/todo-item/todo-item.component';
 import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {TodoListService} from './services/todo-list.service';
-import {TodoService} from './services/todo.service';
+import {ListService} from './services/list/list.service';
+import {TodoService} from './services/todo/todo.service';
 import {JwtHelperService} from '@auth0/angular-jwt';
 
 @NgModule({
@@ -37,7 +37,7 @@ import {JwtHelperService} from '@auth0/angular-jwt';
     FontAwesomeModule,
     ReactiveFormsModule
   ],
-  providers: [ UserService, TodoListService, TodoService, CookieService ],
+  providers: [ UserService, ListService, TodoService, CookieService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
