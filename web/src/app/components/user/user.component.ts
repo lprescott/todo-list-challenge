@@ -23,11 +23,13 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // get current user
     this.aroute.data.subscribe(data => {
       this.user = data.response.user;
       this.cookie.set('jwt', data.response.jwt);
     });
 
+    // get lists
     this.listService.getTodoLists().subscribe(lists => {
       this.lists = lists.filter(ls => ls.user.id === this.user.id);
     });
