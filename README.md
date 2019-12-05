@@ -113,6 +113,17 @@ Run `mvn package` in `server` to package the project for production. Remember to
 - The database's configuration settings must be updated to the relevant database credentials when deploying. 
 - The above sql scripts will also have to run again to correctly initialize the database.                                           |
 
+#### What you'll build
+
+##### Login
+![Login](/screenshots/localhost_8080_login_logout.png)
+##### Home
+![Home](/screenshots/localhost_8080_.png)
+##### Lists
+![New List](/screenshots/localhost_8080_(2).png)
+##### Todos
+![New Todo](/screenshots/localhost_8080_(3).png)
+
 ## Versioning 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
 This project also uses Maven [3.6.2](https://maven.apache.org/).
