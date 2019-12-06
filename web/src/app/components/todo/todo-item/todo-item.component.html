@@ -1,40 +1,40 @@
 <form
-  class="card form"
-  [formGroup]="editTodoForm"
-  (ngSubmit)="onSave(todo, this?.editTodoForm.controls.text.value)"
+    class="card form"
+    [formGroup]="editTodoForm"
+    (ngSubmit)="onSave(todo, this?.editTodoForm.controls.text.value)"
 >
-  <div class="buttons">
-    <input
-      type="checkbox"
-      class="regular-checkbox"
-      [checked]="todo?.completed"
-      (change)="onToggle(todo)"
-      title="Mark As Completed"
-    />
-    <button class="btn save" type="submit" title="Save">
-      Save
-    </button>
-    <button class="btn reset" (click)="onReset(todo)" title="Reset">
-      Reset
-    </button>
-    <button
-      class="btn delete"
-      type="reset"
-      (click)="onDelete(todo)"
-      title="Delete"
-    >
-      Delete
-    </button>
-  </div>
-  <hr />
-  <div class="todo-input" [ngClass]="setClasses()">
-    <input
-      class="todo-text"
-      style="margin-top: 7px"
-      formControlName="text"
-      [value]="todo?.text"
-      [defaultValue]="todo?.text"
-      title="Todo Item Text"
-    >
-  </div>
+    <div class="buttons">
+        <input
+            type="checkbox"
+            class="regular-checkbox"
+            [checked]="todo?.completed"
+            (change)="onToggle(todo)"
+            title="Mark As Completed"
+        />
+        <button class="btn save" type="submit" title="Save">
+            Save
+        </button>
+        <button class="btn reset" (click)="onReset(todo)" title="Reset">
+            Reset
+        </button>
+        <button
+            class="btn delete"
+            type="reset"
+            (click)="onDelete(todo)"
+            title="Delete"
+        >
+            Delete
+        </button>
+    </div>
+    <hr />
+    <div class="todo-input" [ngClass]="setClasses()">
+        <input
+            class="todo-text"
+            style="margin-top: 7px"
+            formControlName="text"
+            [value]="todo?.text"
+            [defaultValue]="todo?.text"
+            title="Todo Item Text"
+        />
+    </div>
 </form>

@@ -1,29 +1,28 @@
 <div class="card">
-  <div class="heading">
-    <h2 id="header1" title="Todo List Name">
-      {{ this.list?.title }}
-    </h2>
-  </div>
-  <div class="content">
-    <form [formGroup]="newTodoForm" (ngSubmit)="onSubmit()">
-      <input
-        required
-        type="text"
-        id="text"
-        class="todo-text"
-        name="text"
-        formControlName="text"
-        placeholder="A new todo item..."
-      >
-      <button
-        [disabled]="!newTodoForm.valid"
-        class="btn add"
-        type="submit"
-        title="Add"
-      >
-        Add
-      </button>
-
-    </form>
-  </div>
+    <div class="heading">
+        <h2 id="header1" title="Todo List Name">
+            {{ this.list?.title }}
+        </h2>
+    </div>
+    <div class="content">
+        <form [formGroup]="newTodoForm" (ngSubmit)="onSubmit()">
+            <input
+                required
+                type="text"
+                id="text"
+                class="todo-text"
+                name="text"
+                formControlName="text"
+                placeholder="A new todo item..."
+            />
+            <button
+                [disabled]="!newTodoForm.valid"
+                class="btn add"
+                type="submit"
+                title="Add"
+            >
+                Add
+            </button>
+        </form>
+    </div>
 </div>

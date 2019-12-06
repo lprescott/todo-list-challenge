@@ -1,28 +1,28 @@
 <div class="card">
-  <div class="heading">
-    <h2>User Home</h2>
-  </div>
-  <div class="content">
-    <form [formGroup]="newListForm" (ngSubmit)="onSubmit()">
-      <div class="list-input">
-        <input
-          required
-          type="text"
-          id="title"
-          class="list-title"
-          name="title"
-          formControlName="title"
-          placeholder="A new todo list..."
-        />
-      </div>
-      <button
-        [disabled]="!newListForm.valid"
-        class="btn add"
-        type="submit"
-        title="Add"
-      >
-        Add
-      </button>
-    </form>
-  </div>
+    <div class="heading">
+        <h2>User Home</h2>
+    </div>
+    <div class="content">
+        <form [formGroup]="newListForm" (ngSubmit)="onSubmit()">
+            <div class="list-input">
+                <input
+                    required
+                    type="text"
+                    id="title"
+                    class="list-title"
+                    name="title"
+                    formControlName="title"
+                    placeholder="A new todo list..."
+                />
+            </div>
+            <button
+                [disabled]="!newListForm.valid"
+                class="btn add"
+                type="submit"
+                title="Add"
+            >
+                Add
+            </button>
+        </form>
+    </div>
 </div>

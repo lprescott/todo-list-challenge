@@ -1,37 +1,42 @@
 <form
-  class="card form"
-  [formGroup]="editListForm"
-  (ngSubmit)="onSave(list, this?.editListForm.controls.name.value)"
+    class="card form"
+    [formGroup]="editListForm"
+    (ngSubmit)="onSave(list, this?.editListForm.controls.name.value)"
 >
-  <div class="buttons">
-    <button class="btn goto" type="reset" title="Goto" (click)="onRoute(list)">
-      <fa-icon [icon]="faList"></fa-icon>
-    </button>
-    <button id="save" class="btn save" type="submit" title="Save">
-      Save
-    </button>
-    <button class="btn reset" type="reset" title="Reset">
-      Reset
-    </button>
-    <button
-      class="btn delete"
-      type="reset"
-      (click)="onDelete(list)"
-      title="Delete"
-    >
-      Delete
-    </button>
-  </div>
-  <hr />
-  <div class="list-input">
-    <input
-      class="list-name"
-      style="margin-top: 7px"
-      type="text"
-      formControlName="name"
-      [value]="list?.title"
-      [defaultValue]="list?.title"
-      title="Todo List Title"
-    />
-  </div>
+    <div class="buttons">
+        <button
+            class="btn goto"
+            type="reset"
+            title="Goto"
+            (click)="onRoute(list)"
+        >
+            <fa-icon [icon]="faList"></fa-icon>
+        </button>
+        <button id="save" class="btn save" type="submit" title="Save">
+            Save
+        </button>
+        <button class="btn reset" type="reset" title="Reset">
+            Reset
+        </button>
+        <button
+            class="btn delete"
+            type="reset"
+            (click)="onDelete(list)"
+            title="Delete"
+        >
+            Delete
+        </button>
+    </div>
+    <hr />
+    <div class="list-input">
+        <input
+            class="list-name"
+            style="margin-top: 7px"
+            type="text"
+            formControlName="name"
+            [value]="list?.title"
+            [defaultValue]="list?.title"
+            title="Todo List Title"
+        />
+    </div>
 </form>
