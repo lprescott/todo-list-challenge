@@ -25,6 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * authenticate using my userDetailsService
+     *
      * @param auth the passed AuthenticationManagerBuilder
      * @throws Exception the thrown exception if myUserDetailsService is incorrectly configured
      */
@@ -36,35 +37,37 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * authorize requests this way
+     *
      * @param http the http request passed
      * @throws Exception the exception caught on incorrect configuration
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
-            .antMatchers("/").hasRole("USER")
-            .anyRequest().authenticated()
-            .and()
-        .formLogin()
-            .loginPage("/login")
-            .permitAll()
-            .and()
-        .logout()
-            .permitAll()
-            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-            .deleteCookies("jwt")
-            .deleteCookies("JSESSIONID")
-            .deleteCookies("XSRF-TOKEN")
-            .invalidateHttpSession(true)
-            .logoutSuccessUrl("/login?logout")
-            .and()
-        .csrf()
-            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+                .authorizeRequests()
+                .antMatchers("/").hasRole("USER")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .deleteCookies("jwt")
+                .deleteCookies("JSESSIONID")
+                .deleteCookies("XSRF-TOKEN")
+                .invalidateHttpSession(true)
+                .logoutSuccessUrl("/login?logout")
+                .and()
+                .csrf()
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 
     /**
      * define the used encoder
+     *
      * @return the used password encoder
      */
     @Bean
@@ -74,6 +77,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * use the defined user details service and password encoder
+     *
      * @return the altered authentication provider
      */
     @Bean

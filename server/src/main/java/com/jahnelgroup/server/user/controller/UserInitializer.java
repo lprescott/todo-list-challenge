@@ -26,7 +26,7 @@ public class UserInitializer {
     @PostConstruct
     private void postConstruct() {
 
-        if(!myUserDetailsService.findById(1).isPresent()) {
+        if (!myUserDetailsService.findById(1).isPresent()) {
             User user1 = new User();
             user1.setId(1);
             user1.setUsername("user1");
@@ -36,7 +36,7 @@ public class UserInitializer {
             myUserDetailsService.save(user1);
         }
 
-        if(!myUserDetailsService.findById(2).isPresent()) {
+        if (!myUserDetailsService.findById(2).isPresent()) {
             User user2 = new User();
             user2.setId(2);
             user2.setUsername("user2");
@@ -46,7 +46,7 @@ public class UserInitializer {
             myUserDetailsService.save(user2);
         }
 
-        if(!myUserDetailsService.findById(3).isPresent()) {
+        if (!myUserDetailsService.findById(3).isPresent()) {
             User user3 = new User();
             user3.setId(3);
             user3.setUsername("user3");

@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class MyUserDetails implements UserDetails {
 
     private static final long serialVersionUID = 1L;
-    
+
     private int id;
     private String username;
     private String password;
@@ -21,6 +21,7 @@ public class MyUserDetails implements UserDetails {
 
     /**
      * converts a passed user into a MyUserDetails class
+     *
      * @param user the passed user object
      */
     public MyUserDetails(User user) {
@@ -35,6 +36,7 @@ public class MyUserDetails implements UserDetails {
 
     /**
      * converts a MyUserDetails class to a User class
+     *
      * @return a user object
      */
     public User toUser() {

@@ -31,8 +31,8 @@ public class TodoListInterceptor implements HandlerInterceptor {
         System.out.println(path);
 
         // Secure any rest api calls except those that are a user attempting to login
-        if ( path.startsWith("/users") || path.startsWith("/todos")
-                || path.startsWith("/lists") ) {
+        if (path.startsWith("/users") || path.startsWith("/todos")
+                || path.startsWith("/lists")) {
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
             if (jwtUtil.validateToken(WebUtils.getCookie(request, "jwt").getValue(), userDetails)) return true;

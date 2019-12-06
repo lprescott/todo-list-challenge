@@ -34,14 +34,16 @@ public class MyUserDetailsService implements UserDetailsService {
         return userRepository.findById(id);
     }
 
-    public User save(User user) { return userRepository.save(user); }
+    public User save(User user) {
+        return userRepository.save(user);
+    }
 
     public void deleteById(Integer id) {
         userRepository.deleteById(id);
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUsername(username);
 
         user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + username));

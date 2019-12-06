@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Todo List Challenge</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <style>
         .card {
             position: absolute;
@@ -61,7 +61,7 @@
             margin: 0;
         }
 
-        #username, #password{
+        #username, #password {
             width: 100%;
             border: 1px solid #4cabff;
             outline: 0;
@@ -70,11 +70,11 @@
             font-size: 14pt;
         }
 
-        #password{
+        #password {
             margin-top: 15px;
         }
 
-        h1{
+        h1 {
             margin-top: 0;
             margin-bottom: 15px;
         }
@@ -83,15 +83,15 @@
             padding: 0.7em 0.7em;
         }
 
-        .left{
-            text-align:left;
+        .left {
+            text-align: left;
         }
 
-        .right{
-            float:right;
+        .right {
+            float: right;
         }
 
-        nav{
+        nav {
             background-color: white;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -108,39 +108,41 @@
 
 </head>
 <body>
-    <nav>
-        <div class="left">Todo List Challenge <div class="right">You are <i>not</i> logged in.</div> </div>
-    </nav>
-    <div class="card">
-        <h1>Login</h1>
-        <form th:action="@{/login}" method="post">
-            <div th:if="${param.error}">
-                <script>
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'Invalid username and password.',
-                        icon: 'error',
-                        confirmButtonText: 'Okay'
-                    })
-                </script>
-            </div>
-            <div th:if="${param.logout}">
-                <script>
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'You have been logged out.',
-                        icon: 'success',
-                        confirmButtonText: 'Okay'
-                    })
-                </script>
-            </div>
-            <input required type="text" id="username" autocomplete="username" name="username" placeholder="username"/>
-            <br>
-            <input required type="password" id="password" autocomplete="password" name="password" placeholder="password"/>
-            <div class="form-actions">
-                <button type="submit" class="btn">Login</button>
-            </div>
-        </form>
+<nav>
+    <div class="left">Todo List Challenge
+        <div class="right">You are <i>not</i> logged in.</div>
     </div>
+</nav>
+<div class="card">
+    <h1>Login</h1>
+    <form th:action="@{/login}" method="post">
+        <div th:if="${param.error}">
+            <script>
+              Swal.fire({
+                title: 'Error!',
+                text: 'Invalid username and password.',
+                icon: 'error',
+                confirmButtonText: 'Okay'
+              });
+            </script>
+        </div>
+        <div th:if="${param.logout}">
+            <script>
+              Swal.fire({
+                title: 'Success!',
+                text: 'You have been logged out.',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              });
+            </script>
+        </div>
+        <input required type="text" id="username" autocomplete="username" name="username" placeholder="username"/>
+        <br>
+        <input required type="password" id="password" autocomplete="password" name="password" placeholder="password"/>
+        <div class="form-actions">
+            <button type="submit" class="btn">Login</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

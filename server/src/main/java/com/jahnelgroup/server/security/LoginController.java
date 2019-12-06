@@ -10,6 +10,7 @@ public class LoginController implements WebMvcConfigurer {
 
     /**
      * add a custom login page
+     *
      * @param registry the altered registry of pages
      */
     @Override
